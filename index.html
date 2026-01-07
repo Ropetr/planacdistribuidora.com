@@ -30,7 +30,12 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero-carousel">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background: url('assets/hero-1.avif') center/cover no-repeat;"></div>
+            <div class="hero-slide" style="background: url('assets/hero-2.avif') center/cover no-repeat;"></div>
+            <div class="hero-slide" style="background: url('assets/hero-3.avif') center/cover no-repeat;"></div>
+        </div>
         <div class="hero-content">
             <h1>Soluções em Forros e Divisórias</h1>
             <p>Distribuidora autorizada em Londrina-PR. Materiais de qualidade certificada, preços de atacado e suporte técnico especializado.</p>
@@ -38,6 +43,11 @@
                 <a href="https://api.whatsapp.com/send/?phone=5543984182582&text=Olá,%20Planac!%20Gostaria%20de%20um%20orçamento." target="_blank" class="btn-primary">Solicitar Orçamento</a>
                 <a href="tel:4398418-2582" class="btn-secondary">(43) 98418-2582</a>
             </div>
+        </div>
+        <div class="hero-dots">
+            <span class="hero-dot active" onclick="goToSlide(0)"></span>
+            <span class="hero-dot" onclick="goToSlide(1)"></span>
+            <span class="hero-dot" onclick="goToSlide(2)"></span>
         </div>
     </section>
 
@@ -207,3 +217,4 @@
 
 </body>
 </html>
+<!-- deploy 1767747925 -->
