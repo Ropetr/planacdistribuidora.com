@@ -1,4 +1,20 @@
+# ===== ROBOTS.TXT - PLANAC DISTRIBUIDORA =====
+# https://planacdistribuidora.com/robots.txt
+
 User-agent: *
 Allow: /
 
+# Bloquear arquivos de desenvolvimento
+Disallow: /optimize_html.py
+Disallow: /package.json
+Disallow: /node_modules/
+
+# Sitemap
 Sitemap: https://planacdistribuidora.com/sitemap.xml
+
+# Google e Bing sem restrições
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

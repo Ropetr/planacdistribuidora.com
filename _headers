@@ -1,18 +1,52 @@
-# Cache de 1 ano para assets estáticos (31536000 segundos)
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
+# ===== CLOUDFLARE HEADERS - PLANAC DISTRIBUIDORA =====
+# Configurações otimizadas para máxima performance e segurança
 
-/assets/fonts/*
-  Cache-Control: public, max-age=31536000, immutable
+# Headers globais para todas as páginas
+/*
+  # Segurança
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  # CSP (Content Security Policy)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://www.googletagmanager.com
 
+# Cache para HTML (curto para atualizações rápidas)
+/*.html
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Cache para CSS e JS (longo com versionamento)
 /css/*
   Cache-Control: public, max-age=31536000, immutable
 
 /js/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Headers de segurança para todas as páginas
-/*
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: SAMEORIGIN
-  Referrer-Policy: strict-origin-when-cross-origin
+# Cache para fontes (muito longo)
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# Cache para imagens (longo)
+/assets/*.avif
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# Página inicial com cache mais curto
+/
+  Cache-Control: public, max-age=1800, stale-while-revalidate=86400
+
+/index.html
+  Cache-Control: public, max-age=1800, stale-while-revalidate=86400

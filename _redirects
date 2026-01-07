@@ -1,0 +1,11 @@
+# ===== CLOUDFLARE REDIRECTS - PLANAC DISTRIBUIDORA =====
+# Redirecionamentos e regras de URL
+
+# Forçar trailing slash para consistência de URL (opcional)
+# /drywall  /drywall.html  200
+
+# Redirecionar www para non-www (se aplicável)
+# https://www.planacdistribuidora.com/*  https://planacdistribuidora.com/:splat  301
+
+# Página 404 personalizada
+/*  /index.html  404
