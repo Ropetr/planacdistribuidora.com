@@ -38,15 +38,6 @@ function test(name, condition, errorMsg = '') {
   }
 }
 
-// Teste com warning (não falha o CI)
-function testWarn(name, condition, errorMsg = '') {
-  if (condition) {
-    log.pass(name);
-  } else {
-    log.warn(`${name}${errorMsg ? ': ' + errorMsg : ''} (não crítico)`);
-  }
-}
-
 function getFileSize(filePath) {
   try {
     return fs.statSync(filePath).size;
@@ -110,12 +101,12 @@ test('Nenhuma imagem > 200KB',
 
 log.info(`Total de imagens: ${formatBytes(totalImageSize)}`);
 
-// Fontes - WARNING apenas (não falha)
+// Fontes
 let fontFiles = [];
 if (fs.existsSync('assets/fonts')) {
   fontFiles = fs.readdirSync('assets/fonts').filter(f => f.endsWith('.woff2'));
 }
-testWarn('Fontes em WOFF2 (self-hosted)', fontFiles.length > 0, 'fontes podem estar em CDN');
+test('Fontes em WOFF2 (self-hosted)', fontFiles.length > 0);
 
 let totalFontSize = 0;
 fontFiles.forEach(font => {
@@ -176,9 +167,9 @@ if (fs.existsSync('_headers')) {
   const headers = fs.readFileSync('_headers', 'utf-8');
   test('Cache de assets estáticos', headers.includes('max-age=31536000'));
   test('Cache de HTML', headers.includes('max-age=3600') || headers.includes('/*.html'));
-  testWarn('Cache immutable para assets', headers.includes('immutable'));
+  test('Cache immutable para assets', headers.includes('immutable'));
 } else {
-  testWarn('_headers existe', false, 'pode ser configurado no Cloudflare Dashboard');
+  test('_headers existe', false);
 }
 
 // ============================================
