@@ -1,0 +1,146 @@
+name: Tests & Quality Checks
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ==========================================
+  # TESTES DE COMPLIANCE
+  # ==========================================
+  compliance-tests:
+    runs-on: ubuntu-latest
+    name: SEO & Compliance Tests
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run SEO Tests
+        run: node tests/seo-compliance.test.js
+
+      - name: Run Accessibility Tests
+        run: node tests/accessibility.test.js
+
+      - name: Run Performance Tests
+        run: node tests/performance.test.js
+
+      - name: Run Security Tests
+        run: node tests/security.test.js
+
+      - name: Run Google Ads Compliance Tests
+        run: node tests/google-ads-compliance.test.js
+
+  # ==========================================
+  # VALIDAÇÃO HTML
+  # ==========================================
+  html-validation:
+    runs-on: ubuntu-latest
+    name: HTML Validation
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate HTML
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: .
+          css: true
+
+  # ==========================================
+  # LIGHTHOUSE CI
+  # ==========================================
+  lighthouse:
+    runs-on: ubuntu-latest
+    name: Lighthouse Performance Audit
+    needs: compliance-tests
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse CI
+        run: |
+          lhci autorun --config=.lighthouserc.json || true
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  # ==========================================
+  # TESTES E2E
+  # ==========================================
+  e2e-tests:
+    runs-on: ubuntu-latest
+    name: E2E Tests
+    needs: compliance-tests
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Start local server
+        run: |
+          npx serve . -p 3000 &
+          sleep 5
+
+      - name: Run E2E tests
+        run: npx playwright test
+        env:
+          BASE_URL: http://localhost:3000
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  # ==========================================
+  # DEPLOY (apenas na main)
+  # ==========================================
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to Cloudflare Pages
+    needs: [compliance-tests, html-validation]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: site-html-planac
+          directory: .
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
