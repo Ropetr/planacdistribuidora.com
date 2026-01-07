@@ -103,7 +103,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </header>
 <main id="main-content">
     <section class="banner" style="height: 45vh; min-height: 320px; border-bottom: 4px solid #AA000E;">
-        <img src="assets/banner-divisoria-naval.avif" width="1920" height="600" alt="Divisória de Escritório" class="banner-img" fetchpriority="high">
+        <picture>
+            <!-- Mobile: imagem quadrada otimizada -->
+            <source 
+                media="(max-width: 768px)" 
+                srcset="https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/divisoria-escritorio-mobile/public"
+                width="480" 
+                height="480">
+            <!-- Desktop: imagem panorâmica -->
+            <img 
+                src="https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/divisoria-escritorio-desktop/public" 
+                width="2000" 
+                height="1333" 
+                alt="Divisória de Escritório" 
+                class="banner-img" 
+                fetchpriority="high">
+        </picture>
         <div class="banner-overlay"></div>
         <div class="banner-content">
             <p class="banner-category" style="color: #fff;">Divisórias</p>
