@@ -1,0 +1,24 @@
+{
+  "name": "planac-site-tests",
+  "version": "1.0.0",
+  "description": "Testes E2E e Compliance para Planac Distribuidora",
+  "scripts": {
+    "test": "npm run test:seo && npm run test:a11y && npm run test:performance && npm run test:security",
+    "test:seo": "node tests/seo-compliance.test.js",
+    "test:a11y": "node tests/accessibility.test.js",
+    "test:performance": "node tests/performance.test.js",
+    "test:security": "node tests/security.test.js",
+    "test:e2e": "playwright test",
+    "test:lighthouse": "node tests/lighthouse.test.js",
+    "test:all": "npm run test && npm run test:e2e",
+    "lint:html": "node tests/html-validator.js",
+    "audit": "node tests/full-audit.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "cheerio": "^1.0.0-rc.12",
+    "lighthouse": "^11.0.0",
+    "pa11y": "^6.2.3",
+    "chalk": "^4.1.2"
+  }
+}
