@@ -1,0 +1,8 @@
+# Robots.txt - Planac Distribuidora
+# https://planacdistribuidora.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://planacdistribuidora.com/sitemap.xml
