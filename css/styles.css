@@ -101,11 +101,17 @@ body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; col
 .footer-icon:hover { background: #eee; }
 .footer-icon svg { width: 20px; height: 20px; fill: currentColor; }
 
-/* Home Page */
-.hero { background: #fafafa; padding: 80px 20px; }
-.hero-content { max-width: 800px; margin: 0 auto; text-align: center; }
-.hero h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: #1a1a1a; margin-bottom: 20px; line-height: 1.2; }
-.hero p { font-size: 18px; color: #666; max-width: 560px; margin: 0 auto 32px; line-height: 1.7; }
+/* Home Page - Hero Carousel */
+.hero-carousel { position: relative; height: 500px; overflow: hidden; }
+.hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; }
+.hero-slide.active { opacity: 1; }
+.hero-carousel .hero-content { position: relative; z-index: 10; max-width: 800px; margin: 0 auto; text-align: center; padding: 120px 20px 80px; }
+.hero-carousel h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: #fff; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+.hero-carousel p { font-size: 18px; color: rgba(255,255,255,0.95); max-width: 560px; margin: 0 auto 32px; line-height: 1.7; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+.hero-dots { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 12px; }
+.hero-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s; }
+.hero-dot.active, .hero-dot:hover { background: #fff; transform: scale(1.2); }
 .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .btn-primary { background: #AA000E; color: #fff; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 15px; }
 .btn-primary:hover { background: #8B000B; }
