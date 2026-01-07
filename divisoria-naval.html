@@ -103,7 +103,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </header>
 <main id="main-content">
     <section class="banner" style="height: 45vh; min-height: 320px; border-bottom: 4px solid #AA000E;">
-        <img src="assets/banner-divisoria-naval.avif" width="1920" height="600" alt="Divisória Naval" class="banner-img" fetchpriority="high">
+        <picture>
+            <!-- Mobile -->
+            <source 
+                media="(max-width: 768px)" 
+                srcset="https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/divisoria-naval/w=480"
+                width="480" 
+                height="180">
+            <!-- Desktop -->
+            <img 
+                src="https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/divisoria-naval/w=1335" 
+                width="1335" 
+                height="501" 
+                alt="Divisória Naval" 
+                class="banner-img" 
+                fetchpriority="high">
+        </picture>
         <div class="banner-overlay"></div>
         <div class="banner-content">
             <p class="banner-category" style="color: #fff;">Divisórias</p>
