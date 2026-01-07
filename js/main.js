@@ -5,6 +5,31 @@ function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('active');
 }
 
+// Hero Carousel
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+
+function goToSlide(index) {
+    if (slides.length === 0) return;
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = index;
+    if (currentSlide >= slides.length) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    goToSlide(currentSlide + 1);
+}
+
+// Auto rotate every 5 seconds
+if (slides.length > 0) {
+    setInterval(nextSlide, 5000);
+}
+
 // Phone mask
 document.addEventListener('DOMContentLoaded', function() {
     const telefoneInput = document.getElementById('telefone');
