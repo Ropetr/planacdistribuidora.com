@@ -1,17 +1,21 @@
 # Site HTML Planac
 
-Mini-site Planac Distribuidora - Forros e Divisórias em Londrina/PR
+Mini-site da Planac Distribuidora - Forros e Divisórias
 
 ## Estrutura
-- index.html - Página inicial
-- drywall.html - Divisória de Gesso Acartonado
-- divisoria-naval.html - Divisória Naval
-- forro-gesso.html - Forro de Gesso Acartonado
-- pvc-branco.html - Forro PVC Branco
-- pvc-amadeirado.html - Forro PVC Amadeirado
-- forro-vinilico.html - Forro Vinílico REVID
-- forro-mineral.html - Forro Mineral
-- manta-termica.html - Manta Térmica
+
+- `index.html` - Página inicial
+- `drywall.html` - Drywall
+- `forro-gesso.html` - Forro de Gesso
+- `forro-mineral.html` - Forro Mineral
+- `forro-vinilico.html` - Forro Vinílico
+- `pvc-branco.html` - PVC Branco
+- `pvc-amadeirado.html` - PVC Amadeirado
+- `divisoria-naval.html` - Divisória Naval
+- `manta-termica.html` - Manta Térmica
 
 ## Deploy
-Configurado para Cloudflare Pages
+
+Deploy automático via GitHub Actions para Cloudflare Pages.
+
+**URL:** https://site-html-planac.pages.dev
