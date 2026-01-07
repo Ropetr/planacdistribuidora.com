@@ -17,6 +17,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Debug - List files
+        run: |
+          echo "=== Listing root ==="
+          ls -la
+          echo "=== Listing assets ==="
+          ls -la assets/ || echo "assets not found"
+          echo "=== Listing assets/fonts ==="
+          ls -la assets/fonts/ || echo "fonts not found"
+          echo "=== Checking _headers ==="
+          cat _headers || echo "_headers not found"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
