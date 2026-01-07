@@ -136,5 +136,10 @@ body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; col
 @media (max-width: 768px) { 
     .nav-desktop { display: none; } 
     .hamburger { display: block; } 
-    .footer-mobile { display: flex; } 
+    .footer-mobile { display: flex; }
+    /* Footer fixo no mobile */
+    .footer-fixed-mobile { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #eee; padding: 12px 0; justify-content: center; gap: 32px; z-index: 999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
+    .footer-fixed-mobile .footer-icon { width: 48px; height: 48px; }
+    .footer-fixed-mobile .footer-icon svg { width: 24px; height: 24px; }
+    body { padding-bottom: 80px; }
 }
