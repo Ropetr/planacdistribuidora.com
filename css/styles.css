@@ -22,6 +22,25 @@ body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; col
 .nav-mobile a { display: block; padding: 12px 0; color: #333; text-decoration: none; font-size: 16px; font-weight: 500; border-bottom: 1px solid #eee; }
 .nav-mobile .btn-mobile { display: block; background: #AA000E; color: #fff; padding: 14px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 15px; text-align: center; margin-top: 16px; border-bottom: none; }
 
+/* Dropdown Menu - Desktop */
+.nav-dropdown { position: relative; }
+.nav-dropdown > .nav-link { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.nav-dropdown > .nav-link::after { content: ''; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid currentColor; transition: transform 0.2s; }
+.nav-dropdown:hover > .nav-link::after { transform: rotate(180deg); }
+.dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 220px; background: #fff; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.2s ease; z-index: 1001; }
+.nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-menu a { display: block; padding: 10px 20px; color: #333; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.dropdown-menu a:hover { background: #fafafa; color: #AA000E; }
+
+/* Dropdown Menu - Mobile */
+.nav-mobile .mobile-dropdown { border-bottom: 1px solid #eee; }
+.nav-mobile .mobile-dropdown-toggle { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; color: #333; font-size: 16px; font-weight: 500; cursor: pointer; background: none; border: none; width: 100%; text-align: left; font-family: inherit; }
+.nav-mobile .mobile-dropdown-toggle::after { content: '+'; font-size: 20px; font-weight: 400; color: #666; transition: transform 0.2s; }
+.nav-mobile .mobile-dropdown.active .mobile-dropdown-toggle::after { content: '−'; }
+.nav-mobile .mobile-dropdown-content { display: none; padding-left: 16px; }
+.nav-mobile .mobile-dropdown.active .mobile-dropdown-content { display: block; }
+.nav-mobile .mobile-dropdown-content a { padding: 10px 0; font-size: 15px; border-bottom: 1px solid #f0f0f0; }
+
 /* Banner */
 .banner { height: 45vh; min-height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .banner-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
