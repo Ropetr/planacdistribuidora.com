@@ -30,6 +30,20 @@ function closeMenuOnClickOutside(e) {
     }
 }
 
+// Toggle dropdown no menu mobile
+function toggleDropdown(button) {
+    const dropdown = button.parentElement;
+    const isActive = dropdown.classList.contains('active');
+    
+    // Fechar todos os outros dropdowns
+    document.querySelectorAll('.mobile-dropdown.active').forEach(d => {
+        if (d !== dropdown) d.classList.remove('active');
+    });
+    
+    // Toggle o dropdown atual
+    dropdown.classList.toggle('active', !isActive);
+}
+
 // Hero Carousel otimizado com requestAnimationFrame
 let currentSlide = 0;
 let slides = [];
