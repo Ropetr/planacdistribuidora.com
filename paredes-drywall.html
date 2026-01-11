@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google Consent Mode v2 - Default -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','functionality_storage':'granted','security_storage':'granted','wait_for_update':500});
+</script>
+<!-- End Consent Mode -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -395,5 +401,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="https://api.whatsapp.com/send/?phone=5543984182582&text=Olá,%20Planac!%20Gostaria%20de%20um%20orçamento%20de%20Paredes%20de%20Drywall." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
     <script src="js/main.min.js" defer></script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-banner-container">
+            <div class="cookie-banner-text">
+                <h4><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.05-7.44 7-7.93v15.86zm2-15.86c1.03.13 2 .45 2.87.93H13v-.93zM13 7h5.24c.25.31.48.65.68 1H13V7zm0 3h6.74c.08.33.15.66.19 1H13v-1zm0 9.93V19h2.87c-.87.48-1.84.8-2.87.93zM18.24 17H13v-1h5.92c-.2.35-.43.69-.68 1zm1.5-3H13v-1h6.93c-.04.34-.11.67-.19 1z"/></svg>Utilizamos cookies</h4>
+                <p>Usamos cookies essenciais, analíticos (Google Analytics) e de marketing (Google Ads, Meta Ads) para melhorar sua experiência. <a href="privacidade.html">Saiba mais</a></p>
+            </div>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-btn cookie-btn-config" onclick="showCookieModal()">Configurar</button>
+                <button class="cookie-btn cookie-btn-reject" onclick="rejectNonEssential()">Recusar</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">Aceitar todos</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div id="cookieModal" class="cookie-modal-overlay">
+        <div class="cookie-modal">
+            <div class="cookie-modal-header">
+                <h3>Configurações de Cookies</h3>
+                <button class="cookie-modal-close" onclick="closeCookieModal()">&times;</button>
+            </div>
+            <div class="cookie-modal-body">
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <h4>🔒 Cookies Essenciais</h4>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" checked disabled>
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p>Necessários para o funcionamento do site. Incluem segurança (Cloudflare) e funcionalidades básicas. Não podem ser desativados.</p>
+                </div>
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <h4>📊 Cookies Analíticos</h4>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookieAnalytics">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p>Google Analytics 4 - Nos ajudam a entender como você usa o site para melhorar a experiência.</p>
+                </div>
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <h4>📢 Cookies de Marketing</h4>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookieMarketing">
+                            <span class="cookie-toggle-slider"></span>
+                        </label>
+                    </div>
+                    <p>Google Ads e Meta Pixel - Permitem mostrar anúncios relevantes e medir campanhas.</p>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button class="cookie-btn cookie-btn-reject" onclick="rejectNonEssential()">Recusar todos</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="savePreferences()">Salvar preferências</button>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="css/cookie-consent.css">
+    <script src="js/cookie-consent.js"></script>
 </body>
 </html>
