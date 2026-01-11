@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <defs>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#B8C4CE"/>
+      <stop offset="30%" style="stop-color:#E8EEF2"/>
+      <stop offset="50%" style="stop-color:#D4DEE6"/>
+      <stop offset="70%" style="stop-color:#E8EEF2"/>
+      <stop offset="100%" style="stop-color:#B8C4CE"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="300" height="200" fill="#F8F9FA"/>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#E9ECEF" stroke-width="0.5"/>
+  </pattern>
+  <rect width="300" height="200" fill="url(#grid)"/>
+  <g filter="url(#shadow)" transform="translate(150, 70) rotate(-15)">
+    <path d="M-80 -15 L80 -15 L80 -10 L-80 -10 Z" fill="url(#metalGrad)" stroke="#8899AA" stroke-width="0.5"/>
+    <path d="M-80 -10 L-80 15 L-75 15 L-75 -10 Z" fill="url(#metalGrad)" stroke="#8899AA" stroke-width="0.5"/>
+    <path d="M80 -10 L80 15 L75 15 L75 -10 Z" fill="url(#metalGrad)" stroke="#8899AA" stroke-width="0.5"/>
+    <ellipse cx="-60" cy="-12" rx="3" ry="1.5" fill="#8899AA"/>
+    <ellipse cx="-30" cy="-12" rx="3" ry="1.5" fill="#8899AA"/>
+    <ellipse cx="0" cy="-12" rx="3" ry="1.5" fill="#8899AA"/>
+    <ellipse cx="30" cy="-12" rx="3" ry="1.5" fill="#8899AA"/>
+    <ellipse cx="60" cy="-12" rx="3" ry="1.5" fill="#8899AA"/>
+  </g>
+  <g transform="translate(225, 45)">
+    <rect x="-18" y="-10" width="36" height="20" rx="3" fill="#AA000E"/>
+    <text x="0" y="5" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">F-530</text>
+  </g>
+  <text x="150" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">F-530</text>
+  <text x="150" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666">Perfil Canaleta</text>
+  <text x="150" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="500" fill="#AA000E">BARBIERI</text>
+</svg>
