@@ -16,14 +16,15 @@
 /*.html
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-# Cache para CSS e JS (longo com versionamento)
+# Cache para CSS (curto para permitir atualizações)
 /css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
+# Cache para JS
 /js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
-# Cache para fontes (muito longo)
+# Cache para fontes (longo - raramente mudam)
 /assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
@@ -44,9 +45,10 @@
 /assets/*.svg
   Cache-Control: public, max-age=31536000, immutable
 
-# Página inicial com cache mais curto
+# Página inicial
 /
   Cache-Control: public, max-age=1800, stale-while-revalidate=86400
 
 /index.html
   Cache-Control: public, max-age=1800, stale-while-revalidate=86400
+
