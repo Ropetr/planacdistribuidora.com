@@ -1,0 +1,78 @@
+name: Verificação SEO
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    name: Análise SEO
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Verificar Estrutura SEO
+        run: |
+          echo "## Análise SEO" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          for file in *.html; do
+            echo "### $file" >> $GITHUB_STEP_SUMMARY
+            
+            # Verificar título
+            title=$(grep -oP '<title>[^<]+</title>' "$file" | sed 's/<[^>]*>//g')
+            title_len=${#title}
+            if [ $title_len -lt 30 ]; then
+              echo "- Title: ⚠️ Muito curto ($title_len chars)" >> $GITHUB_STEP_SUMMARY
+            elif [ $title_len -gt 60 ]; then
+              echo "- Title: ⚠️ Muito longo ($title_len chars)" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- Title: ✅ OK ($title_len chars)" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # Verificar meta description
+            desc=$(grep -oP 'name="description" content="[^"]+' "$file" | sed 's/name="description" content="//')
+            desc_len=${#desc}
+            if [ $desc_len -lt 120 ]; then
+              echo "- Description: ⚠️ Muito curta ($desc_len chars)" >> $GITHUB_STEP_SUMMARY
+            elif [ $desc_len -gt 160 ]; then
+              echo "- Description: ⚠️ Muito longa ($desc_len chars)" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- Description: ✅ OK ($desc_len chars)" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # Verificar H1
+            h1_count=$(grep -c '<h1' "$file" || echo "0")
+            if [ "$h1_count" -eq 0 ]; then
+              echo "- H1: ❌ Não encontrado" >> $GITHUB_STEP_SUMMARY
+            elif [ "$h1_count" -gt 1 ]; then
+              echo "- H1: ⚠️ Múltiplos H1 ($h1_count)" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- H1: ✅ OK" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # Verificar imagens com alt
+            img_total=$(grep -c '<img' "$file" || echo "0")
+            img_no_alt=$(grep -c '<img[^>]*(?!alt=)' "$file" 2>/dev/null || echo "0")
+            if [ "$img_total" -gt 0 ]; then
+              echo "- Imagens: $img_total encontradas" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # Verificar Schema.org
+            if grep -q 'application/ld+json' "$file"; then
+              echo "- Schema.org: ✅ Presente" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- Schema.org: ⚠️ Não encontrado" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # Verificar canonical
+            if grep -q 'rel="canonical"' "$file"; then
+              echo "- Canonical: ✅ Presente" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- Canonical: ❌ Não encontrado" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            echo "" >> $GITHUB_STEP_SUMMARY
+          done
