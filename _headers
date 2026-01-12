@@ -1,5 +1,6 @@
 # ===== CLOUDFLARE HEADERS - PLANAC DISTRIBUIDORA =====
 # Cache MÍNIMO para desenvolvimento - TEMPORÁRIO
+# Atualizado: 2026-01-12 14:50
 
 # Headers globais para todas as páginas
 /*
@@ -11,30 +12,15 @@
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://www.googletagmanager.com
 
-# HTML
 /*.html
   Cache-Control: public, max-age=1, must-revalidate
 
-# CSS
 /css/*
   Cache-Control: public, max-age=1, must-revalidate
 
-# JS
 /js/*
   Cache-Control: public, max-age=1, must-revalidate
 
-# Fontes
-/assets/fonts/*
-  Cache-Control: public, max-age=1, must-revalidate
-  Access-Control-Allow-Origin: *
-
-# Imagens
 /assets/*
   Cache-Control: public, max-age=1, must-revalidate
 
-# Páginas
-/
-  Cache-Control: public, max-age=1, must-revalidate
-
-/index.html
-  Cache-Control: public, max-age=1, must-revalidate
