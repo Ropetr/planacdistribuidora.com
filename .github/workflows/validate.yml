@@ -1,0 +1,72 @@
+name: Validação HTML/CSS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    name: Validar HTML
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Instalar html-validate
+        run: npm install -g html-validate
+      
+      - name: Validar arquivos HTML
+        run: |
+          echo "## Validação HTML" >> $GITHUB_STEP_SUMMARY
+          for file in *.html; do
+            echo "Validando $file..."
+            if html-validate "$file" --formatter stylish 2>&1; then
+              echo "✅ $file - OK" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ $file - Erros encontrados" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
+  validate-css:
+    runs-on: ubuntu-latest
+    name: Validar CSS
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Instalar stylelint
+        run: npm install -g stylelint stylelint-config-standard
+      
+      - name: Criar configuração stylelint
+        run: |
+          echo '{"extends": "stylelint-config-standard", "rules": {"no-empty-source": null, "selector-class-pattern": null}}' > .stylelintrc.json
+      
+      - name: Validar CSS
+        run: |
+          echo "## Validação CSS" >> $GITHUB_STEP_SUMMARY
+          stylelint "css/*.css" --formatter verbose || true
+
+  check-links:
+    runs-on: ubuntu-latest
+    name: Verificar Links
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Verificar links internos
+        run: |
+          echo "## Verificação de Links" >> $GITHUB_STEP_SUMMARY
+          echo "Verificando referências internas..."
+          
+          # Listar todos os arquivos HTML
+          html_files=$(ls *.html 2>/dev/null || echo "")
+          
+          for file in $html_files; do
+            # Extrair links href
+            links=$(grep -oP 'href="[^"#]*\.html"' "$file" | sed 's/href="//g' | sed 's/"//g' | sort -u)
+            for link in $links; do
+              if [ ! -f "$link" ] && [ "$link" != "" ]; then
+                echo "❌ $file: Link quebrado para $link" >> $GITHUB_STEP_SUMMARY
+              fi
+            done
+          done
+          echo "✅ Verificação concluída" >> $GITHUB_STEP_SUMMARY
