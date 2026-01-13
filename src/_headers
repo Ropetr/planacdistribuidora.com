@@ -1,0 +1,26 @@
+# ===== CLOUDFLARE HEADERS - PLANAC DISTRIBUIDORA =====
+# Cache MÍNIMO para desenvolvimento - TEMPORÁRIO
+# Atualizado: 2026-01-12 14:50
+
+# Headers globais para todas as páginas
+/*
+  Cache-Control: public, max-age=1, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://www.googletagmanager.com
+
+/*.html
+  Cache-Control: public, max-age=1, must-revalidate
+
+/css/*
+  Cache-Control: public, max-age=1, must-revalidate
+
+/js/*
+  Cache-Control: public, max-age=1, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=1, must-revalidate
+
