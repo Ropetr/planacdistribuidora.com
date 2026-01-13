@@ -1,10 +1,9 @@
 # ===== CLOUDFLARE HEADERS - PLANAC DISTRIBUIDORA =====
-# Cache MÍNIMO para desenvolvimento - TEMPORÁRIO
-# Atualizado: 2026-01-12 14:50
+# Cache otimizado para produção
+# Atualizado: 2026-01-13
 
-# Headers globais para todas as páginas
+# Headers de segurança globais
 /*
-  Cache-Control: public, max-age=1, must-revalidate
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
@@ -12,15 +11,86 @@
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://www.googletagmanager.com
 
+# HTML - Cache curto com revalidação (para atualizações rápidas)
 /*.html
-  Cache-Control: public, max-age=1, must-revalidate
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
+# Páginas sem extensão (Eleventy)
+/dewalt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/divisoria-*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/forro-*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/pvc-*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/la-de-*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/manta-*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/paredes-*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+/privacidade
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Index
+/
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# CSS e JS - Cache longo (1 ano) - imutáveis após deploy
 /css/*
-  Cache-Control: public, max-age=1, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
 /js/*
-  Cache-Control: public, max-age=1, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
-/assets/*
-  Cache-Control: public, max-age=1, must-revalidate
+# Fontes - Cache longo (1 ano)
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
 
+# Imagens e assets - Cache longo (1 ano)
+/assets/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.avif
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# Subpastas de assets
+/assets/dewalt/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Favicons na raiz
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon-*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/android-chrome-*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sitemap e robots
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# Web manifest
+/site.webmanifest
+  Cache-Control: public, max-age=86400
