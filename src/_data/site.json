@@ -1,0 +1,29 @@
+{
+    "name": "Planac Distribuidora",
+    "legalName": "Planac Acabamentos LTDA",
+    "cnpj": "13.263.698/0001-80",
+    "url": "https://planacdistribuidora.com",
+    "phone": "(43) 3028-5316",
+    "phoneRaw": "4330285316",
+    "whatsapp": "(43) 98418-2582",
+    "whatsappRaw": "5543984182582",
+    "whatsappLink": "https://api.whatsapp.com/send/?phone=5543984182582&text=Olá,%20Planac!%20Gostaria%20de%20um%20orçamento.",
+    "instagram": "https://www.instagram.com/planacdistribuidora/",
+    "mapsLink": "https://maps.app.goo.gl/w3o1SpMrhzDG3CPaA",
+    "address": {
+        "street": "Av. Abélio Benatti, 4912",
+        "neighborhood": "Jardim do Sol",
+        "city": "Londrina",
+        "state": "PR",
+        "cep": "86082-000",
+        "country": "BR"
+    },
+    "openingHours": {
+        "weekdays": "Segunda a Sexta: 8h às 18h",
+        "saturday": "Sábado: 8h às 12h",
+        "schemaFormat": ["Mo-Fr 08:00-18:00", "Sa 08:00-12:00"]
+    },
+    "themeColor": "#AA000E",
+    "gtmId": "GTM-5MQV6VMN",
+    "year": "2026"
+}

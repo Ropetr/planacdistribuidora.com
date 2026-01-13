@@ -1,0 +1,98 @@
+<!-- Skip Link para acessibilidade -->
+<a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+<header class="header" role="banner">
+    <div class="header-container">
+        <a href="/" class="logo" aria-label="{{ site.name }} - Página inicial">
+            <img src="/assets/logo.svg" alt="{{ site.name }}" width="180" height="60" loading="eager">
+        </a>
+        
+        <nav class="nav-desktop" role="navigation" aria-label="Menu principal">
+            <div class="nav-dropdown">
+                <span class="nav-link">Drywall</span>
+                <div class="dropdown-menu">
+                    <a href="/paredes-drywall.html">Paredes de Drywall</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link">Forros</span>
+                <div class="dropdown-menu">
+                    <a href="/forro-gesso.html">Gesso Acartonado</a>
+                    <a href="/pvc-branco.html">PVC Branco</a>
+                    <a href="/pvc-amadeirado.html">PVC Amadeirado</a>
+                    <a href="/forro-vinilico.html">Vinílico REVID</a>
+                    <a href="/forro-mineral.html">Mineral</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link">Divisórias</span>
+                <div class="dropdown-menu">
+                    <a href="/divisoria-escritorio.html">Divisória de Escritório</a>
+                    <a href="/divisoria-drywall.html">Divisória de Drywall</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link">Isolamento</span>
+                <div class="dropdown-menu">
+                    <a href="/manta-termica.html">Manta Térmica</a>
+                    <a href="/la-de-vidro.html">Lã de Vidro</a>
+                    <a href="/la-de-rocha.html">Lã de Rocha</a>
+                    <a href="/la-de-pet.html">Lã de PET</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="nav-link">Ferramentas</span>
+                <div class="dropdown-menu">
+                    <a href="/dewalt.html">Dewalt</a>
+                </div>
+            </div>
+            <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-header">Solicitar Orçamento</a>
+        </nav>
+        
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span><span></span><span></span>
+        </button>
+        
+        <nav class="nav-mobile" id="mobileMenu" role="navigation" aria-label="Menu mobile" aria-hidden="true">
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleDropdown(this)">Drywall</button>
+                <div class="mobile-dropdown-content">
+                    <a href="/paredes-drywall.html">Paredes de Drywall</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleDropdown(this)">Forros</button>
+                <div class="mobile-dropdown-content">
+                    <a href="/forro-gesso.html">Gesso Acartonado</a>
+                    <a href="/pvc-branco.html">PVC Branco</a>
+                    <a href="/pvc-amadeirado.html">PVC Amadeirado</a>
+                    <a href="/forro-vinilico.html">Vinílico REVID</a>
+                    <a href="/forro-mineral.html">Mineral</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleDropdown(this)">Divisórias</button>
+                <div class="mobile-dropdown-content">
+                    <a href="/divisoria-escritorio.html">Divisória de Escritório</a>
+                    <a href="/divisoria-drywall.html">Divisória de Drywall</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleDropdown(this)">Isolamento</button>
+                <div class="mobile-dropdown-content">
+                    <a href="/manta-termica.html">Manta Térmica</a>
+                    <a href="/la-de-vidro.html">Lã de Vidro</a>
+                    <a href="/la-de-rocha.html">Lã de Rocha</a>
+                    <a href="/la-de-pet.html">Lã de PET</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" onclick="toggleDropdown(this)">Ferramentas</button>
+                <div class="mobile-dropdown-content">
+                    <a href="/dewalt.html">Dewalt</a>
+                </div>
+            </div>
+            <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-mobile">Solicitar Orçamento</a>
+        </nav>
+    </div>
+</header>
