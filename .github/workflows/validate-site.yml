@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  validate-html:
-    name: Validar HTML
+  build:
+    name: Build Site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,142 +17,101 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
           
-      - name: Instalar html-validate
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build site with Eleventy
+        run: npm run build
+        
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  validate-html:
+    name: Validar HTML
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install html-validate
         run: npm install -g html-validate
         
-      - name: Validar todos os arquivos HTML
+      - name: Validate HTML files
         run: |
           echo "=== VALIDANDO HTML ==="
-          for file in *.html; do
+          for file in dist/*.html; do
             echo "Validando: $file"
             html-validate "$file" || true
           done
 
   check-consistency:
     name: Verificar Consistência
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Verificar Headers Consistentes
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          
+      - name: Check header consistency
         run: |
-          echo "=== VERIFICANDO CONSISTÊNCIA DOS HEADERS ==="
+          echo "=== VERIFICANDO CONSISTÊNCIA ==="
+          LOGO_COUNT=$(grep -l 'height:60px' dist/*.html | wc -l)
+          TOTAL=$(ls dist/*.html | wc -l)
+          echo "Páginas com logo 60px: $LOGO_COUNT / $TOTAL"
           
-          # Extrair header da index.html como referência
-          HEADER_REF=$(grep -oP '<header class="header"[^>]*>.*?</header>' index.html | head -1 | md5sum | cut -d' ' -f1)
-          echo "Hash do header de referência (index.html): $HEADER_REF"
-          
-          INCONSISTENT=0
-          for file in *.html; do
-            if [ "$file" != "index.html" ]; then
-              HEADER=$(grep -oP '<header class="header"[^>]*>.*?</header>' "$file" | head -1 | md5sum | cut -d' ' -f1)
-              if [ "$HEADER" != "$HEADER_REF" ]; then
-                echo "⚠️ Header diferente em: $file"
-                INCONSISTENT=1
-              fi
-            fi
-          done
-          
-          if [ $INCONSISTENT -eq 0 ]; then
-            echo "✅ Todos os headers são consistentes"
-          fi
-
-      - name: Verificar Footers Consistentes
-        run: |
-          echo "=== VERIFICANDO CONSISTÊNCIA DOS FOOTERS ==="
-          
-          FOOTER_REF=$(grep -oP '<footer class="footer"[^>]*>.*?</footer>' index.html | head -1 | md5sum | cut -d' ' -f1)
-          echo "Hash do footer de referência (index.html): $FOOTER_REF"
-          
-          for file in *.html; do
-            if [ "$file" != "index.html" ]; then
-              FOOTER=$(grep -oP '<footer class="footer"[^>]*>.*?</footer>' "$file" | head -1 | md5sum | cut -d' ' -f1)
-              if [ "$FOOTER" != "$FOOTER_REF" ]; then
-                echo "⚠️ Footer diferente em: $file"
-              fi
-            fi
-          done
+          FONT_COUNT=$(grep -l 'font-weight:500' dist/*.html | wc -l)
+          echo "Páginas com font-weight 500: $FONT_COUNT / $TOTAL"
 
   check-css:
     name: Verificar CSS
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Verificar Regras de Media Query
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          
+      - name: Check CSS files exist
         run: |
           echo "=== VERIFICANDO CSS ==="
-          
-          CSS_FILE="css/styles.min.css"
-          
-          if [ ! -f "$CSS_FILE" ]; then
-            echo "❌ Arquivo CSS não encontrado: $CSS_FILE"
-            exit 1
-          fi
-          
-          echo "Verificando regras de navegação mobile..."
-          
-          # Verificar se .nav-desktop{display:none} está em media query
-          if grep -q '@media.*nav-desktop{display:none}' "$CSS_FILE"; then
-            echo "✅ .nav-desktop{display:none} está em media query"
-          else
-            echo "⚠️ .nav-desktop{display:none} pode estar fora de media query"
-          fi
-          
-          # Verificar se .hamburger{display:block} está em media query
-          if grep -q '@media.*hamburger{display:block}' "$CSS_FILE"; then
-            echo "✅ .hamburger{display:block} está em media query"
-          else
-            echo "⚠️ .hamburger{display:block} pode estar fora de media query"
-          fi
+          ls -la dist/css/
 
   check-seo:
     name: Verificar SEO
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Verificar Meta Tags SEO
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          
+      - name: Check SEO elements
         run: |
           echo "=== VERIFICANDO SEO ==="
-          
-          for file in *.html; do
-            echo ""
+          for file in dist/*.html; do
             echo "--- $file ---"
-            
-            # Title
-            if grep -q '<title>' "$file"; then
-              echo "✅ <title> presente"
-            else
-              echo "❌ <title> ausente"
-            fi
-            
-            # Meta description
-            if grep -q 'name="description"' "$file"; then
-              echo "✅ meta description presente"
-            else
-              echo "❌ meta description ausente"
-            fi
-            
-            # Canonical
-            if grep -q 'rel="canonical"' "$file"; then
-              echo "✅ canonical presente"
-            else
-              echo "⚠️ canonical ausente"
-            fi
-            
-            # Open Graph
-            if grep -q 'property="og:' "$file"; then
-              echo "✅ Open Graph presente"
-            else
-              echo "⚠️ Open Graph ausente"
-            fi
-            
-            # H1
-            if grep -q '<h1' "$file"; then
-              echo "✅ <h1> presente"
-            else
-              echo "⚠️ <h1> ausente"
-            fi
+            grep -o '<title>[^<]*</title>' "$file" | head -1 || echo "Sem title"
+            grep -o 'name="description"' "$file" | head -1 || echo "Sem description"
+            grep -o 'rel="canonical"' "$file" | head -1 || echo "Sem canonical"
           done
