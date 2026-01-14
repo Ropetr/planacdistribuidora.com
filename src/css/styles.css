@@ -322,3 +322,60 @@ a:focus-visible {
 .error-actions .btn-whatsapp:hover {
     background: #1da851;
 }
+/* ===== ACESSIBILIDADE ===== */
+
+/* Respeitar preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Estilos para impressão */
+@media print {
+    /* Esconder elementos não essenciais */
+    .header,
+    .footer,
+    .cookie-consent,
+    .btn-whatsapp-float,
+    .skip-link,
+    nav {
+        display: none !important;
+    }
+    
+    /* Ajustes de layout */
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    
+    /* Mostrar URLs dos links */
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+    
+    /* Não mostrar URL para links internos */
+    a[href^="#"]::after,
+    a[href^="javascript"]::after {
+        content: "";
+    }
+    
+    /* Evitar quebras de página em elementos importantes */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+    
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+}
