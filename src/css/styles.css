@@ -265,3 +265,60 @@ a:focus-visible {
     outline: 2px solid #AA000E;
     outline-offset: 2px;
 }
+/* ===== PÁGINA 404 ===== */
+.error-page {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+.error-container {
+    max-width: 500px;
+}
+.error-code {
+    font-size: 6rem;
+    color: #AA000E;
+    margin: 0;
+    line-height: 1;
+}
+.error-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 1rem 0;
+}
+.error-message {
+    color: #666;
+    margin-bottom: 2rem;
+}
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.error-actions .btn-primary {
+    background: #AA000E;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.error-actions .btn-primary:hover {
+    background: #880008;
+}
+.error-actions .btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.error-actions .btn-whatsapp:hover {
+    background: #1da851;
+}
