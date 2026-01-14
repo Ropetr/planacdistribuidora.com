@@ -5,14 +5,14 @@ description: "A página que você está procurando não foi encontrada. Volte pa
 permalink: "/404.html"
 ---
 
-<section class="error-page">
+<section class="error-page" aria-labelledby="error-title">
     <div class="error-container">
-        <h1 class="error-code">404</h1>
-        <h2 class="error-title">Página não encontrada</h2>
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1 id="error-title" class="error-title">Página não encontrada</h1>
         <p class="error-message">A página que você está procurando não existe ou foi movida.</p>
         <div class="error-actions">
             <a href="/" class="btn-primary">Voltar para o início</a>
-            <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">Falar no WhatsApp</a>
+            <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="Falar no WhatsApp (abre em nova janela)">Falar no WhatsApp</a>
         </div>
     </div>
 </section>
