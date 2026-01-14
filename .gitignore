@@ -4,6 +4,9 @@ node_modules/
 # Build output
 dist/
 
+# Generated CSS (minified automatically during build)
+src/css/*.min.css
+
 # OS files
 .DS_Store
 Thumbs.db
