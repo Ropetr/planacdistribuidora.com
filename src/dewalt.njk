@@ -36,136 +36,193 @@ canonical: "/dewalt.html"
             <p>A <strong>Planac Distribuidora</strong> é revendedora autorizada de ferramentas <strong>Dewalt</strong> em Londrina e região. Oferecemos a linha completa de ferramentas profissionais para drywall, construção civil e acabamento, com garantia de fábrica e suporte técnico especializado.</p>
             <p>As ferramentas Dewalt são reconhecidas mundialmente pela durabilidade, performance e inovação tecnológica. A linha 20V MAX XR com motores brushless oferece maior autonomia, potência e vida útil para os profissionais mais exigentes.</p>
 
-            <h3 style="margin-top: 40px; margin-bottom: 24px;">Nossos Produtos</h3>
-            
-            <div class="product-grid">
-                <!-- Parafusadeira Drywall -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/parafusadeira-drywall.webp" alt="Parafusadeira Drywall Dewalt 20V MAX XR" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Parafusadeira Drywall 20V MAX XR</h4>
-                        <p>Motor brushless, sistema XR de alta performance e ajuste eletrônico de torque para instalação de drywall.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+            <!-- CARROSSEL DE PRODUTOS ESTILO GOOGLE SHOPPING -->
+            <div class="dewalt-carousel-section">
+                <h3>Nossos Produtos</h3>
+                
+                <div class="dewalt-carousel">
+                    <!-- Seta Anterior -->
+                    <button class="dewalt-carousel__nav dewalt-carousel__nav--prev" onclick="scrollCarousel(-1)" aria-label="Anterior">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
 
-                <!-- Parafusadeira Drywall Eletrônica -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/parafusadeira-drywall-eletronica.webp" alt="Parafusadeira Drywall Eletrônica Dewalt 20V XR" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Parafusadeira Drywall Eletrônica</h4>
-                        <p>Controle eletrônico de velocidade, motor brushless e embreagem ajustável para acabamento perfeito.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                    <div class="dewalt-carousel__container" id="dewaltCarousel">
+                        <div class="dewalt-carousel__track">
+                            <!-- Parafusadeira Drywall -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/parafusadeira-drywall.webp" alt="Parafusadeira Drywall Dewalt 20V MAX XR" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">20V MAX XR</span>
+                                    <h4 class="dewalt-product-card__title">Parafusadeira Drywall</h4>
+                                    <p class="dewalt-product-card__desc">Motor brushless, ajuste eletrônico de torque</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Parafusadeira de Impacto -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/parafusadeira-impacto.webp" alt="Parafusadeira de Impacto Dewalt 20V Brushless" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Parafusadeira de Impacto 20V</h4>
-                        <p>Compacta com motor brushless, alto torque e design ergonômico para trabalhos pesados em construção.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Parafusadeira Drywall Eletrônica -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/parafusadeira-drywall-eletronica.webp" alt="Parafusadeira Drywall Eletrônica Dewalt" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">20V XR</span>
+                                    <h4 class="dewalt-product-card__title">Parafusadeira Eletrônica</h4>
+                                    <p class="dewalt-product-card__desc">Controle eletrônico de velocidade</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Serra Circular -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/serra-circular.webp" alt="Serra Circular Dewalt 20V XR" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Serra Circular 20V XR</h4>
-                        <p>Serra sem fio com disco de 184mm, alta potência e precisão de corte profissional para madeira e derivados.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Parafusadeira de Impacto -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/parafusadeira-impacto.webp" alt="Parafusadeira de Impacto Dewalt 20V" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">20V Brushless</span>
+                                    <h4 class="dewalt-product-card__title">Parafusadeira Impacto</h4>
+                                    <p class="dewalt-product-card__desc">Alto torque para trabalhos pesados</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Martelete -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/martelete.webp" alt="Martelete Perfurador e Rompedor Dewalt 20V XR" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Martelete Perfurador/Rompedor</h4>
-                        <p>SDS Plus com 3 funções: perfuração, impacto e cinzelamento. Motor brushless de alta durabilidade.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Serra Circular -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/serra-circular.webp" alt="Serra Circular Dewalt 20V XR" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">20V XR</span>
+                                    <h4 class="dewalt-product-card__title">Serra Circular</h4>
+                                    <p class="dewalt-product-card__desc">Disco 184mm, corte profissional</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Recortador Drywall -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/recortador-drywall.webp" alt="Recortador de Drywall Dewalt 20V XR" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Recortador de Drywall 20V XR</h4>
-                        <p>Recortador rotativo com motor brushless, ideal para recortes de caixas elétricas e acabamentos precisos.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Martelete -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/martelete.webp" alt="Martelete Dewalt 20V XR" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">20V XR</span>
+                                    <h4 class="dewalt-product-card__title">Martelete SDS Plus</h4>
+                                    <p class="dewalt-product-card__desc">3 funções: perfuração, impacto, cinzel</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Esmerilhadeira -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/esmerilhadeira.webp" alt="Esmerilhadeira Dewalt 20V XR Brushless" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Esmerilhadeira 20V XR Brushless</h4>
-                        <p>Angular sem fio com motor brushless, disco de 4.5", freio eletrônico e proteção contra sobrecarga.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Recortador Drywall -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/recortador-drywall.webp" alt="Recortador de Drywall Dewalt 20V XR" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">20V XR</span>
+                                    <h4 class="dewalt-product-card__title">Recortador Drywall</h4>
+                                    <p class="dewalt-product-card__desc">Recortes precisos em gesso</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Nível Laser -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/nivel-laser.webp" alt="Nível Laser Verde Dewalt Autonivelante" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Nível Laser Verde Autonivelante</h4>
-                        <p>Linhas cruzadas com feixe verde de alta visibilidade, autonivelamento e maleta de transporte inclusa.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Esmerilhadeira -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/esmerilhadeira.webp" alt="Esmerilhadeira Dewalt 20V XR" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">20V XR</span>
+                                    <h4 class="dewalt-product-card__title">Esmerilhadeira 4.5"</h4>
+                                    <p class="dewalt-product-card__desc">Freio eletrônico, brushless</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Trena Laser -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/trena-laser.webp" alt="Trena Laser Digital Dewalt 30m" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Trena Laser Digital 30m</h4>
-                        <p>Medidor de distância com alcance de 30m, precisão de 3mm e funções de cálculo de área e volume.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Nível Laser -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/nivel-laser.webp" alt="Nível Laser Verde Dewalt" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">Laser</span>
+                                    <h4 class="dewalt-product-card__title">Nível Laser Verde</h4>
+                                    <p class="dewalt-product-card__desc">Autonivelante, alta visibilidade</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Bateria 4Ah -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/bateria-4ah.webp" alt="Bateria Dewalt 20V MAX XR 4.0Ah" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Bateria 20V MAX XR 4.0Ah</h4>
-                        <p>Bateria de íon-lítio com capacidade de 4.0Ah, compatível com toda a linha 20V MAX Dewalt.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Trena Laser -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/trena-laser.webp" alt="Trena Laser Digital Dewalt 30m" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">Medição</span>
+                                    <h4 class="dewalt-product-card__title">Trena Laser 30m</h4>
+                                    <p class="dewalt-product-card__desc">Precisão 3mm, área e volume</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Bateria 5Ah -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/bateria-5ah.webp" alt="Bateria Dewalt 20V MAX XR 5.0Ah" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Bateria 20V MAX XR 5.0Ah</h4>
-                        <p>Bateria de íon-lítio com capacidade de 5.0Ah, maior autonomia para trabalhos intensivos.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
-                    </div>
-                </div>
+                            <!-- Bateria 4Ah -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/bateria-4ah.webp" alt="Bateria Dewalt 20V 4.0Ah" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">Bateria</span>
+                                    <h4 class="dewalt-product-card__title">Bateria 20V 4.0Ah</h4>
+                                    <p class="dewalt-product-card__desc">Compatível com linha 20V MAX</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
 
-                <!-- Carregador -->
-                <div class="product-card">
-                    <img src="/assets/dewalt/carregador-baterias.webp" alt="Carregador de Baterias Dewalt DCB115" width="200" height="200" loading="lazy" decoding="async">
-                    <div class="product-card-content">
-                        <h4>Carregador de Baterias DCB115</h4>
-                        <p>Carregador rápido bivolt compatível com baterias 12V e 20V MAX. Carregamento completo em 90 minutos.</p>
-                        <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-product">Solicitar Orçamento</a>
+                            <!-- Bateria 5Ah -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/bateria-5ah.webp" alt="Bateria Dewalt 20V 5.0Ah" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">Bateria</span>
+                                    <h4 class="dewalt-product-card__title">Bateria 20V 5.0Ah</h4>
+                                    <p class="dewalt-product-card__desc">Maior autonomia para uso intensivo</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
+
+                            <!-- Carregador -->
+                            <div class="dewalt-product-card">
+                                <div class="dewalt-product-card__image">
+                                    <img src="/assets/dewalt/carregador-baterias.webp" alt="Carregador Dewalt DCB115" width="200" height="200" loading="lazy" decoding="async">
+                                </div>
+                                <div class="dewalt-product-card__body">
+                                    <span class="dewalt-product-card__category">Carregador</span>
+                                    <h4 class="dewalt-product-card__title">Carregador DCB115</h4>
+                                    <p class="dewalt-product-card__desc">Bivolt, carga em 90 minutos</p>
+                                    <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Orçamento</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Seta Próximo -->
+                    <button class="dewalt-carousel__nav dewalt-carousel__nav--next" onclick="scrollCarousel(1)" aria-label="Próximo">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
             <h3 style="margin-top: 48px;">Por que escolher ferramentas Dewalt?</h3>
             <div class="features-grid" style="margin-top: 24px;">
-                <div class="feature-card" style="border-left-color: #AA000E;"><h4>Motor Brushless</h4><p>Maior eficiência, durabilidade e autonomia da bateria</p></div>
-                <div class="feature-card" style="border-left-color: #AA000E;"><h4>Sistema 20V MAX</h4><p>Baterias compatíveis com toda a linha de ferramentas</p></div>
-                <div class="feature-card" style="border-left-color: #AA000E;"><h4>Garantia de Fábrica</h4><p>Produtos originais com garantia e assistência técnica</p></div>
-                <div class="feature-card" style="border-left-color: #AA000E;"><h4>Design Ergonômico</h4><p>Conforto e segurança para uso prolongado</p></div>
+                <div class="feature-card" style="border-left-color: #FEBD17;"><h4>Motor Brushless</h4><p>Maior eficiência, durabilidade e autonomia da bateria</p></div>
+                <div class="feature-card" style="border-left-color: #FEBD17;"><h4>Sistema 20V MAX</h4><p>Baterias compatíveis com toda a linha de ferramentas</p></div>
+                <div class="feature-card" style="border-left-color: #FEBD17;"><h4>Garantia de Fábrica</h4><p>Produtos originais com garantia e assistência técnica</p></div>
+                <div class="feature-card" style="border-left-color: #FEBD17;"><h4>Design Ergonômico</h4><p>Conforto e segurança para uso prolongado</p></div>
             </div>
         </div>
 
@@ -207,3 +264,11 @@ canonical: "/dewalt.html"
         <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: #AA000E; color: #fff; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold;">Solicitar Orçamento via WhatsApp</a>
     </div>
 </section>
+
+<script>
+function scrollCarousel(direction) {
+    const container = document.getElementById('dewaltCarousel');
+    const scrollAmount = 240 * direction;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+}
+</script>
