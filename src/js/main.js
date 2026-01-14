@@ -1,3 +1,5 @@
+'use strict';
+
 // ===== PLANAC - JS GLOBAL OTIMIZADO =====
 // Otimizado para Core Web Vitals (INP, LCP, CLS)
 
@@ -149,7 +151,16 @@ function initPhoneMask() {
 function handleSubmit(e, productName) {
     e.preventDefault();
     const f = e.target;
-    const msg = `*Solicitação de Orçamento - ${productName}*\n\n*Nome:* ${f.nome.value}\n*E-mail:* ${f.email.value}\n*Telefone:* ${f.telefone.value}\n*Cidade:* ${f.cidade.value}\n*Tipo:* ${f.tipo?.value || 'Não especificado'}\n\n*Detalhes:*\n${f.mensagem.value}`;
+    const msg = `*Solicitação de Orçamento - ${productName}*
+
+*Nome:* ${f.nome.value}
+*E-mail:* ${f.email.value}
+*Telefone:* ${f.telefone.value}
+*Cidade:* ${f.cidade.value}
+*Tipo:* ${f.tipo?.value || 'Não especificado'}
+
+*Detalhes:*
+${f.mensagem.value}`;
     window.open(`https://api.whatsapp.com/send/?phone=5543984182582&text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
 }
 
