@@ -1,0 +1,72 @@
+---
+layout: base.njk
+title: "Página não encontrada | Planac Distribuidora"
+description: "A página que você está procurando não foi encontrada. Volte para a página inicial da Planac Distribuidora."
+permalink: "/404.html"
+---
+
+<main id="main-content" class="error-page">
+    <div class="error-container">
+        <h1>404</h1>
+        <h2>Página não encontrada</h2>
+        <p>A página que você está procurando não existe ou foi movida.</p>
+        <div class="error-actions">
+            <a href="/" class="btn-primary">Voltar para o início</a>
+            <a href="{{ site.whatsappLink }}" target="_blank" rel="noopener noreferrer" class="btn-secondary">Falar no WhatsApp</a>
+        </div>
+    </div>
+</main>
+
+<style>
+.error-page {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+.error-container h1 {
+    font-size: 6rem;
+    color: #AA000E;
+    margin: 0;
+    line-height: 1;
+}
+.error-container h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 1rem 0;
+}
+.error-container p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.error-actions .btn-primary {
+    background: #AA000E;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.error-actions .btn-primary:hover {
+    background: #880008;
+}
+.error-actions .btn-secondary {
+    background: #25D366;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.error-actions .btn-secondary:hover {
+    background: #1da851;
+}
+</style>
