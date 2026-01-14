@@ -1,6 +1,6 @@
 # ===== CLOUDFLARE HEADERS - PLANAC DISTRIBUIDORA =====
 # Cache otimizado para produção
-# Atualizado: 2026-01-13
+# Atualizado: 2026-01-14
 
 # Headers de segurança globais
 /*
@@ -10,7 +10,7 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://www.googletagmanager.com
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-src 'self'
 
 # HTML - Cache curto com revalidação (para atualizações rápidas)
 /*.html
@@ -95,3 +95,4 @@
 # Web manifest
 /site.webmanifest
   Cache-Control: public, max-age=86400
+
