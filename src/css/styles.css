@@ -105,7 +105,7 @@ body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; col
 .form-container > p { font-size: 15px; color: #666; margin-bottom: 28px; }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 6px; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 4px; font-size: 15px; font-family: inherit; outline: none; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid #ddd; border-radius: 4px; font-size: 15px; font-family: inherit; outline: 2px solid transparent; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #AA000E; }
 .form-group textarea { min-height: 100px; resize: vertical; }
 .btn-submit { width: 100%; background: #AA000E; color: #fff; padding: 14px 24px; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; }
@@ -251,4 +251,74 @@ body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; col
     font-weight: 600;
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+/* Acessibilidade - Indicador de foco visível */
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+    outline: 2px solid #AA000E;
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #AA000E;
+    outline-offset: 2px;
+}
+/* ===== PÁGINA 404 ===== */
+.error-page {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+.error-container {
+    max-width: 500px;
+}
+.error-code {
+    font-size: 6rem;
+    color: #AA000E;
+    margin: 0;
+    line-height: 1;
+}
+.error-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 1rem 0;
+}
+.error-message {
+    color: #666;
+    margin-bottom: 2rem;
+}
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.error-actions .btn-primary {
+    background: #AA000E;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.error-actions .btn-primary:hover {
+    background: #880008;
+}
+.error-actions .btn-whatsapp {
+    background: #25D366;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.error-actions .btn-whatsapp:hover {
+    background: #1da851;
 }
