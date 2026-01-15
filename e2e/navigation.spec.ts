@@ -53,9 +53,14 @@ test.describe('Navegação', () => {
 
   test('Links de navegação funcionam', async ({ page }) => {
     await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Usar viewport desktop para garantir que links estão visíveis
+    await page.setViewportSize({ width: 1280, height: 720 });
     
     // Clicar no link da DeWalt (pode estar no dropdown ou direto)
     const dewaltLink = page.locator('a[href*="dewalt"]').first();
+    await dewaltLink.waitFor({ state: 'visible', timeout: 5000 });
     await dewaltLink.click();
     
     // Deve navegar para a página DeWalt
@@ -79,8 +84,8 @@ test.describe('Navegação', () => {
     const breadcrumb = page.locator('.breadcrumb');
     await expect(breadcrumb).toBeVisible();
     
-    // Link para home no breadcrumb
-    const homeLink = breadcrumb.locator('a[href="/"]');
+    // Link para home no breadcrumb (pode ser / ou /index.html)
+    const homeLink = breadcrumb.locator('a').filter({ hasText: 'Início' }).first();
     await expect(homeLink).toBeVisible();
   });
 
