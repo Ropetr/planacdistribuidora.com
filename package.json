@@ -3,11 +3,9 @@
   "version": "2.0.0",
   "description": "Site Planac Distribuidora - SSG com Eleventy",
   "scripts": {
-    "build": "npm run build:css && npx @11ty/eleventy",
-    "build:css": "cleancss -o src/css/styles.min.css src/css/styles.css && cleancss -o src/css/cookie-consent.min.css src/css/cookie-consent.css",
+    "build": "npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve",
-    "watch": "npx @11ty/eleventy --watch",
-    "prebuild": "npm run build:css"
+    "watch": "npx @11ty/eleventy --watch"
   },
   "keywords": [
     "planac",
@@ -18,7 +16,6 @@
   "author": "Planac Distribuidora",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "clean-css-cli": "^5.6.3"
+    "@11ty/eleventy": "^3.1.2"
   }
 }
