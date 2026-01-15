@@ -1,8 +1,8 @@
 /* v1767798091 */
 /* ===== PLANAC - CSS GLOBAL ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; line-height: 1.6; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; }
 
 /* Header */
 .header { background: #fff; padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
@@ -60,6 +60,7 @@ body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; col
 
 /* Content */
 .content { padding: 48px 20px; max-width: 1200px; margin: 0 auto; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .content-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); gap: 48px; align-items: start; }
 .main h2 { font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 20px; }
 .main p { font-size: 16px; line-height: 1.8; color: #444; margin-bottom: 20px; }
@@ -503,8 +504,8 @@ a:focus-visible {
     background: #f5f5f5;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-.dewalt-carousel__nav--prev { left: -22px; }
-.dewalt-carousel__nav--next { right: -22px; }
+.dewalt-carousel__nav--prev { left: 8px; }
+.dewalt-carousel__nav--next { right: 8px; }
 .dewalt-carousel__nav svg { width: 20px; height: 20px; color: #333; }
 
 /* Responsivo */
@@ -529,6 +530,8 @@ a:focus-visible {
     .dewalt-product-card__title { font-size: 13px; }
     .dewalt-product-card__desc { font-size: 11px; margin-bottom: 8px; }
     .dewalt-product-card__btn { padding: 8px 12px; font-size: 11px; }
+    .features-grid { grid-template-columns: 1fr; }
 }
+
 
 
