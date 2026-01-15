@@ -30,10 +30,15 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Run E2E tests (sem visuais)
+      - name: Start local server
+        run: |
+          npx serve dist -l 3000 &
+          sleep 3
+        
+      - name: Run E2E tests
         run: npx playwright test --ignore-snapshots --project=chromium-desktop --project=mobile-chrome e2e/smoke.spec.ts e2e/navigation.spec.ts e2e/dewalt-carousel.spec.ts e2e/responsive.spec.ts
         env:
-          BASE_URL: https://www.planacdistribuidora.com
+          BASE_URL: http://localhost:3000
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -73,10 +78,18 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      - name: Build site
+        run: npm run build
+
+      - name: Start local server
+        run: |
+          npx serve dist -l 3000 &
+          sleep 3
+
       - name: Run visual tests (update snapshots)
         run: npx playwright test visual.spec.ts --project=chromium-desktop --update-snapshots
         env:
-          BASE_URL: https://www.planacdistribuidora.com
+          BASE_URL: http://localhost:3000
 
       - name: Upload visual snapshots
         uses: actions/upload-artifact@v4
