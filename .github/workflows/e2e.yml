@@ -1,0 +1,86 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e-tests:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build site
+        run: npm run build
+
+      - name: Run E2E tests against production
+        run: npx playwright test --project=chromium-desktop --project=mobile-chrome
+        env:
+          BASE_URL: https://www.planacdistribuidora.com
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Upload screenshots on failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-screenshots
+          path: test-results/
+          retention-days: 7
+
+  visual-regression:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run visual tests
+        run: npx playwright test visual.spec.ts --project=chromium-desktop --update-snapshots
+        env:
+          BASE_URL: https://www.planacdistribuidora.com
+        continue-on-error: true
+
+      - name: Upload visual snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-snapshots
+          path: e2e/*.png
+          retention-days: 30
