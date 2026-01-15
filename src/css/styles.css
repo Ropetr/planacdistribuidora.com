@@ -1,8 +1,12 @@
 /* v1767798091 */
 /* ===== PLANAC - CSS GLOBAL ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; max-width: 100%; }
+body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; width: 100%; max-width: 100%; position: relative; }
+
+
+/* Overflow Protection */
+main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, footer { max-width: 100%; overflow-x: hidden; }
 
 /* Header */
 .header { background: #fff; padding: 12px 20px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
@@ -532,6 +536,7 @@ a:focus-visible {
     .dewalt-product-card__btn { padding: 8px 12px; font-size: 11px; }
     .features-grid { grid-template-columns: 1fr; }
 }
+
 
 
 
