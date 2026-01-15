@@ -95,7 +95,7 @@ test.describe('Smoke Tests - Verificações Básicas', () => {
     // Deve retornar 404
     expect(response?.status()).toBe(404);
     
-    // Deve mostrar página de erro customizada
-    await expect(page.locator('.error-page, .error-container, h1')).toBeVisible();
+    // Deve mostrar página de erro customizada (usando .first() para evitar strict mode)
+    await expect(page.locator('.error-page').first()).toBeVisible();
   });
 });
