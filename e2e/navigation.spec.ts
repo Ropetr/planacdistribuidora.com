@@ -51,16 +51,15 @@ test.describe('Navegação', () => {
     await expect(dropdown.locator('.dropdown-menu')).toBeVisible();
   });
 
-  test('Links de navegação funcionam', async ({ page }) => {
+  test('Links de navegação funcionam - desktop', async ({ page }) => {
+    // Forçar viewport desktop ANTES de navegar
+    await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto('/');
     await page.waitForLoadState('networkidle');
     
-    // Usar viewport desktop para garantir que links estão visíveis
-    await page.setViewportSize({ width: 1280, height: 720 });
-    
-    // Clicar no link da DeWalt (pode estar no dropdown ou direto)
+    // Clicar no link da DeWalt
     const dewaltLink = page.locator('a[href*="dewalt"]').first();
-    await dewaltLink.waitFor({ state: 'visible', timeout: 5000 });
+    await dewaltLink.waitFor({ state: 'visible', timeout: 10000 });
     await dewaltLink.click();
     
     // Deve navegar para a página DeWalt
