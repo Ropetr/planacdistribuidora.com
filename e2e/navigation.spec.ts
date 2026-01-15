@@ -57,8 +57,12 @@ test.describe('Navegação', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
     
-    // Clicar no link da DeWalt
-    const dewaltLink = page.locator('a[href*="dewalt"]').first();
+    // Scroll até a seção de ferramentas onde o link DeWalt está visível
+    await page.locator('#ferramentas-title').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(500);
+    
+    // Clicar no link da DeWalt na seção de produtos (não no menu dropdown)
+    const dewaltLink = page.locator('.product-grid a[href*="dewalt"]').first();
     await dewaltLink.waitFor({ state: 'visible', timeout: 10000 });
     await dewaltLink.click();
     
