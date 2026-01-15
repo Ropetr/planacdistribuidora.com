@@ -1,0 +1,88 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e-tests:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build site
+        run: npm run build
+
+      - name: Run E2E tests (sem visuais)
+        run: npx playwright test --ignore-snapshots --project=chromium-desktop --project=mobile-chrome e2e/smoke.spec.ts e2e/navigation.spec.ts e2e/dewalt-carousel.spec.ts e2e/responsive.spec.ts
+        env:
+          BASE_URL: https://www.planacdistribuidora.com
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Upload screenshots on failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-screenshots
+          path: test-results/
+          retention-days: 7
+
+  visual-regression:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    continue-on-error: true
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run visual tests (update snapshots)
+        run: npx playwright test visual.spec.ts --project=chromium-desktop --update-snapshots
+        env:
+          BASE_URL: https://www.planacdistribuidora.com
+
+      - name: Upload visual snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-snapshots
+          path: |
+            e2e/**/*.png
+            test-results/
+          retention-days: 30

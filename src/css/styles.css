@@ -169,7 +169,8 @@ body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; col
 .footer-fixed-mobile { display: none; }
 @media (max-width: 768px) { 
     .nav-desktop { display: none; } 
-    .hamburger { display: block; } 
+    .hamburger { display: block; }
+    .logo img { height: 40px; } 
     
     /* Footer fixo no mobile */
     .footer-fixed-mobile { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #eee; padding: 12px 0; justify-content: center; gap: 32px; z-index: 999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
@@ -393,6 +394,7 @@ a:focus-visible {
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding: 8px 0;
+    scroll-snap-type: x mandatory;
 }
 .dewalt-carousel__container::-webkit-scrollbar { display: none; }
 
@@ -517,11 +519,16 @@ a:focus-visible {
         padding: 0 16px;
     }
     .dewalt-carousel .dewalt-product-card { 
-        flex: 0 0 calc(50% - 6px);
+        flex: 0 0 calc(50vw - 42px);
+        min-width: calc(50vw - 42px);
+        max-width: calc(50vw - 42px);
         scroll-snap-align: start;
     }
-    .dewalt-product-card__image { height: 130px; }
+    .dewalt-product-card__image { height: 120px; }
     .dewalt-product-card__body { padding: 12px; }
     .dewalt-product-card__title { font-size: 13px; }
+    .dewalt-product-card__desc { font-size: 11px; margin-bottom: 8px; }
+    .dewalt-product-card__btn { padding: 8px 12px; font-size: 11px; }
 }
+
 

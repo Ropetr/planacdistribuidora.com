@@ -7,7 +7,13 @@
     "build:css": "cleancss -o src/css/styles.min.css src/css/styles.css && cleancss -o src/css/cookie-consent.min.css src/css/cookie-consent.css",
     "start": "npx @11ty/eleventy --serve",
     "watch": "npx @11ty/eleventy --watch",
-    "prebuild": "npm run build:css"
+    "prebuild": "npm run build:css",
+    "test": "playwright test",
+    "test:e2e": "playwright test --project=chromium-desktop --project=mobile-chrome",
+    "test:mobile": "playwright test --project=mobile-chrome --project=mobile-safari --project=mobile-safari-se",
+    "test:visual": "playwright test visual.spec.ts",
+    "test:update-snapshots": "playwright test --update-snapshots",
+    "test:report": "playwright show-report"
   },
   "keywords": [
     "planac",
@@ -19,6 +25,7 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "clean-css-cli": "^5.6.3"
+    "clean-css-cli": "^5.6.3",
+    "@playwright/test": "^1.40.0"
   }
 }
