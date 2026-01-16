@@ -25,7 +25,31 @@
     <!-- Preload de recursos críticos -->
     <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/barlow-700.woff2" as="font" type="font/woff2" crossorigin>
-    {% if preloadImage %}<link rel="preload" href="{{ preloadImage }}" as="image" type="image/{{ preloadImageType | default('avif') }}" fetchpriority="high">{% endif %}
+    {% if preloadBanner %}
+    <link rel="preload" as="image" 
+          href="/assets/banners/1920x700/{{ preloadBanner }}"
+          imagesrcset="
+            /assets/banners/320x400/{{ preloadBanner }} 320w,
+            /assets/banners/480x400/{{ preloadBanner }} 480w,
+            /assets/banners/1024x500/{{ preloadBanner }} 1024w,
+            /assets/banners/1920x700/{{ preloadBanner }} 1920w,
+            /assets/banners/2550x700/{{ preloadBanner }} 2550w"
+          imagesizes="100vw"
+          fetchpriority="high"
+          type="image/avif">
+    {% elif preloadHero %}
+    <link rel="preload" as="image" 
+          href="/assets/hero/1920x700/{{ preloadHero }}"
+          imagesrcset="
+            /assets/hero/320x400/{{ preloadHero }} 320w,
+            /assets/hero/480x400/{{ preloadHero }} 480w,
+            /assets/hero/1024x500/{{ preloadHero }} 1024w,
+            /assets/hero/1920x700/{{ preloadHero }} 1920w,
+            /assets/hero/2550x700/{{ preloadHero }} 2550w"
+          imagesizes="100vw"
+          fetchpriority="high"
+          type="image/avif">
+    {% elif preloadImage %}<link rel="preload" href="{{ preloadImage }}" as="image" type="image/{{ preloadImageType | default('avif') }}" fetchpriority="high">{% endif %}
     
     <!-- Meta tags SEO -->
     <title>{{ title }}</title>
