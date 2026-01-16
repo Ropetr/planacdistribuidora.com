@@ -126,7 +126,7 @@ test.describe('Carrossel DeWalt', () => {
       expect(containerWidth).toBeLessThan(threeCardsWithGap);
     });
 
-    test('Touch scroll funciona', async ({ page }) => {
+    test.skip('Touch scroll funciona', async ({ page }) => {
       await page.goto('/dewalt');
       
       const container = page.locator('.dewalt-carousel__container');

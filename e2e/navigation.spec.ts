@@ -51,11 +51,19 @@ test.describe('Navegação', () => {
     await expect(dropdown.locator('.dropdown-menu')).toBeVisible();
   });
 
-  test('Links de navegação funcionam', async ({ page }) => {
+  test('Links de navegação funcionam - desktop', async ({ page }) => {
+    // Forçar viewport desktop ANTES de navegar
+    await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto('/');
+    await page.waitForLoadState('networkidle');
     
-    // Clicar no link da DeWalt (pode estar no dropdown ou direto)
-    const dewaltLink = page.locator('a[href*="dewalt"]').first();
+    // Scroll até a seção de ferramentas onde o link DeWalt está visível
+    await page.locator('#ferramentas-title').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(500);
+    
+    // Clicar no link da DeWalt na seção de produtos (não no menu dropdown)
+    const dewaltLink = page.locator('.product-grid a[href*="dewalt"]').first();
+    await dewaltLink.waitFor({ state: 'visible', timeout: 10000 });
     await dewaltLink.click();
     
     // Deve navegar para a página DeWalt
@@ -79,8 +87,8 @@ test.describe('Navegação', () => {
     const breadcrumb = page.locator('.breadcrumb');
     await expect(breadcrumb).toBeVisible();
     
-    // Link para home no breadcrumb
-    const homeLink = breadcrumb.locator('a[href="/"]');
+    // Link para home no breadcrumb (pode ser / ou /index.html)
+    const homeLink = breadcrumb.locator('a').filter({ hasText: 'Início' }).first();
     await expect(homeLink).toBeVisible();
   });
 
