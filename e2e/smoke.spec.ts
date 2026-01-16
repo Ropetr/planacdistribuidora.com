@@ -57,7 +57,9 @@ test.describe('Smoke Tests - Verificações Básicas', () => {
         const url = response.url();
         // Ignorar recursos conhecidos como faltantes
         const isKnownMissing = knownMissing.some(img => url.includes(img));
-        if (!isKnownMissing) {
+        // Ignorar URLs do Cloudflare Image Transformations (só funcionam em produção)
+        const isCloudflareTransform = url.includes('/cdn-cgi/');
+        if (!isKnownMissing && !isCloudflareTransform) {
           failedResources.push(url);
         }
       }
