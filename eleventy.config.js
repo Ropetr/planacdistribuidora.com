@@ -1,8 +1,22 @@
 module.exports = function(eleventyConfig) {
-    // Filtro personalizado para URL encoding (necessário para WhatsApp)
+    // Filtro personalizado para URL encoding
     eleventyConfig.addFilter("urlencode", function(str) {
         if (!str) return "";
         return encodeURIComponent(str);
+    });
+    
+    // Dados computados - whatsappUrl disponível em todas as páginas
+    // Usa o productName do front matter para personalizar a mensagem
+    eleventyConfig.addGlobalData("eleventyComputed", {
+        whatsappUrl: (data) => {
+            const phone = "5543984182582";
+            let msg = "Olá, tudo bem? Preciso de um orçamento";
+            if (data.productName) {
+                msg += " de " + data.productName;
+            }
+            msg += ". Pode me auxiliar?";
+            return `https://api.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(msg)}`;
+        }
     });
     
     // Copiar arquivos estáticos
