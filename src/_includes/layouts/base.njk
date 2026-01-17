@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-{# WhatsApp personalizado por página #}
-{% set whatsappMsg = "Olá, tudo bem? Preciso de um orçamento" + (" de " + productName if productName else "") + ". Pode me auxiliar?" %}
-{% set whatsappUrl = "https://api.whatsapp.com/send/?phone=" + site.whatsappRaw + "&text=" + (whatsappMsg | urlencode) %}
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
