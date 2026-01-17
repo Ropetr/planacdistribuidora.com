@@ -9,7 +9,7 @@ canonical: "/dewalt.html"
 preloadBanner: "banner-dewalt.avif"
 ---
 
-<section class="banner" style="height: 45vh; min-height: 320px; border-bottom: 1px solid #ED282E;">
+<section class="banner" style="height: 45vh; min-height: 320px; border-bottom: 2px solid #ED282E;">
     <img 
       src="/assets/banners/1920x700/banner-dewalt.avif"
       srcset="
@@ -241,34 +241,31 @@ preloadBanner: "banner-dewalt.avif"
             </div>
         </div>
 
-        <aside>
-            <div class="sidebar-card">
-                <h4>Categorias</h4>
-                <ul class="sidebar-links">
-                    <li><a href="/dewalt.html" class="active">Ferramentas Dewalt</a></li>
-                    <li><a href="/index.html#forros">Forros</a></li>
-                    <li><a href="/index.html#divisorias">Divisórias</a></li>
-                    <li><a href="/index.html#isolamento">Isolamento</a></li>
-                    <li><a href="/index.html#drywall">Drywall</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-card">
-                <h4>Fale Conosco</h4>
-                <p style="margin-bottom: 16px; font-size: 14px; color: #666;">Solicite orçamento ou tire suas dúvidas sobre as ferramentas Dewalt:</p>
-                <a href="{{ whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="btn-sidebar">Solicitar Orçamento</a>
-            </div>
-            <div class="sidebar-card sidebar-info">
-                <h4>Atendimento</h4>
-                <p>{{ site.whatsapp }}</p>
-                <p class="small">Segunda a Sexta, 8h às 18h</p>
-                <hr class="sidebar-divider">
-                <p class="small">{{ site.address.street }}<br>{{ site.address.neighborhood }}, {{ site.address.city }}-{{ site.address.state }}</p>
-            </div>
-            <div class="sidebar-card" style="background: linear-gradient(135deg, #ED282E 0%, #8B000B 100%); color: #fff;">
-                <h4 style="color: #fff;">Revenda Autorizada</h4>
-                <p style="font-size: 14px; color: rgba(255,255,255,0.9);">Produtos originais Dewalt com garantia de fábrica e suporte técnico especializado.</p>
-            </div>
-        </aside>
+                    <aside class="sidebar">
+                <div class="sidebar-card">
+                    <h4>Categorias</h4>
+                    <ul class="sidebar-links">
+                        <li><a href="/dewalt.html" class="active">Ferramentas Dewalt</a></li>
+                        <li><a href="/index.html#forros">Forros</a></li>
+                        <li><a href="/index.html#divisorias">Divisórias</a></li>
+                        <li><a href="/index.html#isolamento">Isolamento</a></li>
+                        <li><a href="/index.html#drywall">Drywall</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h4>Solicite um Orçamento</h4>
+                    <p class="sidebar-info">Atendemos Londrina e região</p>
+                    <hr class="sidebar-divider">
+                    <p class="sidebar-info"><strong>Telefone:</strong></p>
+                    <p class="sidebar-info">(43) 3028-5316</p>
+                    <hr class="sidebar-divider">
+                    <p class="sidebar-info"><strong>WhatsApp:</strong></p>
+                    <p class="sidebar-info">(43) 98418-2582</p>
+                    <hr class="sidebar-divider">
+                    <a href="{{ whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="btn-sidebar">Falar no WhatsApp</a>
+                </div>
+            </aside>
     </div>
 </section>
 
