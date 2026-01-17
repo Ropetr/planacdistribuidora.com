@@ -71,6 +71,13 @@
 
 /assets/img/*
   Cache-Control: public, max-age=31536000, immutable
+# Banners responsivos (nova estrutura)
+/assets/banners/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Hero images responsivos (nova estrutura)
+/assets/hero/*
+  Cache-Control: public, max-age=31536000, immutable
 
 # Favicons na raiz
 /favicon.ico
