@@ -1,4 +1,10 @@
 module.exports = function(eleventyConfig) {
+    // Filtro personalizado para URL encoding (necessário para WhatsApp)
+    eleventyConfig.addFilter("urlencode", function(str) {
+        if (!str) return "";
+        return encodeURIComponent(str);
+    });
+    
     // Copiar arquivos estáticos
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/js");
