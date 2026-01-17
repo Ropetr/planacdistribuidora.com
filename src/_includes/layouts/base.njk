@@ -18,13 +18,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- DNS Prefetch e Preconnect para recursos externos -->
-    <link rel="dns-prefetch" href="//api.whatsapp.com">
+    <link rel="preconnect" href="https://api.whatsapp.com" crossorigin>
     
 
 
     <!-- Preload de recursos críticos -->
     <link rel="preload" href="/assets/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/barlow-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/barlow-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/barlow-800.woff2" as="font" type="font/woff2" crossorigin>
     {% if preloadBanner %}
     <link rel="preload" as="image" 
           href="/assets/banners/1920x700/{{ preloadBanner }}"
@@ -125,7 +127,8 @@ body{font-family:'Barlow',-apple-system,BlinkMacSystemFont,sans-serif;line-heigh
     </style>
     
     <!-- CSS principal -->
-    <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="preload" href="/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/styles.min.css"></noscript>
     
     <!-- Schema.org Organization + LocalBusiness -->
     <script type="application/ld+json">
@@ -263,7 +266,7 @@ body{font-family:'Barlow',-apple-system,BlinkMacSystemFont,sans-serif;line-heigh
 <script src="/js/main.min.js" defer></script>
 
 {% include "components/cookie-consent.njk" %}
-<link rel="stylesheet" href="/css/cookie-consent.css">
+<!-- cookie-consent.css integrado em styles.min.css -->
 <!-- CORRIGIDO: defer adicionado para evitar bloqueio do parser -->
 <script src="/js/cookie-consent.js" defer></script>
 </body>
