@@ -131,7 +131,7 @@ main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, foot
 .footer-icon svg { width: 20px; height: 20px; fill: currentColor; }
 
 /* Home Page - Hero Carousel */
-.hero-carousel { width: 100%; aspect-ratio: 12/5; min-height: 200px; max-height: 70vh; position: relative; overflow: hidden; }
+.hero-carousel { width: 100%; aspect-ratio: 1920/700; min-height: 200px; max-height: 70vh; position: relative; overflow: hidden; }
 .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; }
 .hero-slide::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.45); }
@@ -193,6 +193,23 @@ main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, foot
 
 /* Hero img otimizado */
 .hero-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+
+/* Hero Carousel - Responsive aspect-ratio para art direction */
+@media (max-width: 1024px) {
+    .hero-carousel { aspect-ratio: 1024/500; }
+}
+@media (max-width: 480px) {
+    .hero-carousel { aspect-ratio: 480/400; min-height: 320px; }
+    .hero-carousel .hero-content { padding: 24px 16px 50px; }
+    .hero-carousel h1 { font-size: clamp(22px, 5vw, 28px); margin-bottom: 12px; }
+    .hero-carousel p { font-size: 14px; margin-bottom: 16px; }
+    .btn-hero { padding: 10px 24px; font-size: 13px; }
+}
+@media (max-width: 320px) {
+    .hero-carousel { aspect-ratio: 320/400; min-height: 350px; }
+    .hero-carousel .hero-content { padding: 20px 12px 45px; }
+}
+
 
 
 
