@@ -5,54 +5,51 @@ title: "Forros e Divisórias em Londrina | Planac Distribuidora"
 description: "Distribuidora de forros e divisórias em Londrina-PR. PVC, gesso, mineral, drywall. Preços de atacado e suporte técnico especializado. Solicite orçamento!"
 keywords: "forros londrina, divisórias londrina, forro pvc, forro gesso, drywall, divisória escritório, planac distribuidora"
 canonical: "/"
-preloadHero: "hero-forro-gesso.avif"
-preloadImageType: "avif"
 ---
+{# Cloudflare Images - Imagens servidas via CDN global com conversão automática AVIF/WebP #}
+{% set cfImages = "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A" %}
 
 <section class="hero-carousel" aria-label="Carrossel de imagens principais">
     <div class="hero-slides">
-        <div class="hero-slide active"><img 
-              src="/assets/hero/1920x700/hero-forro-gesso.avif"
-              srcset="
-                /assets/hero/320x400/hero-forro-gesso.avif 320w,
-                /assets/hero/480x400/hero-forro-gesso.avif 480w,
-                /assets/hero/1024x500/hero-forro-gesso.avif 1024w,
-                /assets/hero/1920x700/hero-forro-gesso.avif 1920w,
-                /assets/hero/2550x700/hero-forro-gesso.avif 2550w"
-              sizes="100vw"
-              width="1920" height="700"
-              alt="Banner Forro Gesso"
-              class="hero-img"
-              fetchpriority="high"
-              decoding="async"></div>
-        <div class="hero-slide"><img 
-              src="/assets/hero/1920x700/hero-divisoria-naval.avif"
-              srcset="
-                /assets/hero/320x400/hero-divisoria-naval.avif 320w,
-                /assets/hero/480x400/hero-divisoria-naval.avif 480w,
-                /assets/hero/1024x500/hero-divisoria-naval.avif 1024w,
-                /assets/hero/1920x700/hero-divisoria-naval.avif 1920w,
-                /assets/hero/2550x700/hero-divisoria-naval.avif 2550w"
-              sizes="100vw"
-              width="1920" height="700"
-              alt="Banner Divisoria Naval"
-              class="hero-img"
-              fetchpriority="high"
-              decoding="async"></div>
-        <div class="hero-slide"><img 
-              src="/assets/hero/1920x700/hero-parede-gesso.avif"
-              srcset="
-                /assets/hero/320x400/hero-parede-gesso.avif 320w,
-                /assets/hero/480x400/hero-parede-gesso.avif 480w,
-                /assets/hero/1024x500/hero-parede-gesso.avif 1024w,
-                /assets/hero/1920x700/hero-parede-gesso.avif 1920w,
-                /assets/hero/2550x700/hero-parede-gesso.avif 2550w"
-              sizes="100vw"
-              width="1920" height="700"
-              alt="Banner Parede Gesso"
-              class="hero-img"
-              fetchpriority="high"
-              decoding="async"></div>
+        <div class="hero-slide active">
+            <picture>
+                <source media="(max-width: 320px)" srcset="{{ cfImages }}/hero-forro-gesso-320/public" width="320" height="400">
+                <source media="(max-width: 480px)" srcset="{{ cfImages }}/hero-forro-gesso-480/public" width="480" height="400">
+                <source media="(max-width: 1024px)" srcset="{{ cfImages }}/hero-forro-gesso-1024/public" width="1024" height="500">
+                <img src="{{ cfImages }}/hero-forro-gesso-1920/public"
+                     width="1920" height="700"
+                     alt="Forro de Gesso Acartonado - Ambiente corporativo moderno com iluminação LED embutida"
+                     class="hero-img"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
+        </div>
+        <div class="hero-slide">
+            <picture>
+                <source media="(max-width: 320px)" srcset="{{ cfImages }}/hero-divisoria-naval-320/public" width="320" height="400">
+                <source media="(max-width: 480px)" srcset="{{ cfImages }}/hero-divisoria-naval-480/public" width="480" height="400">
+                <source media="(max-width: 1024px)" srcset="{{ cfImages }}/hero-divisoria-naval-1024/public" width="1024" height="500">
+                <img src="{{ cfImages }}/hero-divisoria-naval-1920/public"
+                     width="1920" height="700"
+                     alt="Divisória Naval para Escritório - Ambiente corporativo com divisórias de vidro e metal"
+                     class="hero-img"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
+        </div>
+        <div class="hero-slide">
+            <picture>
+                <source media="(max-width: 320px)" srcset="{{ cfImages }}/hero-parede-gesso-320/public" width="320" height="400">
+                <source media="(max-width: 480px)" srcset="{{ cfImages }}/hero-parede-gesso-480/public" width="480" height="400">
+                <source media="(max-width: 1024px)" srcset="{{ cfImages }}/hero-parede-gesso-1024/public" width="1024" height="500">
+                <img src="{{ cfImages }}/hero-parede-gesso-1920/public"
+                     width="1920" height="700"
+                     alt="Parede de Gesso Drywall - Construção de galpão industrial com estrutura metálica"
+                     class="hero-img"
+                     fetchpriority="high"
+                     decoding="async">
+            </picture>
+        </div>
     </div>
     <div class="hero-content">
         <h1>Forros e Divisórias em Londrina</h1>
