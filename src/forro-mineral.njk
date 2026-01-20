@@ -45,6 +45,60 @@ preloadBanner: "banner-forro-mineral.jpg"
 </div>
 
 <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
     <div class="content-grid">
         <div class="main">
             <h2>Forro Mineral Acústico</h2>
@@ -243,7 +297,8 @@ preloadBanner: "banner-forro-mineral.jpg"
                 </div>
             </div>
 
-            <h3 style="margin-top: 48px;">Por que escolher o Forro Mineral?</h3>
+            <h3 class="accordion-header">Características e Vantagens</h3>
+                <div class="accordion-content">
             <div class="features-grid" style="margin-top: 24px;">
                 <div class="feature-card"><h4>Isolamento Acústico Superior</h4><p>Absorve ruídos e melhora o conforto sonoro em ambientes corporativos.</p></div>
                 <div class="feature-card"><h4>Estética Profissional</h4><p>Acabamento modular e uniforme para ambientes elegantes.</p></div>
@@ -251,7 +306,10 @@ preloadBanner: "banner-forro-mineral.jpg"
                 <div class="feature-card"><h4>Incombustível</h4><p>Versões com resistência ao fogo para maior segurança.</p></div>
             </div>
 
-            <h3 style="margin-top: 48px;">Modelos Disponíveis</h3>
+            </div>
+
+                <h3 class="accordion-header">Modelos Disponíveis</h3>
+                <div class="accordion-content">
             <p>Trabalhamos com as principais linhas de forro mineral do mercado:</p>
             <ul style="margin-top: 16px; padding-left: 24px;">
                 <li><strong>Armstrong Scala Lay In:</strong> Fibra mineral de alta performance acústica</li>
@@ -260,7 +318,10 @@ preloadBanner: "banner-forro-mineral.jpg"
                 <li><strong>Placas Resistentes à Umidade:</strong> Para áreas com maior umidade</li>
             </ul>
 
-            <h3 style="margin-top: 48px;">Aplicações</h3>
+            </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
             <p>O Forro Mineral é indicado para ambientes que exigem conforto acústico e estética profissional:</p>
             <ul style="margin-top: 16px; padding-left: 24px;">
                 <li>Escritórios corporativos</li>
@@ -271,7 +332,25 @@ preloadBanner: "banner-forro-mineral.jpg"
                 <li>Salas de reunião e auditórios</li>
                 <li>Recepções e lobbies</li>
             </ul>
-        </div>
+                </div>
+
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
+                <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
+                <ul class="list">
+                    <li>Materiais certificados pela ABNT com garantia de qualidade</li>
+                    <li>Atendimento especializado com profissionais experientes</li>
+                    <li>Preços competitivos de atacado</li>
+                    <li>Produtos a pronta entrega</li>
+                    <li>Indicação de profissionais qualificados para instalação</li>
+                    <li>Suporte técnico completo</li>
+                    <li>Flexibilidade de pagamento</li>
+                </ul>
+                <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
+
+            </div>
 
             <aside class="sidebar">
             <div class="sidebar-card">
@@ -318,4 +397,20 @@ function scrollCarousel(direction) {
     const scrollAmount = 240 * direction;
     container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 }
+</script>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
 </script>
