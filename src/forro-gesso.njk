@@ -326,23 +326,29 @@ preloadBannerCF: "banner-forro-gesso"
     </section>
 
     <section class="cta" style="background: #ED282E;">
-        <h2>Interessado em Gesso Acartonado?</h2>
-        <p>Solicite um orçamento sem compromisso e descubra as melhores soluções para seu projeto!</p>
-        <a href="#orcamento" class="btn-cta" style="color: #ED282E;">Solicitar Orçamento</a>
+        <h2>Quer Enviar Seu Projeto para Cotação?</h2>
+        <p>Preencha o formulário abaixo e anexe seu projeto (PDF, imagens, DWG, planilhas)</p>
+        <a href="#orcamento" class="btn-cta" style="color: #ED282E;">Enviar Projeto</a>
     </section>
 
     <section class="form-section" id="orcamento">
         <div class="form-container">
-            <h2>Solicite seu Orçamento</h2>
-            <p>Preencha os dados abaixo</p>
-            <form onsubmit="handleSubmit(event, 'Forro de Gesso Acartonado')">
+            <h2>Envie seu Projeto para Cotação</h2>
+            <p>Preencha os dados e anexe seu projeto</p>
+            <form id="formProjeto" onsubmit="handleProjectSubmit(event)">
                 <div class="form-group"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" required></div>
                 <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" required></div>
                 <div class="form-group"><label for="telefone">Telefone</label><input type="tel" id="telefone" name="telefone" required></div>
                 <div class="form-group"><label for="cidade">Cidade</label><input type="text" id="cidade" name="cidade" required></div>
                 <div class="form-group"><label for="tipo">Tipo de projeto</label><select id="tipo" name="tipo"><option value="">Selecione</option><option value="Residencial">Residencial</option><option value="Comercial">Comercial</option><option value="Industrial">Industrial</option><option value="Outro">Outro</option></select></div>
+                <div class="form-group">
+                    <label for="arquivo">Anexar projeto (opcional)</label>
+                    <input type="file" id="arquivo" name="arquivo" accept=".pdf,.jpg,.jpeg,.png,.dwg,.dxf,.xlsx,.xls,.doc,.docx" style="padding: 10px; border: 2px dashed #ccc; border-radius: 8px; background: #f9f9f9; cursor: pointer;">
+                    <small style="color: #666; display: block; margin-top: 5px;">PDF, imagens, DWG, planilhas (máx. 100MB)</small>
+                </div>
                 <div class="form-group"><label for="mensagem">Detalhes do projeto</label><textarea id="mensagem" name="mensagem" placeholder="Descreva seu projeto: área aproximada, tipo de ambiente, necessidades específicas..." required></textarea></div>
-                <button type="submit" class="btn-submit" style="background: #ED282E;">Enviar via WhatsApp</button>
+                <button type="submit" class="btn-submit" style="background: #ED282E;" id="btnSubmit">Enviar Projeto via WhatsApp</button>
+                <div id="uploadStatus" style="display: none; margin-top: 10px; padding: 10px; border-radius: 8px; text-align: center;"></div>
             </form>
         </div>
     </section>
@@ -369,4 +375,87 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+</script>
+
+<script>
+// Upload de projeto
+async function handleProjectSubmit(event) {
+    event.preventDefault();
+    
+    const form = document.getElementById('formProjeto');
+    const btn = document.getElementById('btnSubmit');
+    const status = document.getElementById('uploadStatus');
+    const arquivo = document.getElementById('arquivo').files[0];
+    
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+    const cidade = document.getElementById('cidade').value;
+    const tipo = document.getElementById('tipo').value;
+    const mensagem = document.getElementById('mensagem').value;
+    
+    let arquivoInfo = '';
+    
+    // Se tem arquivo, fazer upload primeiro
+    if (arquivo) {
+        btn.disabled = true;
+        btn.textContent = 'Enviando arquivo...';
+        status.style.display = 'block';
+        status.style.background = '#e3f2fd';
+        status.style.color = '#1976d2';
+        status.textContent = 'Enviando arquivo... Por favor, aguarde.';
+        
+        try {
+            const formData = new FormData();
+            formData.append('arquivo', arquivo);
+            formData.append('nome', nome);
+            formData.append('email', email);
+            formData.append('telefone', telefone);
+            
+            const response = await fetch('https://planac-upload.planacacabamentos.workers.dev', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                arquivoInfo = `\n\n📎 *Arquivo anexado:* ${arquivo.name}\n📦 Tamanho: ${(arquivo.size / 1024 / 1024).toFixed(2)} MB\n🔗 Ref: ${result.arquivo}`;
+                status.style.background = '#e8f5e9';
+                status.style.color = '#2e7d32';
+                status.textContent = '✅ Arquivo enviado com sucesso!';
+            } else {
+                throw new Error(result.error || 'Erro no upload');
+            }
+        } catch (error) {
+            status.style.background = '#ffebee';
+            status.style.color = '#c62828';
+            status.textContent = '❌ Erro ao enviar arquivo: ' + error.message;
+            btn.disabled = false;
+            btn.textContent = 'Enviar Projeto via WhatsApp';
+            return;
+        }
+    }
+    
+    // Montar mensagem do WhatsApp
+    const produto = 'Forro de Gesso Acartonado';
+    const msg = `*Novo Projeto para Cotação*\n\n` +
+        `📦 *Produto:* ${produto}\n` +
+        `👤 *Nome:* ${nome}\n` +
+        `📧 *E-mail:* ${email}\n` +
+        `📱 *Telefone:* ${telefone}\n` +
+        `🏙️ *Cidade:* ${cidade}\n` +
+        `🏗️ *Tipo:* ${tipo}\n\n` +
+        `💬 *Detalhes:*\n${mensagem}` +
+        arquivoInfo;
+    
+    // Enviar para WhatsApp
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=5543999852811&text=${encodeURIComponent(msg)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Resetar formulário
+    btn.disabled = false;
+    btn.textContent = 'Enviar Projeto via WhatsApp';
+    status.style.display = 'none';
+}
 </script>
