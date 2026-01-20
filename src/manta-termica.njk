@@ -45,13 +45,68 @@ preloadBanner: "banner-manta-termica.jpg"
     </div>
 
     <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
         <div class="content-grid">
             <div class="main">
                 <h2>Sobre o produto</h2>
                 <p>A <strong>Manta Térmica Aluminizada</strong> é uma solução de alta eficiência para isolamento térmico, composta por múltiplas camadas que incluem alumínio reflexivo e material isolante. Esta tecnologia reflete até 97% do calor radiante.</p>
                 <p>Utilizada principalmente em coberturas, a manta térmica aluminizada reduz significativamente a temperatura interna dos ambientes, proporcionando conforto térmico e economia de energia.</p>
 
-                <h3>Características Principais</h3>
+                <h3 class="accordion-header">Características Principais</h3>
+                <div class="accordion-content">
                 <div class="features-grid">
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Alta Refletividade</h4><p>Reflete até 97% do calor radiante</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Impermeável</h4><p>Protege contra infiltrações e umidade</p></div>
@@ -62,7 +117,10 @@ preloadBanner: "banner-manta-termica.jpg"
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Isolamento Duplo</h4><p>Barreira contra calor no verão e frio no inverno</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Fácil Instalação</h4><p>Não requer ferramentas especiais</p></div>
                 </div>
-                <h3>Vantagens da Manta Térmica</h3>
+                </div>
+
+                <h3 class="accordion-header">Vantagens da Manta Térmica</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Redução de Temperatura:</strong> Ambientes até 8°C mais frescos</li>
                     <li><strong>Economia Energética:</strong> Menor uso de ar-condicionado</li>
@@ -71,14 +129,20 @@ preloadBanner: "banner-manta-termica.jpg"
                     <li><strong>Rápida Instalação:</strong> Aplicação simples sobre estruturas</li>
                     <li><strong>Baixa Manutenção:</strong> Material durável e resistente</li>
                 </ul>
-                <h3>Tipos Disponíveis</h3>
+                </div>
+
+                <h3 class="accordion-header">Tipos Disponíveis</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Manta Simples:</strong> Uma face aluminizada</li>
                     <li><strong>Manta Dupla Face:</strong> Ambos os lados aluminizados</li>
                     <li><strong>Manta com Espuma:</strong> Camada adicional de isolamento</li>
                     <li><strong>Manta Reforçada:</strong> Com trama para maior resistência</li>
                 </ul>
-                <h3>Aplicações</h3>
+                </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Coberturas:</strong> Telhados metálicos, fibrocimento, cerâmica</li>
                     <li><strong>Residencial:</strong> Casas, sobrados, edifícios</li>
@@ -86,7 +150,10 @@ preloadBanner: "banner-manta-termica.jpg"
                     <li><strong>Industrial:</strong> Galpões, armazéns, fábricas</li>
                 </ul>
 
-                <h3>Por que escolher a Planac?</h3>
+                </div>
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
                 <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
                 <ul class="list">
                     <li>Materiais certificados pela ABNT com garantia de qualidade</li>
@@ -98,6 +165,7 @@ preloadBanner: "banner-manta-termica.jpg"
                     <li>Flexibilidade de pagamento</li>
                 </ul>
                 <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
             </div>
 
             <aside class="sidebar">
@@ -149,3 +217,19 @@ preloadBanner: "banner-manta-termica.jpg"
             </form>
         </div>
     </section>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
