@@ -46,13 +46,68 @@ preloadImageType: "webp"
     </div>
 
     <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
         <div class="content-grid">
             <div class="main">
                 <h2>Sobre o Produto</h2>
                 <p>A <strong>Lã de PET EcoFiber</strong> é uma solução sustentável e inovadora para isolamento acústico. Fabricada a partir de garrafas PET recicladas, este material oferece excelente desempenho acústico enquanto contribui para a preservação do meio ambiente.</p>
                 <p>Trabalhamos com a marca <strong>EcoFiber</strong>, que transforma resíduos plásticos em isolantes de alta qualidade, unindo sustentabilidade e eficiência.</p>
 
-                <h3>Características Principais</h3>
+                <h3 class="accordion-header">Características Principais</h3>
+                <div class="accordion-content">
                 <div class="features-grid">
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>100% Reciclado</h4><p>Feito de garrafas PET pós-consumo</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Isolamento Acústico</h4><p>Excelente absorção sonora (NRC até 0,95)</p></div>
@@ -64,13 +119,19 @@ preloadImageType: "webp"
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Durável</h4><p>Não degrada com o tempo</p></div>
                 </div>
 
-                <h3>Espessuras Disponíveis</h3>
+                </div>
+
+                <h3 class="accordion-header">Espessuras Disponíveis</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>25mm:</strong> Ideal para forros e tratamento acústico leve</li>
                     <li><strong>50mm:</strong> Padrão para paredes e divisórias acústicas</li>
                 </ul>
 
-                <h3>Aplicações</h3>
+                </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Estúdios de Gravação:</strong> Tratamento acústico profissional</li>
                     <li><strong>Home Theaters:</strong> Isolamento entre ambientes</li>
@@ -80,7 +141,10 @@ preloadImageType: "webp"
                     <li><strong>Salas de Reunião:</strong> Privacidade acústica</li>
                 </ul>
 
-                <h3>Vantagens Ambientais</h3>
+                </div>
+
+                <h3 class="accordion-header">Vantagens Ambientais</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Cada m² = 30 garrafas PET recicladas</strong></li>
                     <li><strong>Redução de CO₂:</strong> Menor pegada de carbono na produção</li>
@@ -88,7 +152,10 @@ preloadImageType: "webp"
                     <li><strong>Certificação Ambiental:</strong> Produto com selo verde</li>
                 </ul>
 
-                <h3>Comparativo com Lãs Minerais</h3>
+                </div>
+
+                <h3 class="accordion-header">Comparativo com Lãs Minerais</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Segurança:</strong> Não causa irritação na pele ou vias respiratórias</li>
                     <li><strong>Instalação:</strong> Dispensa uso de EPIs especiais</li>
@@ -96,7 +163,10 @@ preloadImageType: "webp"
                     <li><strong>Sustentabilidade:</strong> Menor impacto ambiental na produção</li>
                 </ul>
             
-                <h3>Por que escolher a Planac?</h3>
+                </div>
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
                 <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
                 <ul class="list">
                     <li>Materiais certificados pela ABNT com garantia de qualidade</li>
@@ -108,6 +178,7 @@ preloadImageType: "webp"
                     <li>Flexibilidade de pagamento</li>
                 </ul>
                 <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
             </div>
 
             <aside class="sidebar">
@@ -143,3 +214,19 @@ preloadImageType: "webp"
         <p>Entre em contato e solicite um orçamento sem compromisso</p>
         <a href="{{ whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="btn-cta">Solicitar Orçamento</a>
     </section>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
