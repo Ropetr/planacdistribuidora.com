@@ -47,51 +47,44 @@ preloadBannerCF: "hero-forro-gesso"
     <section class="content">
 
 <style>
-/* Accordion Mobile */
-@media (max-width: 768px) {
-    .accordion-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        padding: 15px 0;
-        border-bottom: 1px solid #e0e0e0;
-        margin-bottom: 0 !important;
-        user-select: none;
-    }
-    .accordion-header::after {
-        content: '';
-        width: 10px;
-        height: 10px;
-        border-right: 2px solid #ED282E;
-        border-bottom: 2px solid #ED282E;
-        transform: rotate(45deg);
-        transition: transform 0.3s ease;
-        flex-shrink: 0;
-        margin-left: 15px;
-    }
-    .accordion-header.active::after {
-        transform: rotate(-135deg);
-    }
-    .accordion-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-out;
-        padding: 0;
-    }
-    .accordion-content.active {
-        max-height: 2000px;
-        padding-top: 15px;
-    }
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
 }
-@media (min-width: 769px) {
-    .accordion-content {
-        max-height: none !important;
-        overflow: visible !important;
-    }
-    .accordion-header::after {
-        display: none;
-    }
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding-top: 15px;
 }
 </style>
 
@@ -352,18 +345,15 @@ function scrollGessoCarousel(direction) {
 </script>
 
 <script>
-// Accordion para mobile
+// Accordion
 document.addEventListener('DOMContentLoaded', function() {
     const headers = document.querySelectorAll('.accordion-header');
     headers.forEach(header => {
         header.addEventListener('click', function() {
-            // Apenas no mobile
-            if (window.innerWidth <= 768) {
-                this.classList.toggle('active');
-                const content = this.nextElementSibling;
-                if (content && content.classList.contains('accordion-content')) {
-                    content.classList.toggle('active');
-                }
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
             }
         });
     });
