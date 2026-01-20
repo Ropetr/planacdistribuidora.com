@@ -45,13 +45,68 @@ preloadBanner: "banner-drywall.jpg"
     </div>
 
     <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
         <div class="content-grid">
             <div class="main">
                 <h2>Sobre o Sistema</h2>
                 <p>As <strong>Paredes de Drywall</strong> são a solução ideal para construções que exigem rapidez, eficiência e alto desempenho. Diferente das divisórias leves, este sistema é projetado para aplicações estruturais e fechamentos robustos, incluindo barracões industriais, construções em <strong>Steel Frame</strong> e fechamentos externos.</p>
                 <p>Utilizamos materiais de primeira linha: placas <strong>Gypsum</strong>, perfis <strong>Barbieri</strong>, isolamento térmico e acústico com <strong>Lã de Vidro Isover</strong> ou <strong>Lã de Rocha Gesla</strong>, garantindo durabilidade e conforto.</p>
 
-                <h3>Características Principais</h3>
+                <h3 class="accordion-header">Características Principais</h3>
+                <div class="accordion-content">
                 <div class="features-grid">
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Alta Resistência</h4><p>Sistema estrutural para cargas e fechamentos externos</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Isolamento Térmico</h4><p>Conforto térmico com lã de vidro ou lã de rocha</p></div>
@@ -63,7 +118,10 @@ preloadBanner: "banner-drywall.jpg"
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Versatilidade</h4><p>Diversas espessuras e configurações</p></div>
                 </div>
 
-                <h3>Componentes do Sistema</h3>
+                </div>
+
+                <h3 class="accordion-header">Componentes do Sistema</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Placas de Gesso Gypsum:</strong> Standard (ST), RU (Resistente à Umidade), RF (Resistente ao Fogo), RU/RF</li>
                     <li><strong>Perfis Metálicos Barbieri:</strong> Guia e Montante em 70mm, 90mm e 120mm</li>
@@ -73,7 +131,10 @@ preloadBanner: "banner-drywall.jpg"
                     <li><strong>Arames:</strong> Gerdau para estruturação</li>
                 </ul>
 
-                <h3>Aplicações</h3>
+                </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Barracões Industriais:</strong> Compartimentação de galpões e áreas de produção</li>
                     <li><strong>Steel Frame:</strong> Fechamentos internos e externos em construções metálicas</li>
@@ -83,7 +144,10 @@ preloadBanner: "banner-drywall.jpg"
                     <li><strong>Residências:</strong> Casas em steel frame e ampliações</li>
                 </ul>
 
-                <h3>Vantagens do Sistema</h3>
+                </div>
+
+                <h3 class="accordion-header">Vantagens do Sistema</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Economia de Tempo:</strong> Construção até 3x mais rápida que alvenaria</li>
                     <li><strong>Leveza:</strong> Reduz carga na estrutura da edificação</li>
@@ -92,7 +156,10 @@ preloadBanner: "banner-drywall.jpg"
                     <li><strong>Custo-Benefício:</strong> Menor mão de obra e desperdício</li>
                 </ul>
             
-                <h3>Por que escolher a Planac?</h3>
+                </div>
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
                 <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
                 <ul class="list">
                     <li>Materiais certificados pela ABNT com garantia de qualidade</li>
@@ -104,6 +171,7 @@ preloadBanner: "banner-drywall.jpg"
                     <li>Flexibilidade de pagamento</li>
                 </ul>
                 <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
             </div>
 
             <aside class="sidebar">
@@ -138,3 +206,19 @@ preloadBanner: "banner-drywall.jpg"
         <p>Entre em contato e solicite um orçamento sem compromisso</p>
         <a href="{{ whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="btn-cta">Solicitar Orçamento</a>
     </section>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
