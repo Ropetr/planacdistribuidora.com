@@ -45,13 +45,68 @@ preloadBanner: "banner-pvc-branco.jpg"
     </div>
 
     <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
         <div class="content-grid">
             <div class="main">
                 <h2>Sobre o produto</h2>
                 <p>O forro de PVC branco é uma solução prática, econômica e versátil para quem busca um acabamento limpo, moderno e de fácil manutenção. Com visual clean e minimalista, este tipo de forro é ideal para ambientes residenciais e comerciais.</p>
                 <p>Amplamente utilizado em banheiros, cozinhas, áreas de serviço, varandas, lojas e comércios, o PVC branco destaca-se pela facilidade de instalação, resistência à umidade e praticidade na limpeza.</p>
 
-                <h3>Características Principais</h3>
+                <h3 class="accordion-header">Características Principais</h3>
+                <div class="accordion-content">
                 <div class="features-grid">
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Visual Clean e Moderno</h4><p>Acabamento branco uniforme que amplia os espaços</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Resistente à Umidade</h4><p>Não apodrece, não empena e não deforma com água</p></div>
@@ -62,7 +117,10 @@ preloadBanner: "banner-pvc-branco.jpg"
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Isolamento Térmico</h4><p>Contribui para conforto térmico</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Custo-Benefício</h4><p>Preço acessível com qualidade garantida</p></div>
                 </div>
-                <h3>Vantagens do PVC Branco</h3>
+                </div>
+
+                <h3 class="accordion-header">Vantagens do PVC Branco</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Impermeável:</strong> Ideal para áreas úmidas como banheiros e cozinhas</li>
                     <li><strong>Higiênico:</strong> Não acumula mofo, fungo ou bactérias</li>
@@ -71,14 +129,20 @@ preloadBanner: "banner-pvc-branco.jpg"
                     <li><strong>Versatilidade:</strong> Combina com qualquer estilo de decoração</li>
                     <li><strong>Sustentabilidade:</strong> Material reciclável</li>
                 </ul>
-                <h3>Tipos de Acabamento</h3>
+                </div>
+
+                <h3 class="accordion-header">Tipos de Acabamento</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>PVC Liso:</strong> Acabamento totalmente liso e uniforme</li>
                     <li><strong>PVC com Friso:</strong> Acabamento com frisos elegantes</li>
                     <li><strong>PVC Brilhante:</strong> Acabamento com brilho sofisticado</li>
                     <li><strong>PVC Fosco:</strong> Acabamento mate discreto</li>
                 </ul>
-                <h3>Aplicações</h3>
+                </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Residencial:</strong> Banheiros, cozinhas, áreas de serviço, varandas</li>
                     <li><strong>Comercial:</strong> Lojas, padarias, restaurantes, supermercados</li>
@@ -86,7 +150,10 @@ preloadBanner: "banner-pvc-branco.jpg"
                     <li><strong>Educacional:</strong> Escolas, creches, salas de aula</li>
                 </ul>
 
-                <h3>Por que escolher a Planac?</h3>
+                </div>
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
                 <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
                 <ul class="list">
                     <li>Materiais certificados pela ABNT com garantia de qualidade</li>
@@ -98,6 +165,7 @@ preloadBanner: "banner-pvc-branco.jpg"
                     <li>Flexibilidade de pagamento</li>
                 </ul>
                 <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
             </div>
 
             <aside class="sidebar">
@@ -152,3 +220,19 @@ preloadBanner: "banner-pvc-branco.jpg"
             </form>
         </div>
     </section>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
