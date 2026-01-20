@@ -328,7 +328,7 @@ preloadBannerCF: "banner-forro-gesso"
     <section class="cta" style="background: #ED282E;">
         <h2>Quer Enviar Seu Projeto para Cotação?</h2>
         <p>Preencha o formulário abaixo e anexe seu projeto (PDF, imagens, DWG, planilhas)</p>
-        <a href="#orcamento" class="btn-cta" style="color: #ED282E;">Enviar Projeto</a>
+        
     </section>
 
     <section class="form-section" id="orcamento">
@@ -347,7 +347,7 @@ preloadBannerCF: "banner-forro-gesso"
                     <small style="color: #666; display: block; margin-top: 5px;">PDF, imagens, DWG, planilhas (máx. 100MB)</small>
                 </div>
                 <div class="form-group"><label for="mensagem">Detalhes do projeto</label><textarea id="mensagem" name="mensagem" placeholder="Descreva seu projeto: área aproximada, tipo de ambiente, necessidades específicas..." required></textarea></div>
-                <button type="submit" class="btn-submit" style="background: #ED282E;" id="btnSubmit">Enviar Projeto via WhatsApp</button>
+                <button type="submit" class="btn-submit" style="background: #ED282E;" id="btnSubmit">Enviar Projeto</button>
                 <div id="uploadStatus" style="display: none; margin-top: 10px; padding: 10px; border-radius: 8px; text-align: center;"></div>
             </form>
         </div>
@@ -435,7 +435,7 @@ async function handleProjectSubmit(event) {
         status.style.color = '#c62828';
         status.textContent = '❌ Erro: ' + error.message;
         btn.disabled = false;
-        btn.textContent = 'Enviar Projeto via WhatsApp';
+        btn.textContent = 'Enviar Projeto';
         return;
     }
     
@@ -458,7 +458,7 @@ async function handleProjectSubmit(event) {
     // Resetar após 3 segundos
     setTimeout(() => {
         btn.disabled = false;
-        btn.textContent = 'Enviar Projeto via WhatsApp';
+        btn.textContent = 'Enviar Projeto';
         status.style.display = 'none';
         document.getElementById('formProjeto').reset();
     }, 3000);
