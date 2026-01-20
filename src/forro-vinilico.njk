@@ -45,13 +45,68 @@ preloadBanner: "banner-forro-vinilico.jpg"
     </div>
 
     <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
         <div class="content-grid">
             <div class="main">
                 <h2>Sobre o produto</h2>
                 <p>O <strong>Forro Vinílico REVID</strong> é uma solução inovadora e sofisticada que combina beleza estética com alta performance técnica. Fabricado em PVC vinílico de alta qualidade, este sistema oferece resistência excepcional à umidade.</p>
                 <p>Ideal para quem busca um forro diferenciado, o REVID se destaca pelo acabamento refinado, variedade de cores e texturas, além da facilidade de instalação e manutenção.</p>
 
-                <h3>Características Principais</h3>
+                <h3 class="accordion-header">Características Principais</h3>
+                <div class="accordion-content">
                 <div class="features-grid">
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Material Premium</h4><p>PVC vinílico de alta qualidade</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>100% Impermeável</h4><p>Resistência total à umidade</p></div>
@@ -62,7 +117,10 @@ preloadBanner: "banner-forro-vinilico.jpg"
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Isolamento Térmico</h4><p>Auxilia no conforto térmico</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Sustentável</h4><p>Material reciclável</p></div>
                 </div>
-                <h3>Vantagens do REVID</h3>
+                </div>
+
+                <h3 class="accordion-header">Vantagens do REVID</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Design Exclusivo:</strong> Variedade de cores, texturas e acabamentos</li>
                     <li><strong>Higiênico:</strong> Superfície que não acumula fungos ou bactérias</li>
@@ -71,7 +129,10 @@ preloadBanner: "banner-forro-vinilico.jpg"
                     <li><strong>Estabilidade Dimensional:</strong> Não empena ou deforma</li>
                     <li><strong>Econômico:</strong> Não necessita pintura ou tratamentos</li>
                 </ul>
-                <h3>Aplicações</h3>
+                </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Residencial:</strong> Salas, quartos, cozinhas, banheiros</li>
                     <li><strong>Comercial:</strong> Lojas, escritórios, consultórios</li>
@@ -79,7 +140,10 @@ preloadBanner: "banner-forro-vinilico.jpg"
                     <li><strong>Saúde:</strong> Hospitais, clínicas, laboratórios</li>
                 </ul>
 
-                <h3>Por que escolher a Planac?</h3>
+                </div>
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
                 <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
                 <ul class="list">
                     <li>Materiais certificados pela ABNT com garantia de qualidade</li>
@@ -91,6 +155,7 @@ preloadBanner: "banner-forro-vinilico.jpg"
                     <li>Flexibilidade de pagamento</li>
                 </ul>
                 <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
             </div>
 
             <aside class="sidebar">
@@ -145,3 +210,19 @@ preloadBanner: "banner-forro-vinilico.jpg"
             </form>
         </div>
     </section>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
