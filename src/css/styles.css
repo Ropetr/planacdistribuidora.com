@@ -126,9 +126,9 @@ main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, foot
 .footer-bottom a { color: #595959; text-decoration: underline; }
 .footer-bottom a:hover { color: #ED282E; }
 
-.footer-icon { color: #666; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #f5f5f5; text-decoration: none; }
+.footer-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #f5f5f5; text-decoration: none; }
 .footer-icon:hover { background: #eee; }
-.footer-icon svg { width: 20px; height: 20px; fill: currentColor; }
+.footer-icon svg { width: 20px; height: 20px; }
 
 /* Home Page - Hero Carousel */
 .hero-carousel { width: 100%; aspect-ratio: 1920/700; min-height: 200px; max-height: 70vh; position: relative; overflow: hidden; }
