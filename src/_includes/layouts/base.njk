@@ -27,7 +27,17 @@
     <link rel="preload" href="/assets/fonts/barlow-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/barlow-700.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/barlow-800.woff2" as="font" type="font/woff2" crossorigin>
-    {% if preloadBanner %}
+    {% if preloadBannerCF %}
+    <link rel="preload" as="image" 
+          href="https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/{{ preloadBannerCF }}-1920/public"
+          imagesrcset="
+            https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/{{ preloadBannerCF }}-320/public 320w,
+            https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/{{ preloadBannerCF }}-480/public 480w,
+            https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/{{ preloadBannerCF }}-1024/public 1024w,
+            https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/{{ preloadBannerCF }}-1920/public 1920w"
+          imagesizes="100vw"
+          fetchpriority="high">
+    {% elif preloadBanner %}
     <link rel="preload" as="image" 
           href="/assets/banners/1920x700/{{ preloadBanner }}"
           imagesrcset="
