@@ -45,13 +45,68 @@ preloadBanner: "banner-la-de-vidro.jpg"
     </div>
 
     <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
         <div class="content-grid">
             <div class="main">
                 <h2>Sobre o Produto</h2>
                 <p>A <strong>Lã de Vidro Isover</strong> é um dos isolantes térmicos e acústicos mais eficientes do mercado. Fabricada a partir de sílica e sódio, a lã de vidro oferece excelente desempenho em isolamento, sendo amplamente utilizada em forros, paredes drywall, coberturas e sistemas de climatização.</p>
                 <p>Trabalhamos com a marca <strong>Isover</strong> (Saint-Gobain), líder mundial em soluções de isolamento, garantindo qualidade e durabilidade para sua obra.</p>
 
-                <h3>Características Principais</h3>
+                <h3 class="accordion-header">Características Principais</h3>
+                <div class="accordion-content">
                 <div class="features-grid">
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Isolamento Térmico</h4><p>Reduz a transferência de calor entre ambientes</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Isolamento Acústico</h4><p>Absorve ruídos e reduz a reverberação</p></div>
@@ -63,7 +118,10 @@ preloadBanner: "banner-la-de-vidro.jpg"
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Versátil</h4><p>Diversas espessuras e formatos</p></div>
                 </div>
 
-                <h3>Espessuras Disponíveis</h3>
+                </div>
+
+                <h3 class="accordion-header">Espessuras Disponíveis</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>25mm:</strong> Ideal para forros e aplicações leves</li>
                     <li><strong>50mm:</strong> Padrão para paredes drywall e divisórias</li>
@@ -71,14 +129,20 @@ preloadBanner: "banner-la-de-vidro.jpg"
                     <li><strong>100mm:</strong> Máximo desempenho térmico e acústico</li>
                 </ul>
 
-                <h3>Formatos</h3>
+                </div>
+
+                <h3 class="accordion-header">Formatos</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Painéis:</strong> Placas rígidas para fácil instalação em paredes</li>
                     <li><strong>Rolos:</strong> Flexíveis, ideais para grandes áreas e coberturas</li>
                     <li><strong>Com Véu:</strong> Face de alumínio ou papel kraft para acabamento</li>
                 </ul>
 
-                <h3>Aplicações</h3>
+                </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Paredes Drywall:</strong> Entre montantes para isolamento térmico/acústico</li>
                     <li><strong>Forros:</strong> Sobre forros de gesso para conforto térmico</li>
@@ -87,7 +151,10 @@ preloadBanner: "banner-la-de-vidro.jpg"
                     <li><strong>Steel Frame:</strong> Preenchimento de paredes estruturais</li>
                 </ul>
 
-                <h3>Vantagens</h3>
+                </div>
+
+                <h3 class="accordion-header">Vantagens</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Conforto Térmico:</strong> Ambientes mais frescos no verão e aquecidos no inverno</li>
                     <li><strong>Privacidade Acústica:</strong> Redução de ruídos entre cômodos</li>
@@ -96,7 +163,10 @@ preloadBanner: "banner-la-de-vidro.jpg"
                     <li><strong>Sustentabilidade:</strong> Produto reciclável</li>
                 </ul>
             
-                <h3>Por que escolher a Planac?</h3>
+                </div>
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
                 <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
                 <ul class="list">
                     <li>Materiais certificados pela ABNT com garantia de qualidade</li>
@@ -108,6 +178,7 @@ preloadBanner: "banner-la-de-vidro.jpg"
                     <li>Flexibilidade de pagamento</li>
                 </ul>
                 <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
             </div>
 
             <aside class="sidebar">
@@ -143,3 +214,19 @@ preloadBanner: "banner-la-de-vidro.jpg"
         <p>Entre em contato e solicite um orçamento sem compromisso</p>
         <a href="{{ whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="btn-cta">Solicitar Orçamento</a>
     </section>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
