@@ -45,6 +45,60 @@ preloadBanner: "banner-forro-boreal.jpg"
 </div>
 
 <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
     <div class="content-grid">
         <div class="main">
             <h2>Forro Boreal Isover Forrovid</h2>
@@ -243,7 +297,8 @@ preloadBanner: "banner-forro-boreal.jpg"
                 </div>
             </div>
 
-            <h3 style="margin-top: 48px;">Especificações Técnicas</h3>
+            <h3 class="accordion-header">Especificações Técnicas</h3>
+                <div class="accordion-content">
             <div class="table-responsive" style="margin-top: 24px; overflow-x: auto;">
                 <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
                     <thead>
@@ -282,7 +337,10 @@ preloadBanner: "banner-forro-boreal.jpg"
             </div>
             <p style="margin-top: 12px; font-size: 14px; color: #666;"><strong>Densidade:</strong> 60 kg/m³ | <strong>Borda:</strong> Reta (lay-in) | <strong>Cores:</strong> Branco e Preto</p>
 
-            <h3 style="margin-top: 48px;">Por que escolher o Forro Boreal?</h3>
+            </div>
+
+                <h3 class="accordion-header">Características e Vantagens</h3>
+                <div class="accordion-content">
             <div class="features-grid" style="margin-top: 24px;">
                 <div class="feature-card"><h4>Isolamento Acústico</h4><p>Alta absorção sonora certificada pelo IPT/SP. Ideal para ambientes que exigem conforto acústico.</p></div>
                 <div class="feature-card"><h4>Isolamento Térmico</h4><p>Reduz variação de temperatura, gerando economia de energia com ar-condicionado e aquecedores.</p></div>
@@ -290,7 +348,10 @@ preloadBanner: "banner-forro-boreal.jpg"
                 <div class="feature-card"><h4>Fácil Manutenção</h4><p>Sistema removível que permite acesso rápido às instalações elétricas e hidráulicas.</p></div>
             </div>
 
-            <h3 style="margin-top: 48px;">Aplicações</h3>
+            </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
             <p>O Forro Boreal é indicado para ambientes com alta circulação de pessoas que necessitam de conforto térmico e acústico:</p>
             <ul style="margin-top: 16px; padding-left: 24px;">
                 <li>Igrejas e templos religiosos</li>
@@ -301,7 +362,25 @@ preloadBanner: "banner-forro-boreal.jpg"
                 <li>Escolas e universidades</li>
                 <li>Auditórios e salas de reunião</li>
             </ul>
-        </div>
+                </div>
+
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
+                <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
+                <ul class="list">
+                    <li>Materiais certificados pela ABNT com garantia de qualidade</li>
+                    <li>Atendimento especializado com profissionais experientes</li>
+                    <li>Preços competitivos de atacado</li>
+                    <li>Produtos a pronta entrega</li>
+                    <li>Indicação de profissionais qualificados para instalação</li>
+                    <li>Suporte técnico completo</li>
+                    <li>Flexibilidade de pagamento</li>
+                </ul>
+                <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
+
+            </div>
 
             <aside class="sidebar">
             <div class="sidebar-card">
@@ -348,4 +427,20 @@ function scrollCarousel(direction) {
     const scrollAmount = 240 * direction;
     container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 }
+</script>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
 </script>
