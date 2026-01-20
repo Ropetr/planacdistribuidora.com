@@ -53,7 +53,7 @@ preloadBannerCF: "hero-forro-gesso"
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 15px 0;
+    padding: 12px 0;
     border-bottom: 1px solid #e0e0e0;
     margin-bottom: 0 !important;
     user-select: none;
@@ -72,6 +72,7 @@ preloadBannerCF: "hero-forro-gesso"
     transition: transform 0.3s ease;
     flex-shrink: 0;
     margin-left: 15px;
+    margin-right: 5px;
 }
 .accordion-header.active::after {
     transform: rotate(-135deg);
@@ -84,8 +85,17 @@ preloadBannerCF: "hero-forro-gesso"
 }
 .accordion-content.active {
     max-height: 2000px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
 }
 </style>
 
