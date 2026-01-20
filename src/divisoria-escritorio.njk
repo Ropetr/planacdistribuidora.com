@@ -54,13 +54,68 @@ preloadBanner: "banner-divisoria-escritorio.jpg"
     </div>
 
     <section class="content">
+
+<style>
+/* Accordion */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 0 !important;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+.accordion-header:hover {
+    color: #ED282E;
+}
+.accordion-header::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ED282E;
+    border-bottom: 2px solid #ED282E;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.accordion-header.active::after {
+    transform: rotate(-135deg);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0;
+}
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 10px 0 5px 0;
+}
+.accordion-content .features-grid {
+    margin-bottom: 0 !important;
+}
+.accordion-content .list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+.accordion-content > p:last-child {
+    margin-bottom: 0 !important;
+}
+</style>
+
         <div class="content-grid">
             <div class="main">
                 <h2>Sobre o produto</h2>
                 <p>As <strong>Divisórias de Escritório</strong> são soluções práticas e econômicas para separação de ambientes corporativos. Disponíveis nos modelos <strong>UV</strong> e <strong>Eucatex</strong>, oferecem excelente custo-benefício para empresas de todos os portes.</p>
                 <p>Ideais para criar salas de reunião, estações de trabalho, recepções e áreas administrativas, as divisórias de escritório combinam funcionalidade, estética e instalação rápida.</p>
 
-                <h3>Tipos de Divisória</h3>
+                <h3 class="accordion-header">Tipos de Divisória</h3>
+                <div class="accordion-content">
                 <div class="features-grid">
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Divisória UV</h4><p>Acabamento liso com proteção UV, resistente e fácil de limpar.</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Divisória Eucatex</h4><p>Chapa de madeira prensada com pintura. Opção econômica e versátil para escritórios.</p></div>
@@ -68,7 +123,10 @@ preloadBanner: "banner-divisoria-escritorio.jpg"
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Cegas</h4><p>Versões sem vidro para maior privacidade e isolamento acústico.</p></div>
                 </div>
 
-                <h3>Características Principais</h3>
+                </div>
+
+                <h3 class="accordion-header">Características Principais</h3>
+                <div class="accordion-content">
                 <div class="features-grid">
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Instalação Rápida</h4><p>Sistema modular de encaixe sem necessidade de obra</p></div>
                     <div class="feature-card" style="border-left-color: #ED282E;"><h4>Desmontável</h4><p>Pode ser realocada conforme mudanças de layout</p></div>
@@ -77,7 +135,10 @@ preloadBanner: "banner-divisoria-escritorio.jpg"
                 </div>
 
 
-                <h3>Aplicações</h3>
+                </div>
+
+                <h3 class="accordion-header">Aplicações</h3>
+                <div class="accordion-content">
                 <p>As divisórias de escritório são indicadas para:</p>
                 <ul class="list">
                     <li><strong>Escritórios:</strong> Salas de reunião, estações de trabalho, áreas administrativas</li>
@@ -88,7 +149,10 @@ preloadBanner: "banner-divisoria-escritorio.jpg"
                     <li><strong>Call Centers:</strong> Estações de trabalho individuais</li>
                 </ul>
 
-                <h3>Vantagens</h3>
+                </div>
+
+                <h3 class="accordion-header">Vantagens</h3>
+                <div class="accordion-content">
                 <ul class="list">
                     <li><strong>Economia:</strong> Custo menor que alvenaria ou drywall</li>
                     <li><strong>Agilidade:</strong> Instalação em poucos dias sem sujeira</li>
@@ -98,7 +162,10 @@ preloadBanner: "banner-divisoria-escritorio.jpg"
                     <li><strong>Durabilidade:</strong> Material resistente ao uso diário</li>
                 </ul>
 
-                <h3>Por que escolher a Planac?</h3>
+                </div>
+
+                <h3 class="accordion-header">Por que escolher a Planac?</h3>
+                <div class="accordion-content">
                 <p>A <strong>Planac Distribuidora</strong> é referência em materiais para construção e acabamento. Oferecemos:</p>
                 <ul class="list">
                     <li>Materiais de qualidade com garantia</li>
@@ -109,6 +176,7 @@ preloadBanner: "banner-divisoria-escritorio.jpg"
                     <li>Suporte técnico completo</li>
                 </ul>
                 <p>Nossa equipe está pronta para auxiliar você em todas as etapas do seu projeto. Entre em contato e solicite seu orçamento!</p>
+                </div>
             </div>
 
             <aside class="sidebar">
@@ -158,3 +226,19 @@ preloadBanner: "banner-divisoria-escritorio.jpg"
             </form>
         </div>
     </section>
+
+<script>
+// Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (content && content.classList.contains('accordion-content')) {
+                content.classList.toggle('active');
+            }
+        });
+    });
+});
+</script>
