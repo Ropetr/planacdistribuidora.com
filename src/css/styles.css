@@ -437,6 +437,7 @@ a:focus-visible {
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    scroll-snap-align: start;
 }
 .dewalt-carousel .dewalt-product-card:hover {
     transform: translateY(-4px);
@@ -585,6 +586,7 @@ a:focus-visible {
 .home-carousel__container {
     overflow-x: auto;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -609,6 +611,7 @@ a:focus-visible {
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    scroll-snap-align: start;
 }
 .home-product-card:hover {
     transform: translateY(-6px);
