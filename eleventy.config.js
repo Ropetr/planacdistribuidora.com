@@ -18,6 +18,14 @@ module.exports = function(eleventyConfig) {
         return encodeURIComponent(str);
     });
     
+    // Filtro para remover .html das URLs (Pretty URLs)
+    // Cloudflare Pages remove .html automaticamente, então canonical deve refletir isso
+    eleventyConfig.addFilter("prettyUrl", function(url) {
+        if (!url) return "/";
+        // Remove .html do final da URL
+        return url.replace(/\.html$/, "");
+    });
+    
     // Copiar arquivos estáticos
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/js");
