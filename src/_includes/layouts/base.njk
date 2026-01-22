@@ -81,13 +81,13 @@
     <meta name="keywords" content="{{ keywords }}">
     <meta name="author" content="{{ site.name }}">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="{{ site.url }}{{ canonical | default(page.url) }}">
-    <link rel="alternate" hreflang="pt-BR" href="{{ site.url }}{{ canonical | default(page.url) }}">
-    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ canonical | default(page.url) }}">
+    <link rel="canonical" href="{{ site.url }}{{ (canonical | default(page.url)) | prettyUrl }}">
+    <link rel="alternate" hreflang="pt-BR" href="{{ site.url }}{{ (canonical | default(page.url)) | prettyUrl }}">
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ (canonical | default(page.url)) | prettyUrl }}">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url | prettyUrl }}">
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ ogDescription | default(description) }}">
     <meta property="og:image" content="{{ site.url }}{{ ogImage | default('/assets/hero-1.jpg') }}">
