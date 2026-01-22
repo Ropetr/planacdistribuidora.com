@@ -4,6 +4,7 @@
   "description": "Distribuidora de forros, divisórias e materiais de isolamento térmico e acústico em Londrina e região. Forro PVC, gesso, mineral, divisórias de escritório, drywall, lã de vidro, lã de rocha, lã de PET e ferramentas DeWalt.",
   "cnpj": "13.263.698/0001-80",
   "url": "https://planacdistribuidora.com",
+  "email": "contato@planacdivisorias.com.br",
   "phone": "(43) 3028-5316",
   "phoneRaw": "4330285316",
   "whatsapp": "(43) 98418-2582",
@@ -19,7 +20,8 @@
     "neighborhood": "Jardim do Sol",
     "city": "Londrina",
     "state": "PR",
-    "cep": "86082-000",
+    "postalCode": "86070-370",
+    "cep": "86070-370",
     "country": "BR"
   },
   "openingHours": {
