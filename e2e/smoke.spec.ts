@@ -78,8 +78,9 @@ test.describe('Smoke Tests - Verificações Básicas', () => {
     await page.goto('/');
     
     // Verificar que o header tem estilo aplicado
+    // O header usa position: fixed para ficar fixo no topo durante scroll
     const header = page.locator('.header');
-    await expect(header).toHaveCSS('position', 'sticky');
+    await expect(header).toHaveCSS('position', 'fixed');
   });
 
   test('Todas as páginas principais retornam 200', async ({ page }) => {
