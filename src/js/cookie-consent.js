@@ -2,19 +2,23 @@
  * Cookie Consent Banner - Planac Distribuidora
  * Implementa Google Consent Mode v2
  * Compatível com LGPD e Google Ads
+ * 
+ * ATUALIZADO: Marketing e Analytics liberados por padrão
+ * para permitir tracking imediato (Meta Pixel + GA4)
  */
 
 (function() {
     'use strict';
 
-    // Configuração padrão - todos negados até consentimento
+    // Configuração padrão - marketing e analytics LIBERADOS por padrão
+    // Isso permite que Meta Pixel e GA4 funcionem imediatamente
     const defaultConsent = {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted',
         'functionality_storage': 'granted',
-        'personalization_storage': 'denied',
+        'personalization_storage': 'granted',
         'security_storage': 'granted'
     };
 
