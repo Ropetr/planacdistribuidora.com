@@ -18,3 +18,10 @@ Allow: /
 
 User-agent: Bingbot
 Allow: /
+
+# Manus AI - Acesso para otimização de anúncios
+User-agent: python-requests
+Allow: /
+
+User-agent: Mozilla
+Allow: /
