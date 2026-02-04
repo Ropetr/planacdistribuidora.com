@@ -14,10 +14,20 @@ Site institucional da Planac Distribuidora migrado para **Eleventy (11ty)**, um 
 
 ---
 
+## 💾 Backup
+
+Backup completo do repositório disponível no Google Drive:
+
+🔗 **[Backup - Google Drive](https://drive.google.com/drive/u/0/folders/1Ky06FmeTlkGmnZpplrKVqnFJETLlin8f)**
+
+> **Nota:** Contém versões anteriores do site, incluindo arquivos originais (.rar) e imagens fonte removidas na limpeza de 04/02/2026.
+
+---
+
 ## 🏗️ Estrutura do Projeto
 
 ```
-planac-eleventy/
+site-html-planac/
 ├── src/                          # Código fonte
 │   ├── _data/                    # Dados globais (JSON)
 │   │   └── site.json             # Informações da empresa
@@ -40,6 +50,15 @@ planac-eleventy/
 ├── package.json                  # Dependências Node.js
 └── README.md                     # Esta documentação
 ```
+
+---
+
+## 🖼️ Imagens
+
+As imagens do site são servidas via **Cloudflare Images** (CDN global):
+- URL base: `https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/`
+- Conversão automática AVIF/WebP
+- Responsivo com múltiplos tamanhos
 
 ---
 
@@ -156,35 +175,22 @@ description: "Descrição para SEO"
 | Página | Arquivo | URL |
 |--------|---------|-----|
 | Home | index.njk | / |
-| Dewalt | dewalt.njk | /dewalt.html |
-| Paredes Drywall | paredes-drywall.njk | /paredes-drywall.html |
-| Forro Gesso | forro-gesso.njk | /forro-gesso.html |
-| PVC Branco | pvc-branco.njk | /pvc-branco.html |
-| PVC Amadeirado | pvc-amadeirado.njk | /pvc-amadeirado.html |
-| Forro Vinílico | forro-vinilico.njk | /forro-vinilico.html |
-| Forro Mineral | forro-mineral.njk | /forro-mineral.html |
-| Divisória Escritório | divisoria-escritorio.njk | /divisoria-escritorio.html |
-| Divisória Drywall | divisoria-drywall.njk | /divisoria-drywall.html |
-| Manta Térmica | manta-termica.njk | /manta-termica.html |
-| Lã de Vidro | la-de-vidro.njk | /la-de-vidro.html |
-| Lã de Rocha | la-de-rocha.njk | /la-de-rocha.html |
-| Lã de PET | la-de-pet.njk | /la-de-pet.html |
-| Privacidade | privacidade.njk | /privacidade.html |
-
----
-
-## ✅ Checklist de Validação
-
-- [x] Logo 60px em todas as páginas
-- [x] Font-weight 500 no menu
-- [x] Menu de isolamento correto
-- [x] Schema.org com horários corretos
-- [x] Links internos com /
-- [x] Build sem erros
-- [x] 15 páginas HTML geradas
-- [x] CSS/JS copiados corretamente
-- [x] _redirects configurado
-- [x] _headers configurado
+| Dewalt | dewalt.njk | /dewalt |
+| Paredes Drywall | paredes-drywall.njk | /paredes-drywall |
+| Forro Gesso | forro-gesso.njk | /forro-gesso |
+| PVC Branco | pvc-branco.njk | /pvc-branco |
+| PVC Amadeirado | pvc-amadeirado.njk | /pvc-amadeirado |
+| Forro Vinílico | forro-vinilico.njk | /forro-vinilico |
+| Forro Mineral | forro-mineral.njk | /forro-mineral |
+| Forro Boreal | forro-boreal.njk | /forro-boreal |
+| Forro Isopor | forro-isopor.njk | /forro-isopor |
+| Divisória Escritório | divisoria-escritorio.njk | /divisoria-escritorio |
+| Divisória Drywall | divisoria-drywall.njk | /divisoria-drywall |
+| Manta Térmica | manta-termica.njk | /manta-termica |
+| Lã de Vidro | la-de-vidro.njk | /la-de-vidro |
+| Lã de Rocha | la-de-rocha.njk | /la-de-rocha |
+| Lã de PET | la-de-pet.njk | /la-de-pet |
+| Privacidade | privacidade.njk | /privacidade |
 
 ---
 
@@ -192,8 +198,9 @@ description: "Descrição para SEO"
 
 | Data | Versão | Alteração |
 |------|--------|-----------|
+| 04/02/2026 | 2.1.0 | Limpeza do repositório (~81 MB removidos), migração completa para Cloudflare Images |
 | 13/01/2026 | 2.0.0 | Migração para Eleventy SSG |
 
 ---
 
-**Desenvolvido por Claude (Anthropic) para Planac Distribuidora**
+**Desenvolvido para Planac Distribuidora**
