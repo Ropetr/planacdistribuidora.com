@@ -4,7 +4,7 @@
 
 # ===== REDIRECTS 301 (SEO) =====
 # Página removida - divisoria-naval redireciona para divisoria-escritorio
-/divisoria-naval.html  /divisoria-escritorio.html  301
+/divisoria-naval.html  /divisoria-escritorio  301
 
 # Página renomeada - drywall.html redireciona para divisoria-drywall.html  
-/drywall.html  /divisoria-drywall.html  301
+/drywall.html  /divisoria-drywall  301
