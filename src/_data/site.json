@@ -38,5 +38,39 @@
     "provider": "Cloudflare Zaraz",
     "ga4Id": "G-EQ7VPYGCQP",
     "note": "Configurado via Zaraz Dashboard"
-  }
+  },
+  "faqs": [
+    {
+      "question": "Quais regiões a Planac atende?",
+      "answer": "Atendemos Londrina, Cambé, Ibiporã, Rolândia, Arapongas, Apucarana, Jataizinho, Sertanópolis, Bela Vista do Paraíso, Primeiro de Maio, Assaí, Jaguapitã, Tamarana, Sabáudia, Pitangueiras, Florestópolis, Porecatu, Alvorada do Sul, Centenário do Sul, Guaraci, Uraí, Jandaia do Sul, Mandaguari, Astorga, Cornélio Procópio, Prado Ferreira, Miraselva, Rancho Alegre, Santa Mariana, São Sebastião da Amoreira, Nova Santa Bárbara, Califórnia, Cambira e Mauá da Serra."
+    },
+    {
+      "question": "Qual o horário de funcionamento?",
+      "answer": "Segunda a sexta das 8h às 18h e sábado das 8h às 12h."
+    },
+    {
+      "question": "Quais marcas vocês são distribuidores?",
+      "answer": "Somos distribuidores das marcas Gypsum, Barbieri, Drybox, Ciser, Plasbil, Eucatex, Germano Portas, Avant e Infibra."
+    },
+    {
+      "question": "O orçamento é gratuito?",
+      "answer": "Sim, o orçamento é gratuito. Também oferecemos detalhamento técnico de projetos em drywall sem custo adicional."
+    },
+    {
+      "question": "Quais formas de pagamento vocês aceitam?",
+      "answer": "Aceitamos PIX, dinheiro, cartão de crédito/débito e boleto bancário."
+    },
+    {
+      "question": "Vocês vendem para pessoa física e jurídica?",
+      "answer": "Sim, atendemos tanto pessoas físicas quanto jurídicas."
+    },
+    {
+      "question": "Quais tipos de forro vocês trabalham?",
+      "answer": "Trabalhamos com forro de gesso acartonado, PVC branco, PVC amadeirado, vinílico REVID, mineral acústico, Boreal Isover e isopor EPS. Também oferecemos divisórias de escritório, divisórias e paredes de drywall, além de isolamento térmico e acústico com lã de vidro, lã de rocha, lã de PET e manta térmica."
+    },
+    {
+      "question": "A Planac faz instalação?",
+      "answer": "A Planac atua como parceira do cliente e de instaladores profissionais. Resolvemos a questão da instalação para o cliente que precisar — nossa equipe de parceiros é formada por instaladores profissionais experientes. Dessa forma, atuamos como ponte entre a satisfação do cliente e dos nossos parceiros de negócio."
+    }
+  ]
 }
