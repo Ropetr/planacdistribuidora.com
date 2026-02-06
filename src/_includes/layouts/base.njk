@@ -301,6 +301,28 @@ body{font-family:'Barlow',-apple-system,BlinkMacSystemFont,sans-serif;line-heigh
     {{ schemaBreadcrumb | safe }}
     </script>
     {% endif %}
+    
+    {% if page.url == "/" and site.faqs %}
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for faq in site.faqs %}
+        {
+          "@type": "Question",
+          "name": "{{ faq.question }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ faq.answer }}"
+          }
+        }{{ "," if not loop.last }}
+        {% endfor %}
+      ]
+    }
+    </script>
+    {% endif %}
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
