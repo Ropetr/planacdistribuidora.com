@@ -188,7 +188,21 @@ body{font-family:'Barlow',-apple-system,BlinkMacSystemFont,sans-serif;line-heigh
       "@id": "{{ site.url }}/#organization",
       "name": "{{ site.name }}",
       "alternateName": "Planac",
+      "legalName": "{{ site.legalName }}",
       "description": "{{ site.description }}",
+      "foundingDate": "2011",
+      "taxID": "{{ site.cnpj }}",
+      "hasMap": "{{ site.mapsLink }}",
+      "knowsAbout": [
+        "Forro de PVC",
+        "Forro de Gesso Acartonado",
+        "Drywall",
+        "Divisórias de Escritório",
+        "Isolamento Térmico",
+        "Isolamento Acústico",
+        "Forro Mineral",
+        "Forro Vinílico"
+      ],
       "url": "{{ site.url }}",
       "logo": {
         "@type": "ImageObject",
@@ -323,6 +337,24 @@ body{font-family:'Barlow',-apple-system,BlinkMacSystemFont,sans-serif;line-heigh
     }
     </script>
     {% endif %}
+    
+    {% if page.url == "/" %}
+    <!-- Schema.org WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "name": "{{ site.name }}",
+      "alternateName": "Planac",
+      "url": "{{ site.url }}",
+      "publisher": {
+        "@id": "{{ site.url }}/#organization"
+      },
+      "inLanguage": "pt-BR"
+    }
+    </script>
+    {% endif %}
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -353,6 +385,7 @@ body{font-family:'Barlow',-apple-system,BlinkMacSystemFont,sans-serif;line-heigh
 <script src="/js/cookie-consent.js" defer></script>
 </body>
 </html>
+
 
 
 
