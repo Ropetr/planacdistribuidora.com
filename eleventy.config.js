@@ -51,6 +51,10 @@ module.exports = function(eleventyConfig) {
         },
         
         // Gera Schema Product automaticamente
+        // NOTA: Usa formato "Product Snippets" (sem offers/price) conforme
+        // Google Search Central — adequado para distribuidoras com orçamento
+        // personalizado que não vendem diretamente online.
+        // Ref: https://developers.google.com/search/docs/appearance/structured-data/product-snippet
         schemaProduct: function(data) {
             if (!data.products || !data.page || !data.page.fileSlug) return null;
             
@@ -74,18 +78,9 @@ module.exports = function(eleventyConfig) {
                 },
                 "category": product.category,
                 "url": siteUrl + pageUrl,
-                "offers": {
-                    "@type": "Offer",
-                    "availability": "https://schema.org/InStock",
-                    "priceCurrency": "BRL",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "priceCurrency": "BRL"
-                    },
-                    "seller": {
-                        "@type": "Organization",
-                        "name": "Planac Distribuidora"
-                    }
+                "manufacturer": {
+                    "@type": "Organization",
+                    "name": product.brand
                 },
                 "aggregateRating": {
                     "@type": "AggregateRating",
