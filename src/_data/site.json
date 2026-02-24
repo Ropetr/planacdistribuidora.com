@@ -35,9 +35,13 @@
   "themeColor": "#AA000E",
   "year": "2026",
   "analytics": {
-    "provider": "Cloudflare Zaraz",
-    "ga4Id": "G-EQ7VPYGCQP",
-    "note": "Configurado via Zaraz Dashboard"
+    "provider": "Google Tag Manager",
+    "gtmId": "GTM-N7F8FBW2",
+    "ga4Id": "G-WHRGQQNTB9",
+    "ga4PropertyId": "525811922",
+    "ga4StreamId": "13659769731",
+    "googleAdsId": "756-861-0972",
+    "note": "Configurado via GTM - Implementa\u00e7\u00e3o limpa do zero em 24/02/2026"
   },
   "faqs": [
     {

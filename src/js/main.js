@@ -200,16 +200,81 @@ function initLazyBackgrounds() {
     }
 }
 
-// Tracking de eventos para GTM/GA4
-function trackEvent(action, category, label) {
+// Tracking de eventos para GTM/GA4 - Profissional
+function trackEvent(action, category, label, value) {
     if (typeof dataLayer !== 'undefined') {
         dataLayer.push({
-            'event': 'custom_event',
-            'event_action': action,
+            'event': action,
             'event_category': category,
-            'event_label': label
+            'event_label': label,
+            'event_value': value || undefined
         });
     }
+}
+
+// Rastreamento automático de cliques em WhatsApp
+function initWhatsAppTracking() {
+    document.querySelectorAll('a[href*="whatsapp"], a[href*="wa.me"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            trackEvent('whatsapp_click', 'contato', this.textContent.trim() || 'WhatsApp');
+        }, { passive: true });
+    });
+}
+
+// Rastreamento automático de cliques em telefone
+function initPhoneTracking() {
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            trackEvent('phone_click', 'contato', this.href.replace('tel:', ''));
+        }, { passive: true });
+    });
+}
+
+// Rastreamento de scroll (25%, 50%, 75%, 100%)
+function initScrollTracking() {
+    var scrollThresholds = [25, 50, 75, 100];
+    var scrollFired = {};
+    
+    window.addEventListener('scroll', function() {
+        var scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+        
+        scrollThresholds.forEach(function(threshold) {
+            if (scrollPercent >= threshold && !scrollFired[threshold]) {
+                scrollFired[threshold] = true;
+                trackEvent('scroll_depth', 'engajamento', threshold + '%', threshold);
+            }
+        });
+    }, { passive: true });
+}
+
+// Rastreamento de cliques em redes sociais
+function initSocialTracking() {
+    document.querySelectorAll('a[href*="instagram.com"], a[href*="facebook.com"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            var platform = this.href.includes('instagram') ? 'instagram' : 'facebook';
+            trackEvent('social_click', 'redes_sociais', platform);
+        }, { passive: true });
+    });
+}
+
+// Rastreamento de cliques em CTAs
+function initCTATracking() {
+    document.querySelectorAll('.btn-hero, .btn-header, .btn-orcamento, [data-action]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            var action = this.dataset.action || 'cta_click';
+            var label = this.textContent.trim() || 'CTA';
+            trackEvent(action, 'conversao', label);
+        }, { passive: true });
+    });
+}
+
+// Rastreamento de visualização de localização (Google Maps)
+function initMapsTracking() {
+    document.querySelectorAll('a[href*="maps"], a[href*="goo.gl/maps"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            trackEvent('maps_click', 'contato', 'google_maps');
+        }, { passive: true });
+    });
 }
 
 // Inicialização quando DOM estiver pronto
@@ -219,12 +284,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initLazyBackgrounds();
     
-    // Track clicks em CTAs
-    document.querySelectorAll('[data-action]').forEach(el => {
-        el.addEventListener('click', function() {
-            trackEvent(this.dataset.action, this.dataset.page || 'unknown', this.dataset.device || 'unknown');
-        }, { passive: true });
-    });
+    // Inicializar todos os rastreamentos
+    initWhatsAppTracking();
+    initPhoneTracking();
+    initScrollTracking();
+    initSocialTracking();
+    initCTATracking();
+    initMapsTracking();
 }, { once: true });
 
 // Preload de próximas páginas ao hover (melhora navegação)
