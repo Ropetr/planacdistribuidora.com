@@ -1,10 +1,26 @@
 # ===== CLOUDFLARE REDIRECTS - PLANAC DISTRIBUIDORA =====
 # Redirecionamentos e regras de URL
-# Atualizado: 13/01/2026 - Migração Eleventy
+# Atualizado: 03/03/2026 - Remoção de .html dos permalinks
 
-# ===== REDIRECTS 301 (SEO) =====
-# Página removida - divisoria-naval redireciona para divisoria-escritorio
-/divisoria-naval.html  /divisoria-escritorio  301
+# ===== REDIRECTS 301 - URLs .html legado =====
+# Mantém link equity de URLs antigas indexadas pelo Google e links externos
+/dewalt.html  /dewalt/  301
+/divisoria-drywall.html  /divisoria-drywall/  301
+/divisoria-escritorio.html  /divisoria-escritorio/  301
+/forro-boreal.html  /forro-boreal/  301
+/forro-gesso.html  /forro-gesso/  301
+/forro-isopor.html  /forro-isopor/  301
+/forro-mineral.html  /forro-mineral/  301
+/forro-vinilico.html  /forro-vinilico/  301
+/la-de-pet.html  /la-de-pet/  301
+/la-de-rocha.html  /la-de-rocha/  301
+/la-de-vidro.html  /la-de-vidro/  301
+/manta-termica.html  /manta-termica/  301
+/paredes-drywall.html  /paredes-drywall/  301
+/privacidade.html  /privacidade/  301
+/pvc-amadeirado.html  /pvc-amadeirado/  301
+/pvc-branco.html  /pvc-branco/  301
 
-# Página renomeada - drywall.html redireciona para divisoria-drywall.html  
-/drywall.html  /divisoria-drywall  301
+# ===== REDIRECTS 301 - Páginas removidas/renomeadas =====
+/divisoria-naval.html  /divisoria-escritorio/  301
+/drywall.html  /divisoria-drywall/  301
