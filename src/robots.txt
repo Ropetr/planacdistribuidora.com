@@ -9,6 +9,10 @@ Disallow: /optimize_html.py
 Disallow: /package.json
 Disallow: /node_modules/
 
+# Bloquear URLs de serviço interno (GTM e Analytics)
+Disallow: /gtmdata/
+Disallow: /analytics/
+
 # Sitemap
 Sitemap: https://planacdistribuidora.com/sitemap.xml
 
