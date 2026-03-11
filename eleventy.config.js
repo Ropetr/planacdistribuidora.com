@@ -66,30 +66,56 @@ module.exports = function(eleventyConfig) {
             const siteUrl = data.site?.url || "https://planacdistribuidora.com";
             const pageUrl = (data.page.url || "").replace(/\.html$/, "");
             
-            const schema = {
-                "@context": "https://schema.org",
-                "@type": "Product",
-                "name": product.name,
-                "description": product.description,
-                "image": product.image,
-                "brand": {
-                    "@type": "Brand",
-                    "name": product.brand
-                },
-                "category": product.category,
-                "url": siteUrl + pageUrl,
-                "manufacturer": {
-                    "@type": "Organization",
-                    "name": product.brand
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": product.ratingValue,
-                    "reviewCount": product.reviewCount,
-                    "bestRating": "5",
-                    "worstRating": "1"
-                }
-            };
+            let schema;
+            
+            if (product.type === "collection" && Array.isArray(product.items)) {
+                // Página de coleção (ex: DeWalt) → ItemList
+                schema = {
+                    "@context": "https://schema.org",
+                    "@type": "ItemList",
+                    "name": product.name,
+                    "description": product.description,
+                    "url": siteUrl + pageUrl,
+                    "numberOfItems": product.items.length,
+                    "itemListElement": product.items.map(function(item, index) {
+                        return {
+                            "@type": "ListItem",
+                            "position": index + 1,
+                            "name": item.name,
+                            "description": item.description,
+                            "url": siteUrl + pageUrl
+                        };
+                    })
+                };
+            } else {
+                // Página de produto único → Product Snippet
+                // Sem offers/price: válido para distribuidoras com orçamento personalizado
+                // Ref: https://developers.google.com/search/docs/appearance/structured-data/product-snippet
+                schema = {
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": product.name,
+                    "description": product.description,
+                    "image": product.image,
+                    "brand": {
+                        "@type": "Brand",
+                        "name": product.brand
+                    },
+                    "category": product.category,
+                    "url": siteUrl + pageUrl,
+                    "manufacturer": {
+                        "@type": "Organization",
+                        "name": product.brand
+                    },
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": product.ratingValue,
+                        "reviewCount": product.reviewCount,
+                        "bestRating": "5",
+                        "worstRating": "1"
+                    }
+                };
+            }
             
             return JSON.stringify(schema, null, 2);
         }
