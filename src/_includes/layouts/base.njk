@@ -19,6 +19,24 @@
     </script>
     <!-- End Data Layer -->
 
+
+    <!-- Google Consent Mode v2 - DEVE vir antes do GTM -->
+    <script data-cfasync="false">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'granted',
+        'security_storage': 'granted',
+        'wait_for_update': 500
+    });
+    </script>
+    <!-- End Google Consent Mode v2 -->
+
     <!-- Google Tag Manager -->
     <script data-cfasync="false">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
     new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
