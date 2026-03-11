@@ -147,6 +147,57 @@
     "description": "Ferramentas profissionais DeWalt. Furadeiras, parafusadeiras e mais.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-dewalt-1920/public",
     "ratingValue": "5.0",
-    "reviewCount": "234"
+    "reviewCount": "234",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Parafusadeira Drywall DeWalt 20V MAX XR",
+        "description": "Motor brushless, ajuste eletrônico de torque"
+      },
+      {
+        "name": "Parafusadeira Eletrônica DeWalt 20V XR",
+        "description": "Controle eletrônico de velocidade"
+      },
+      {
+        "name": "Parafusadeira de Impacto DeWalt 20V Brushless",
+        "description": "Alto torque para trabalhos pesados"
+      },
+      {
+        "name": "Serra Circular DeWalt 20V XR",
+        "description": "Disco 184mm, corte profissional"
+      },
+      {
+        "name": "Martelete SDS Plus DeWalt 20V XR",
+        "description": "3 funções: perfuração, impacto, cinzel"
+      },
+      {
+        "name": "Recortador de Drywall DeWalt 20V XR",
+        "description": "Recortes precisos em gesso acartonado"
+      },
+      {
+        "name": "Esmerilhadeira Angular 4.5\" DeWalt 20V XR",
+        "description": "Freio eletrônico, motor brushless"
+      },
+      {
+        "name": "Nível Laser Verde DeWalt",
+        "description": "Autonivelante, alta visibilidade"
+      },
+      {
+        "name": "Trena Laser Digital DeWalt 30m",
+        "description": "Precisão 3mm, mede área e volume"
+      },
+      {
+        "name": "Bateria DeWalt 20V 4.0Ah",
+        "description": "Compatível com toda linha 20V MAX"
+      },
+      {
+        "name": "Bateria DeWalt 20V 5.0Ah",
+        "description": "Maior autonomia para uso intensivo"
+      },
+      {
+        "name": "Carregador DeWalt DCB115",
+        "description": "Bivolt, carga completa em 90 minutos"
+      }
+    ]
   }
 }
