@@ -7,7 +7,30 @@
     "description": "Forro de gesso acartonado em Londrina. Chapas Gypsum e perfis Barbieri. Acabamento perfeito para residências e comércios.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-forro-gesso-1920/public",
     "ratingValue": "4.9",
-    "reviewCount": "127"
+    "reviewCount": "127",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Forro Gesso Standard (ST)",
+        "description": "Uso geral em ambientes secos"
+      },
+      {
+        "name": "Forro Gesso Resistente à Umidade (RU)",
+        "description": "Para banheiros, cozinhas e áreas úmidas"
+      },
+      {
+        "name": "Forro Gesso Resistente ao Fogo (RF)",
+        "description": "Retarda propagação de chamas"
+      },
+      {
+        "name": "Gesso Lisa Corrida",
+        "description": "Acabamento liso e contínuo"
+      },
+      {
+        "name": "Gesso Canaleta Decorativa",
+        "description": "Perfil decorativo para sancas"
+      }
+    ]
   },
   "pvc-branco": {
     "name": "Forro de PVC Branco",
@@ -17,7 +40,26 @@
     "description": "Forro de PVC branco Belka para ambientes internos. Resistente à umidade e fácil instalação.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-pvc-branco-1920/public",
     "ratingValue": "4.8",
-    "reviewCount": "98"
+    "reviewCount": "98",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Forro PVC Branco Liso Belka",
+        "description": "Acabamento liso e uniforme"
+      },
+      {
+        "name": "Forro PVC Branco com Friso Belka",
+        "description": "Friso decorativo, disfarça juntas"
+      },
+      {
+        "name": "Forro PVC Branco Brilhante",
+        "description": "Superfície brilhante para ambientes claros"
+      },
+      {
+        "name": "Forro PVC Branco Acetinado",
+        "description": "Acabamento acetinado, menor reflexo"
+      }
+    ]
   },
   "pvc-amadeirado": {
     "name": "Forro de PVC Amadeirado",
@@ -27,7 +69,26 @@
     "description": "Forro de PVC com acabamento amadeirado Belka e Plasbil. Elegância e praticidade.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-pvc-amadeirado-1920/public",
     "ratingValue": "4.8",
-    "reviewCount": "76"
+    "reviewCount": "76",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Forro PVC Amadeirado Carvalho Belka",
+        "description": "Padrão carvalho europeu, tom dourado"
+      },
+      {
+        "name": "Forro PVC Amadeirado Mogno Belka",
+        "description": "Padrão mogno, tonalidade avermelhada"
+      },
+      {
+        "name": "Forro PVC Amadeirado Pinheiro Belka",
+        "description": "Padrão pinheiro claro, aspecto rústico"
+      },
+      {
+        "name": "Forro PVC Amadeirado Rústico Plasbil",
+        "description": "Veio rústico com alta fidelidade visual"
+      }
+    ]
   },
   "forro-vinilico": {
     "name": "Forro Vinílico REVID",
@@ -37,7 +98,22 @@
     "description": "Forro vinílico REVID Plasbil de alta durabilidade. Ideal para ambientes comerciais e hospitalares.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-forro-vinilico-1920/public",
     "ratingValue": "4.7",
-    "reviewCount": "54"
+    "reviewCount": "54",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Forro Vinílico REVID Branco",
+        "description": "Acabamento branco, fácil limpeza"
+      },
+      {
+        "name": "Forro Vinílico REVID Hospitalar",
+        "description": "Aprovado para hospitais e clínicas"
+      },
+      {
+        "name": "Forro Vinílico REVID Comercial",
+        "description": "Alta resistência para comércios e indústrias"
+      }
+    ]
   },
   "forro-mineral": {
     "name": "Forro Mineral",
@@ -47,7 +123,26 @@
     "description": "Forro mineral acústico Armstrong. Excelente absorção sonora para escritórios e salas.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-forro-mineral-1920/public",
     "ratingValue": "4.9",
-    "reviewCount": "89"
+    "reviewCount": "89",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Forro Mineral Armstrong Scala 600x600mm",
+        "description": "Alta absorção acústica, NRC 0.55"
+      },
+      {
+        "name": "Forro Mineral Georgian Tegular 600x600mm",
+        "description": "Perfil tegular com estética recuada"
+      },
+      {
+        "name": "Forro Mineral Acústico 600x1200mm",
+        "description": "Placa retangular para grandes ambientes"
+      },
+      {
+        "name": "Forro Mineral Resistente à Umidade",
+        "description": "Para ambientes com alta umidade relativa"
+      }
+    ]
   },
   "forro-boreal": {
     "name": "Forro Boreal",
@@ -57,7 +152,26 @@
     "description": "Forro Boreal Isover com acabamento diferenciado. Design moderno para ambientes sofisticados.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-forro-boreal-1920/public",
     "ratingValue": "4.8",
-    "reviewCount": "42"
+    "reviewCount": "42",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Forro Boreal Forrovid 625x625mm",
+        "description": "Placa modular padrão Isover"
+      },
+      {
+        "name": "Forro Boreal Forrovid 625x1250mm",
+        "description": "Placa retangular para grandes vãos"
+      },
+      {
+        "name": "Forro Boreal Acústico Isover",
+        "description": "Absorção acústica superior, NRC > 0.90"
+      },
+      {
+        "name": "Forro Boreal Térmico Isover",
+        "description": "Isolamento térmico aprovado pelo Corpo de Bombeiros"
+      }
+    ]
   },
   "forro-isopor": {
     "name": "Forro de Isopor",
@@ -67,7 +181,26 @@
     "description": "Forro de isopor leve e econômico. Isolamento térmico e fácil aplicação.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-forro-isopor-1920/public",
     "ratingValue": "4.6",
-    "reviewCount": "67"
+    "reviewCount": "67",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Forro Isopor EPS Liso",
+        "description": "Acabamento liso, instalação simples"
+      },
+      {
+        "name": "Forro Isopor EPS Texturizado",
+        "description": "Superfície texturizada, estética moderna"
+      },
+      {
+        "name": "Forro Isopor EPS com Friso",
+        "description": "Friso decorativo para disfarçar juntas"
+      },
+      {
+        "name": "Forro Isopor EPS Auto-extinguível",
+        "description": "Material auto-extinguível, maior segurança"
+      }
+    ]
   },
   "divisoria-escritorio": {
     "name": "Divisória para Escritório",
@@ -77,7 +210,26 @@
     "description": "Divisórias Eucatex para escritório em Londrina. Naval, eucatex e vidro.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-divisoria-escritorio-1920/public",
     "ratingValue": "4.9",
-    "reviewCount": "112"
+    "reviewCount": "112",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Divisória Eucatex para Escritório",
+        "description": "Painéis Eucatex em diversas alturas"
+      },
+      {
+        "name": "Divisória Naval Corporativa",
+        "description": "Alta durabilidade para ambientes corporativos"
+      },
+      {
+        "name": "Divisória com Vidro para Escritório",
+        "description": "Integração visual com painéis de vidro"
+      },
+      {
+        "name": "Divisória Modular para Call Center",
+        "description": "Fácil reconfiguração e instalação rápida"
+      }
+    ]
   },
   "divisoria-drywall": {
     "name": "Divisória de Drywall",
@@ -87,7 +239,26 @@
     "description": "Divisórias de drywall com chapas Gypsum e perfis Barbieri para ambientes comerciais e residenciais.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-divisoria-drywall-1920/public",
     "ratingValue": "4.8",
-    "reviewCount": "95"
+    "reviewCount": "95",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Divisória Drywall Standard (ST)",
+        "description": "Uso geral em ambientes secos"
+      },
+      {
+        "name": "Divisória Drywall Resistente à Umidade (RU)",
+        "description": "Para banheiros e áreas molhadas"
+      },
+      {
+        "name": "Divisória Drywall Resistente ao Fogo (RF)",
+        "description": "Compartimentação corta-fogo"
+      },
+      {
+        "name": "Forro Drywall Gesso Acartonado",
+        "description": "Sistema de forro em gesso acartonado"
+      }
+    ]
   },
   "paredes-drywall": {
     "name": "Paredes de Drywall",
@@ -97,7 +268,30 @@
     "description": "Sistema completo de paredes em drywall. Chapas Gypsum e perfis Barbieri. Construção seca e rápida.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-paredes-drywall-1920/public",
     "ratingValue": "4.9",
-    "reviewCount": "134"
+    "reviewCount": "134",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Placas Gypsum Drywall Standard (ST)",
+        "description": "Uso geral em paredes internas"
+      },
+      {
+        "name": "Placas Gypsum Drywall Resistente à Umidade (RU)",
+        "description": "Para ambientes úmidos e molhados"
+      },
+      {
+        "name": "Placas Gypsum Drywall Resistente ao Fogo (RF)",
+        "description": "Compartimentação corta-fogo"
+      },
+      {
+        "name": "Perfis Metálicos Barbieri para Drywall",
+        "description": "Guias e montantes para estrutura seca"
+      },
+      {
+        "name": "Sistema Drywall para Steel Frame",
+        "description": "Fechamento completo para estrutura metálica"
+      }
+    ]
   },
   "la-de-vidro": {
     "name": "Lã de Vidro",
@@ -107,7 +301,30 @@
     "description": "Lã de vidro Isover para isolamento térmico e acústico. Alta performance.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-la-de-vidro-1920/public",
     "ratingValue": "4.9",
-    "reviewCount": "156"
+    "reviewCount": "156",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Lã de Vidro Isover 25mm Painel",
+        "description": "Isolamento térmico e acústico residencial"
+      },
+      {
+        "name": "Lã de Vidro Isover 50mm Painel",
+        "description": "Conforto térmico para forros e paredes"
+      },
+      {
+        "name": "Lã de Vidro Isover 75mm Painel",
+        "description": "Performance superior para uso comercial"
+      },
+      {
+        "name": "Lã de Vidro Isover 100mm Painel",
+        "description": "Alta eficiência energética industrial"
+      },
+      {
+        "name": "Lã de Vidro Isover Rolo",
+        "description": "Instalação contínua em grandes áreas"
+      }
+    ]
   },
   "la-de-rocha": {
     "name": "Lã de Rocha",
@@ -117,7 +334,30 @@
     "description": "Lã de rocha Gesla para isolamento térmico e proteção contra fogo.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-la-de-rocha-1920/public",
     "ratingValue": "4.9",
-    "reviewCount": "143"
+    "reviewCount": "143",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Lã de Rocha Gesla 25mm Painel",
+        "description": "Isolamento térmico e acústico residencial"
+      },
+      {
+        "name": "Lã de Rocha Gesla 50mm Painel",
+        "description": "Conforto térmico para paredes drywall"
+      },
+      {
+        "name": "Lã de Rocha Gesla 75mm Painel",
+        "description": "Alta performance para barracões e indústrias"
+      },
+      {
+        "name": "Lã de Rocha Gesla 100mm Painel",
+        "description": "Máxima eficiência energética"
+      },
+      {
+        "name": "Lã de Rocha Gesla Rolo",
+        "description": "Para grandes áreas e coberturas"
+      }
+    ]
   },
   "la-de-pet": {
     "name": "Lã de PET",
@@ -127,7 +367,22 @@
     "description": "Lã de PET sustentável. Isolamento acústico ecológico.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-la-de-pet-1920/public",
     "ratingValue": "4.8",
-    "reviewCount": "87"
+    "reviewCount": "87",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Lã de PET EcoFiber 25mm",
+        "description": "Isolamento acústico leve para forros e paredes"
+      },
+      {
+        "name": "Lã de PET EcoFiber 50mm",
+        "description": "Maior absorção acústica para ambientes especiais"
+      },
+      {
+        "name": "Lã de PET EcoFiber Painel Acústico",
+        "description": "Painel pronto para instalação direta"
+      }
+    ]
   },
   "manta-termica": {
     "name": "Manta Térmica",
@@ -137,7 +392,26 @@
     "description": "Manta térmica 3TC para telhados e coberturas. Reduz calor até 95%.",
     "image": "https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/banner-manta-termica-1920/public",
     "ratingValue": "4.9",
-    "reviewCount": "178"
+    "reviewCount": "178",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Manta Térmica Simples Aluminizada",
+        "description": "Subcobertura básica para telhados"
+      },
+      {
+        "name": "Manta Térmica Dupla Face Aluminizada",
+        "description": "Dupla camada refletiva de alta eficiência"
+      },
+      {
+        "name": "Manta Térmica com Bolhas de Ar",
+        "description": "Barreira radiante com câmara de ar isolante"
+      },
+      {
+        "name": "Manta Térmica para Barracão Industrial",
+        "description": "Suporta grandes vãos e temperaturas extremas"
+      }
+    ]
   },
   "dewalt": {
     "name": "Ferramentas DeWalt",
