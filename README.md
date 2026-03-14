@@ -204,3 +204,5 @@ description: "Descrição para SEO"
 ---
 
 **Desenvolvido para Planac Distribuidora**
+
+<!-- dev branch: deploy inicial via automação -->
