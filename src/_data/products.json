@@ -473,5 +473,50 @@
         "description": "Bivolt, carga completa em 90 minutos"
       }
     ]
+  },
+  "painel-ripado-pvc": {
+    "name": "Painel Ripado 3D PVC",
+    "category": "Revestimentos",
+    "breadcrumbName": "Painel Ripado PVC",
+    "brand": "Plasbil",
+    "description": "Painel Ripado 3D em PVC Plasbil para revestimento de paredes e tetos. Linhas interna e externa com encaixe macho/fêmea. Acabamento sofisticado e instalação rápida.",
+    "image": "/assets/img/produtos/ripado/ambientes/ambiente-ipe.jpg",
+    "ratingValue": "4.8",
+    "reviewCount": "45",
+    "type": "collection",
+    "items": [
+      {
+        "name": "Ripado 3D Interno Branco",
+        "description": "Acabamento liso branco para ambientes internos"
+      },
+      {
+        "name": "Ripado 3D Interno Relevo Ipê",
+        "description": "Textura amadeirada tom dourado"
+      },
+      {
+        "name": "Ripado 3D Interno Relevo Castanha",
+        "description": "Textura amadeirada tom marrom quente"
+      },
+      {
+        "name": "Ripado 3D Interno Relevo Mogno",
+        "description": "Textura amadeirada tom avermelhado"
+      },
+      {
+        "name": "Ripado 3D Interno Relevo Preto",
+        "description": "Acabamento escuro sofisticado"
+      },
+      {
+        "name": "Ripado 3D Externo Carbono",
+        "description": "Alta durabilidade para áreas externas"
+      },
+      {
+        "name": "Ripado 3D Externo Camel",
+        "description": "Tom neutro para fachadas"
+      },
+      {
+        "name": "Ripado 3D Externo Basalt",
+        "description": "Tom mineral moderno para exteriores"
+      }
+    ]
   }
 }

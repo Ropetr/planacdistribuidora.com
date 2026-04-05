@@ -179,8 +179,12 @@ main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, foot
     
     /* Footer fixo no mobile */
     .footer-fixed-mobile { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #eee; padding: 12px 0; justify-content: center; gap: 32px; z-index: 999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
-    .footer-fixed-mobile .footer-icon { width: 48px; height: 48px; }
-    .footer-fixed-mobile .footer-icon svg { width: 24px; height: 24px; }
+    .footer-fixed-mobile .footer-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; animation: footer-shimmer 6s linear infinite; }
+    .footer-fixed-mobile .footer-icon svg { width: 24px; height: 24px; fill: currentColor; }
+    .footer-fixed-mobile .footer-icon:nth-child(1) { animation-delay: 0s; }
+    .footer-fixed-mobile .footer-icon:nth-child(2) { animation-delay: 0.4s; }
+    .footer-fixed-mobile .footer-icon:nth-child(3) { animation-delay: 0.8s; }
+    .footer-fixed-mobile .footer-icon:nth-child(4) { animation-delay: 1.2s; }
     body { padding-bottom: 80px; }
 }
 
@@ -407,7 +411,7 @@ a:focus-visible {
 .dewalt-carousel-section { margin: 40px 0; }
 .dewalt-carousel-section h3 { margin-bottom: 24px; }
 
-.dewalt-carousel { position: relative; overflow: hidden; }
+.dewalt-carousel { position: relative; overflow: hidden; padding: 0 50px; }
 
 .dewalt-carousel__container { 
     overflow-x: auto; 
@@ -426,14 +430,33 @@ a:focus-visible {
     padding: 0 4px;
 }
 
+/* Animação shimmer unificada (usada em bordas, textos e setas) */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+/* Shimmer para ícones SVG (simula varredura via color) */
+@keyframes footer-shimmer {
+    0%, 100% { color: #ccc; }
+    15% { color: #ccc; }
+    30% { color: #ED282E; }
+    40% { color: #ff6b35; }
+    45% { color: #ffaa00; }
+    50% { color: #ff6b35; }
+    60% { color: #ED282E; }
+    75% { color: #ccc; }
+}
 .dewalt-carousel .dewalt-product-card {
     flex: 0 0 220px;
-    background: #fff;
+    background: linear-gradient(90deg, #e5e5e5, #ED282E, #ff6b35, #ffaa00, #ff6b35, #ED282E, #e5e5e5);
+    background-size: 200% auto;
+    animation: shimmer 6s linear infinite;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    border: 1px solid #e5e5e5;
-    transition: all 0.3s ease;
+    border: none;
+    padding: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -442,7 +465,7 @@ a:focus-visible {
 .dewalt-carousel .dewalt-product-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    border-color: #ED282E;
+    animation: shimmer 2s linear infinite;
 }
 
 .dewalt-product-card__image {
@@ -453,6 +476,9 @@ a:focus-visible {
     justify-content: center;
     background: #f8f8f8;
     padding: 16px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1.2px solid #ED282E;
+    overflow: hidden;
 }
 .dewalt-product-card__image img {
     max-width: 100%;
@@ -467,6 +493,8 @@ a:focus-visible {
     flex: 1;
     display: flex;
     flex-direction: column;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
 }
 .dewalt-product-card__category {
     font-size: 11px;
@@ -504,31 +532,50 @@ a:focus-visible {
 }
 .dewalt-product-card__btn:hover { background: #C92227; }
 
-/* Setas de navegação */
+/* Setas de navegação (padrão unificado com shimmer) */
 .dewalt-carousel__nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 44px;
     height: 44px;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: transparent;
+    border: none;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: none;
     z-index: 10;
-    transition: all 0.2s;
+    transition: transform 0.2s;
 }
 .dewalt-carousel__nav:hover {
-    background: #f5f5f5;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-50%) scale(1.15);
 }
-.dewalt-carousel__nav--prev { left: 8px; }
-.dewalt-carousel__nav--next { right: 8px; }
-.dewalt-carousel__nav svg { width: 20px; height: 20px; color: #333; }
+.dewalt-carousel__nav--prev { left: 0; }
+.dewalt-carousel__nav--next { right: 0; }
+.dewalt-carousel__nav svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2.5;
+    stroke: #ccc;
+}
+.dewalt-carousel__nav .shimmer-arrow {
+    background: linear-gradient(90deg, #ccc, #ED282E, #ff6b35, #ffaa00, #ff6b35, #ED282E, #ccc);
+    background-size: 200% auto;
+    animation: shimmer 6s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
+    user-select: none;
+}
+.dewalt-carousel__nav:hover .shimmer-arrow {
+    animation: shimmer 2s linear infinite;
+}
 
 /* Responsivo */
 @media (max-width: 768px) {
@@ -602,12 +649,15 @@ a:focus-visible {
 /* Cards do Carrossel Home */
 .home-product-card {
     flex: 0 0 260px;
-    background: #fff;
+    background: linear-gradient(90deg, #e5e5e5, #ED282E, #ff6b35, #ffaa00, #ff6b35, #ED282E, #e5e5e5);
+    background-size: 200% auto;
+    animation: shimmer 6s linear infinite;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
+    border: none;
+    padding: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -616,13 +666,15 @@ a:focus-visible {
 .home-product-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.15);
-    border-color: #ED282E;
+    animation: shimmer 2s linear infinite;
 }
 
 .home-product-card__image {
     width: 100%;
     height: 160px;
-    border-bottom: 3px solid #ED282E;
+    border-bottom: 1.2px solid #ED282E;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
 }
 
 .home-product-card__body {
@@ -630,6 +682,8 @@ a:focus-visible {
     flex: 1;
     display: flex;
     flex-direction: column;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
 }
 
 .home-product-card__category {
@@ -675,28 +729,34 @@ a:focus-visible {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: #fff;
+    background: transparent;
     border: none;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    box-shadow: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10;
-    transition: all 0.2s;
+    transition: transform 0.2s;
+}
+.home-carousel__nav .shimmer-arrow {
+    background: linear-gradient(90deg, #ccc, #ED282E, #ff6b35, #ffaa00, #ff6b35, #ED282E, #ccc);
+    background-size: 200% auto;
+    animation: shimmer 6s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
+    user-select: none;
+}
+.home-carousel__nav:hover .shimmer-arrow {
+    animation: shimmer 2s linear infinite;
 }
 .home-carousel__nav:hover {
-    background: #ED282E;
-    box-shadow: 0 4px 16px rgba(237,40,46,0.3);
-}
-.home-carousel__nav:hover svg {
-    stroke: #fff;
-}
-.home-carousel__nav svg {
-    width: 20px;
-    height: 20px;
-    stroke: #333;
-    transition: stroke 0.2s;
+    background: transparent;
+    box-shadow: none;
 }
 .home-carousel__nav--prev { left: 0; }
 .home-carousel__nav--next { right: 0; }
@@ -710,9 +770,8 @@ a:focus-visible {
         width: 36px;
         height: 36px;
     }
-    .home-carousel__nav svg {
-        width: 16px;
-        height: 16px;
+    .home-carousel__nav .shimmer-arrow {
+        font-size: 22px;
     }
     .home-product-card {
         flex: 0 0 240px;
