@@ -122,7 +122,7 @@ test.describe('Carrossel DeWalt', () => {
       const twoCardsWithGap = cardWidth * 2 + 12;
       const threeCardsWithGap = cardWidth * 3 + 24;
       
-      expect(containerWidth).toBeGreaterThanOrEqual(twoCardsWithGap - 20); // margem de erro
+      expect(containerWidth).toBeGreaterThanOrEqual(twoCardsWithGap - 60); // margem de erro (shimmer border padding reduz container)
       expect(containerWidth).toBeLessThan(threeCardsWithGap);
     });
 
