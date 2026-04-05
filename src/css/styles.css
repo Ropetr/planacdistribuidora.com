@@ -555,12 +555,6 @@ a:focus-visible {
 }
 .dewalt-carousel__nav--prev { left: 0; }
 .dewalt-carousel__nav--next { right: 0; }
-.dewalt-carousel__nav svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2.5;
-    stroke: #ccc;
-}
 .dewalt-carousel__nav .shimmer-arrow {
     background: linear-gradient(90deg, #ccc, #ED282E, #ff6b35, #ffaa00, #ff6b35, #ED282E, #ccc);
     background-size: 200% auto;
@@ -755,8 +749,7 @@ a:focus-visible {
     animation: shimmer 2s linear infinite;
 }
 .home-carousel__nav:hover {
-    background: transparent;
-    box-shadow: none;
+    transform: translateY(-50%) scale(1.15);
 }
 .home-carousel__nav--prev { left: 0; }
 .home-carousel__nav--next { right: 0; }
