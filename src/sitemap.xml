@@ -94,6 +94,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- REVESTIMENTOS -->
+  <url>
+    <loc>https://planacdistribuidora.com/painel-ripado-pvc/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- FERRAMENTAS -->
   <url>
     <loc>https://planacdistribuidora.com/dewalt/</loc>
