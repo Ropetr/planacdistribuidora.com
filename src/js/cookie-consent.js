@@ -88,9 +88,11 @@
     function showBanner() {
         const banner = document.getElementById('cookieBanner');
         if (banner) {
-            setTimeout(function() {
+            // Atrasar para depois do LCP, evitando layout shift
+            var delay = window.requestIdleCallback || function(cb) { setTimeout(cb, 2500); };
+            delay(function() {
                 banner.classList.add('active');
-            }, 1000);
+            });
         }
     }
 
