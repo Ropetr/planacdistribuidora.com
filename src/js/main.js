@@ -164,21 +164,20 @@ ${f.mensagem.value}`;
     window.open(`https://api.whatsapp.com/send/?phone=5543984182582&text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
 }
 
-// Smooth scroll otimizado com passive listeners
+// Smooth scroll com event delegation (1 listener em vez de N)
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href !== '#' && href.length > 1) {
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Atualizar URL sem recarregar
-                    history.pushState(null, null, href);
-                }
+    document.addEventListener('click', function(e) {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const href = a.getAttribute('href');
+        if (href !== '#' && href.length > 1) {
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.pushState(null, null, href);
             }
-        }, { passive: false });
+        }
     });
 }
 
@@ -230,19 +229,24 @@ function initPhoneTracking() {
     });
 }
 
-// Rastreamento de scroll (25%, 50%, 75%, 100%)
+// Rastreamento de scroll com throttle (max 1x a cada 200ms)
 function initScrollTracking() {
     var scrollThresholds = [25, 50, 75, 100];
     var scrollFired = {};
-    
+    var ticking = false;
+
     window.addEventListener('scroll', function() {
-        var scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-        
-        scrollThresholds.forEach(function(threshold) {
-            if (scrollPercent >= threshold && !scrollFired[threshold]) {
-                scrollFired[threshold] = true;
-                trackEvent('scroll_depth', 'engajamento', threshold + '%', threshold);
-            }
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+            var scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            scrollThresholds.forEach(function(threshold) {
+                if (scrollPercent >= threshold && !scrollFired[threshold]) {
+                    scrollFired[threshold] = true;
+                    trackEvent('scroll_depth', 'engajamento', threshold + '%', threshold);
+                }
+            });
+            ticking = false;
         });
     }, { passive: true });
 }
@@ -277,20 +281,23 @@ function initMapsTracking() {
     });
 }
 
-// Inicialização quando DOM estiver pronto
+// Inicialização quando DOM estiver pronto - críticos primeiro
 document.addEventListener('DOMContentLoaded', function() {
     initCarousel();
     initPhoneMask();
     initSmoothScroll();
     initLazyBackgrounds();
-    
-    // Inicializar todos os rastreamentos
-    initWhatsAppTracking();
-    initPhoneTracking();
-    initScrollTracking();
-    initSocialTracking();
-    initCTATracking();
-    initMapsTracking();
+
+    // Defer tracking para não bloquear thread principal
+    var deferInit = window.requestIdleCallback || function(cb) { setTimeout(cb, 100); };
+    deferInit(function() {
+        initWhatsAppTracking();
+        initPhoneTracking();
+        initScrollTracking();
+        initSocialTracking();
+        initCTATracking();
+        initMapsTracking();
+    });
 }, { once: true });
 
 // Preload de próximas páginas ao hover (melhora navegação)

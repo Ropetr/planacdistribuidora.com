@@ -15,29 +15,29 @@
 
 # HTML - Cache curto com revalidação (para atualizações rápidas)
 /*.html
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 
 # Páginas sem extensão (Eleventy)
 /dewalt
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 /divisoria-*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 /forro-*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 /pvc-*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 /la-de-*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 /manta-*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 /paredes-*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 /privacidade
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 
 # Index
 /
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Cache-Control: public, max-age=7200, stale-while-revalidate=604800
 
 # CSS e JS - Cache longo (1 ano) - imutáveis após deploy
 /css/*
