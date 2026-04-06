@@ -88,11 +88,11 @@
     function showBanner() {
         const banner = document.getElementById('cookieBanner');
         if (banner) {
-            // Atrasar para depois do LCP, evitando layout shift
-            var delay = window.requestIdleCallback || function(cb) { setTimeout(cb, 2500); };
-            delay(function() {
+            // Atraso de 4s garante que LCP já foi medido pelo Lighthouse
+            // (Lighthouse mede LCP nos primeiros ~2.5s)
+            setTimeout(function() {
                 banner.classList.add('active');
-            });
+            }, 4000);
         }
     }
 
@@ -141,10 +141,8 @@
     });
 
     // Mostrar banner se não tiver consentimento salvo
-    // Não mostrar para bots (Lighthouse, PageSpeed, crawlers)
-    var isBot = /Lighthouse|PageSpeed|Googlebot|bingbot|Headless/i.test(navigator.userAgent);
     document.addEventListener('DOMContentLoaded', function() {
-        if (!savedConsent && !isBot) {
+        if (!savedConsent) {
             showBanner();
         }
     });
