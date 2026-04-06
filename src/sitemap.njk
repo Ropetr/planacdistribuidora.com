@@ -1,0 +1,36 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- set defined = [
+  {url: "/", priority: "1.0", freq: "weekly"},
+  {url: "/paredes-drywall/", priority: "0.9", freq: "monthly"},
+  {url: "/forro-gesso/", priority: "0.8", freq: "monthly"},
+  {url: "/pvc-branco/", priority: "0.8", freq: "monthly"},
+  {url: "/pvc-amadeirado/", priority: "0.8", freq: "monthly"},
+  {url: "/forro-vinilico/", priority: "0.8", freq: "monthly"},
+  {url: "/forro-mineral/", priority: "0.8", freq: "monthly"},
+  {url: "/forro-boreal/", priority: "0.8", freq: "monthly"},
+  {url: "/forro-isopor/", priority: "0.8", freq: "monthly"},
+  {url: "/divisoria-escritorio/", priority: "0.8", freq: "monthly"},
+  {url: "/divisoria-drywall/", priority: "0.8", freq: "monthly"},
+  {url: "/manta-termica/", priority: "0.8", freq: "monthly"},
+  {url: "/la-de-vidro/", priority: "0.8", freq: "monthly"},
+  {url: "/la-de-rocha/", priority: "0.8", freq: "monthly"},
+  {url: "/la-de-pet/", priority: "0.8", freq: "monthly"},
+  {url: "/painel-ripado-pvc/", priority: "0.8", freq: "monthly"},
+  {url: "/dewalt/", priority: "0.8", freq: "monthly"},
+  {url: "/privacidade/", priority: "0.3", freq: "yearly"}
+] -%}
+{%- set today = "" | today -%}
+{%- for item in defined %}
+  <url>
+    <loc>https://planacdistribuidora.com{{ item.url }}</loc>
+    <lastmod>{{ today }}</lastmod>
+    <changefreq>{{ item.freq }}</changefreq>
+    <priority>{{ item.priority }}</priority>
+  </url>
+{%- endfor %}
+</urlset>
