@@ -73,8 +73,7 @@ main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, foot
 /* Features */
 .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 40px; }
 .feature-card { background: #fafafa; padding: 20px; border-radius: 6px; border-left: 3px solid transparent; position: relative; overflow: hidden; }
-.feature-card::before { content: ''; position: absolute; left: 0; top: 0; width: 3px; height: 200%; background: linear-gradient(180deg, transparent, #ED282E, #ff6b35, #ffaa00, #ff6b35, #ED282E, transparent); animation: shimmer-slide-v 6s linear infinite; will-change: transform; }
-@keyframes shimmer-slide-v { 0% { transform: translateY(-50%); } 100% { transform: translateY(0%); } }
+.feature-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, #e5e5e5, #ED282E, #ff6b35, #ffaa00, #ff6b35, #ED282E, #e5e5e5); background-size: auto 200%; animation: shimmer 6s linear infinite; }
 .feature-card h4 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
 .feature-card p { font-size: 14px; color: #666; margin-bottom: 0; line-height: 1.5; }
 
@@ -182,12 +181,13 @@ main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, foot
     
     /* Footer fixo no mobile */
     .footer-fixed-mobile { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #eee; padding: 12px 0; justify-content: center; gap: 32px; z-index: 999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
-    .footer-fixed-mobile .footer-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: #ED282E; animation: footer-shimmer 6s linear infinite; will-change: opacity; }
-    .footer-fixed-mobile .footer-icon svg { width: 24px; height: 24px; fill: currentColor; }
-    .footer-fixed-mobile .footer-icon:nth-child(1) { animation-delay: 0s; }
-    .footer-fixed-mobile .footer-icon:nth-child(2) { animation-delay: 0.4s; }
-    .footer-fixed-mobile .footer-icon:nth-child(3) { animation-delay: 0.8s; }
-    .footer-fixed-mobile .footer-icon:nth-child(4) { animation-delay: 1.2s; }
+    .footer-fixed-mobile .footer-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; color: #ED282E; position: relative; overflow: hidden; border-radius: 50%; }
+    .footer-fixed-mobile .footer-icon::before { content: ''; position: absolute; top: 0; left: 0; width: 200%; height: 100%; background: linear-gradient(90deg, transparent, rgba(237,40,46,0.15), transparent); animation: shimmer-slide 6s linear infinite; will-change: transform; z-index: 0; }
+    .footer-fixed-mobile .footer-icon svg { width: 24px; height: 24px; fill: currentColor; position: relative; z-index: 1; }
+    .footer-fixed-mobile .footer-icon:nth-child(1)::before { animation-delay: 0s; }
+    .footer-fixed-mobile .footer-icon:nth-child(2)::before { animation-delay: 0.4s; }
+    .footer-fixed-mobile .footer-icon:nth-child(3)::before { animation-delay: 0.8s; }
+    .footer-fixed-mobile .footer-icon:nth-child(4)::before { animation-delay: 1.2s; }
     body { padding-bottom: 80px; }
 }
 
@@ -433,20 +433,15 @@ a:focus-visible {
     padding: 0 4px;
 }
 
-/* Animação shimmer composited via transform (GPU-accelerated) */
+/* Shimmer GPU (transform) - cards, bordas, footer */
 @keyframes shimmer-slide {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
 }
-/* Shimmer legacy para background-clip:text (setas) - não tem alternativa composited */
+/* Shimmer texto (background-position) - badges e setas com background-clip:text */
 @keyframes shimmer {
     0% { background-position: -200% center; }
     100% { background-position: 200% center; }
-}
-/* Footer shimmer via opacity (composited) */
-@keyframes footer-shimmer {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
 }
 .dewalt-carousel .dewalt-product-card {
     flex: 0 0 220px;
