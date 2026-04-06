@@ -320,7 +320,7 @@ async function handleProjectSubmit(event) {
     }
     const produto = 'Painel Ripado 3D PVC';
     const msg = `*Novo Projeto para Cotação*\n\n📦 *Produto:* ${produto}\n👤 *Nome:* ${nome}\n📧 *E-mail:* ${email}\n📱 *Telefone:* ${telefone}\n🏙️ *Cidade:* ${cidade}\n🏗️ *Tipo:* ${tipo}\n\n💬 *Detalhes:*\n${mensagem}` + arquivoInfo;
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=5543984182582&text=${encodeURIComponent(msg)}`;
+    const whatsappUrl = `https://wa.me/5543984182582&text=${encodeURIComponent(msg)}`;
     window.open(whatsappUrl, '_blank');
     setTimeout(() => { btn.disabled = false; btn.textContent = 'Enviar Projeto'; status.style.display = 'none'; document.getElementById('formProjeto').reset(); }, 3000);
 }
