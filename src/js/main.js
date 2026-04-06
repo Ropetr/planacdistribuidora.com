@@ -161,7 +161,7 @@ function handleSubmit(e, productName) {
 
 *Detalhes:*
 ${f.mensagem.value}`;
-    window.open(`https://api.whatsapp.com/send/?phone=5543984182582&text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/5543984182582&text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
 }
 
 // Smooth scroll com event delegation (1 listener em vez de N)
