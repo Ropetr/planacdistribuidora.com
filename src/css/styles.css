@@ -14,7 +14,7 @@ main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, foot
 .logo { display: flex; align-items: center; text-decoration: none; }
 .logo img { height: 60px; width: auto; }
 .nav-desktop { display: flex; gap: 32px; align-items: center; }
-.nav-link { color: #333; text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+.nav-link { color: #333; text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; background: none; border: none; font-family: inherit; padding: 0; }
 .nav-link:hover { color: #ED282E; }
 .btn-header { background: #ED282E; color: #fff; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; }
 .btn-header:hover { background: #C92227; }
@@ -32,7 +32,7 @@ main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, foot
 .nav-dropdown > .nav-link::after { content: ''; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid currentColor; transition: transform 0.2s; }
 .nav-dropdown:hover > .nav-link::after { transform: rotate(180deg); }
 .dropdown-menu { position: absolute; top: 100%; left: 0; min-width: 220px; background: #fff; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; z-index: 1001; }
-.nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 .dropdown-menu a { display: block; padding: 10px 20px; color: #333; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s, background 0.2s; }
 .dropdown-menu a:hover { background: #fafafa; color: #ED282E; }
 
