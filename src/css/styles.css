@@ -9,8 +9,8 @@ body { font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; col
 main, .content, .content-grid, .main, aside, section, .banner, .breadcrumb, footer { max-width: 100%; overflow-x: hidden; }
 
 /* Header */
-.header { background: #fff; padding: 12px 20px; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-bottom: 1.5px solid #ED282E; }
-.header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.header { background: #fff; padding: 12px 20px; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-height: 84px; contain: layout style; border-bottom: 1.5px solid #ED282E; }
+.header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; min-height: 60px; }
 .logo { display: flex; align-items: center; text-decoration: none; }
 .logo img { height: 60px; width: auto; }
 .nav-desktop { display: flex; gap: 32px; align-items: center; }

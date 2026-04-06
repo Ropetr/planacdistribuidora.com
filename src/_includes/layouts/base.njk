@@ -205,6 +205,15 @@ body{font-family:'Barlow',-apple-system,BlinkMacSystemFont,sans-serif;line-heigh
 .hero-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:10px}
 .hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer}
 .hero-dot.active{background:#fff;transform:scale(1.2)}
+.breadcrumb{background:#fff;padding:16px 20px;border-bottom:1px solid #eee}
+.breadcrumb-container{max-width:1200px;margin:0 auto}
+.breadcrumb-list{font-size:14px;color:#666}
+.breadcrumb-list a{color:#ED282E;text-decoration:none}
+.breadcrumb-sep{margin:0 8px;color:#767676}
+.banner{position:relative;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.banner-img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.banner-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.45);z-index:1}
+.banner-content{position:relative;z-index:2;text-align:center;padding:40px 20px}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:-999}
 .skip-link:focus{position:fixed;left:50%;transform:translateX(-50%);top:10px;width:auto;height:auto;overflow:visible;z-index:9999;background:#ED282E;color:#fff;padding:12px 24px;border-radius:4px;font-weight:600;text-decoration:none}
 @media(max-width:768px){.nav-desktop{display:none}.hamburger{display:block}body{padding-bottom:80px}}
