@@ -161,7 +161,7 @@ function handleSubmit(e, productName) {
 
 *Detalhes:*
 ${f.mensagem.value}`;
-    window.open(`https://wa.me/5543984182582&text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/5543984182582?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
 }
 
 // Smooth scroll com event delegation (1 listener em vez de N)
@@ -300,19 +300,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 }, { once: true });
 
-// Preload de próximas páginas ao hover (melhora navegação)
-document.addEventListener('DOMContentLoaded', function() {
-    if ('IntersectionObserver' in window) {
-        document.querySelectorAll('a[href$=".html"]').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                const href = this.getAttribute('href');
-                if (href && !document.querySelector(`link[href="${href}"]`)) {
-                    const preload = document.createElement('link');
-                    preload.rel = 'prefetch';
-                    preload.href = href;
-                    document.head.appendChild(preload);
-                }
-            }, { passive: true, once: true });
-        });
-    }
-}, { once: true });

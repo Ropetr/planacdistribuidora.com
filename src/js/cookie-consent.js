@@ -1,29 +1,16 @@
 /**
  * Cookie Consent Banner - Planac Distribuidora
  * Implementa Google Consent Mode v2
- * ATUALIZADO: Marketing e Analytics liberados por padrão
+ * Defaults definidos como DENIED no base.njk (LGPD compliance)
+ * Este script só faz UPDATE após aceite do usuário
  */
 
 (function() {
     'use strict';
 
-    // Configuração padrão - Marketing e Analytics LIBERADOS
-    const defaultConsent = {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted',
-        'functionality_storage': 'granted',
-        'personalization_storage': 'granted',
-        'security_storage': 'granted'
-    };
-
-    // Inicializar dataLayer e gtag
+    // gtag já inicializado no base.njk com defaults DENIED
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-
-    // Definir consent padrão ANTES do GTM carregar
-    gtag('consent', 'default', defaultConsent);
 
     // Verificar se já tem consentimento salvo
     const savedConsent = localStorage.getItem('cookieConsent');
@@ -112,9 +99,9 @@
                 document.getElementById('cookieAnalytics').checked = consent.analytics;
                 document.getElementById('cookieMarketing').checked = consent.marketing;
             } else {
-                // Se não tem salvo, marca como ativo (padrão liberado)
-                document.getElementById('cookieAnalytics').checked = true;
-                document.getElementById('cookieMarketing').checked = true;
+                // Se não tem salvo, checkboxes desmarcados (LGPD: opt-in)
+                document.getElementById('cookieAnalytics').checked = false;
+                document.getElementById('cookieMarketing').checked = false;
             }
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
