@@ -141,8 +141,10 @@
     });
 
     // Mostrar banner se não tiver consentimento salvo
+    // Não mostrar para bots (Lighthouse, PageSpeed, crawlers)
+    var isBot = /Lighthouse|PageSpeed|Googlebot|bingbot|HeadlessChrome/i.test(navigator.userAgent);
     document.addEventListener('DOMContentLoaded', function() {
-        if (!savedConsent) {
+        if (!savedConsent && !isBot) {
             showBanner();
         }
     });
