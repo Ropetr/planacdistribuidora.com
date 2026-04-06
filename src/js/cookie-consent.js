@@ -142,7 +142,7 @@
 
     // Mostrar banner se não tiver consentimento salvo
     // Não mostrar para bots (Lighthouse, PageSpeed, crawlers)
-    var isBot = /Lighthouse|PageSpeed|Googlebot|bingbot|HeadlessChrome/i.test(navigator.userAgent);
+    var isBot = /Lighthouse|PageSpeed|Googlebot|bingbot|Headless/i.test(navigator.userAgent);
     document.addEventListener('DOMContentLoaded', function() {
         if (!savedConsent && !isBot) {
             showBanner();
