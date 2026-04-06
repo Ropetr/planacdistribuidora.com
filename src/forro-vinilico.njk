@@ -326,9 +326,16 @@ schemaBreadcrumb: |
 
 
 <script>
+// REVID Carousel
+function scrollRevidCarousel(dir) {
+    const container = document.getElementById('revidCarousel');
+    if (!container) return;
+    const card = container.querySelector('.dewalt-product-card');
+    if (!card) return;
+    const scrollAmount = (card.offsetWidth + 20) * 2;
+    container.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+}
 
-
-<script>
 // Accordion
 document.addEventListener('DOMContentLoaded', function() {
     const headers = document.querySelectorAll('.accordion-header');

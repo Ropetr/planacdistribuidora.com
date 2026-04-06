@@ -510,9 +510,15 @@ schemaBreadcrumb: |
 
 
 <script>
+// Boreal Carousel
+function scrollBorealCarousel(dir) {
+    const container = document.getElementById('carouselBoreal');
+    if (!container) return;
+    const card = container.querySelector('.dewalt-product-card');
+    if (!card) return;
+    container.scrollBy({ left: dir * (card.offsetWidth + 16), behavior: 'smooth' });
+}
 
-
-<script>
 // Accordion
 document.addEventListener('DOMContentLoaded', function() {
     const headers = document.querySelectorAll('.accordion-header');

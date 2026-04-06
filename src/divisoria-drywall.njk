@@ -425,9 +425,14 @@ schemaBreadcrumb: |
 
 
 <script>
+// Drywall Carousel
+function scrollDrywallCarousel(dir) {
+    const container = document.getElementById('drywallCarousel');
+    if (!container) return;
+    const cardWidth = 280;
+    container.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+}
 
-
-<script>
 // Accordion
 document.addEventListener('DOMContentLoaded', function() {
     const headers = document.querySelectorAll('.accordion-header');
