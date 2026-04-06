@@ -6,7 +6,7 @@
 .cookie-banner-text .cookie-title{margin:0 0 8px;font-size:18px;font-weight:600;color:#333;display:flex;align-items:center;gap:8px}
 .cookie-banner-text .cookie-title svg{width:24px;height:24px;fill:#ED282E}
 .cookie-banner-text p{margin:0;font-size:14px;color:#666;line-height:1.5}
-.cookie-banner-text a{color:#C41E22;text-decoration:underline}
+.cookie-banner-text a{color:#ED282E;text-decoration:underline}
 .cookie-banner-buttons{display:flex;flex-wrap:wrap;gap:10px}
 .cookie-btn{padding:12px 24px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.3s;border:none;font-family:'Barlow',sans-serif}
 .cookie-btn-config{background:#f5f5f5;color:#333;border:1px solid #ddd}

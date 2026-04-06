@@ -155,17 +155,74 @@ schemaBreadcrumb: |
                 <p>O <strong>Forro Vinílico REVID</strong> é uma solução inovadora e sofisticada que combina beleza estética com alta performance técnica. Fabricado em PVC vinílico de alta qualidade, este sistema oferece resistência excepcional à umidade.</p>
                 <p>Ideal para quem busca um forro diferenciado, o REVID se destaca pelo acabamento refinado, variedade de cores e texturas, além da facilidade de instalação e manutenção.</p>
 
+                <div class="dewalt-carousel-section">
+                    <h3>Cores e Acabamentos</h3>
+                    <div class="dewalt-carousel">
+                        <button class="dewalt-carousel__nav dewalt-carousel__nav--prev" onclick="scrollRevidCarousel(-1)" aria-label="Anterior">
+                            <span class="shimmer-arrow">&#8249;</span>
+                        </button>
+                        <div class="dewalt-carousel__container" id="revidCarousel">
+                            <div class="dewalt-carousel__track">
+                                {% set produtos = [
+                                    {linha: "Madeira Ébano", cor: "Avelã", img: "/assets/img/produtos/revid/MadeiraEbano_Avela_Regua.png", ref: "JS2501.266"},
+                                    {linha: "Madeira Ébano", cor: "Noz", img: "/assets/img/produtos/revid/MadeiraEbano_Noz_Regua.png", ref: "JS2501.267"},
+                                    {linha: "Madeira Ébano", cor: "Platina", img: "/assets/img/produtos/revid/MadeiraEbano_Platina_Regua.png", ref: "BS2501.265"},
+                                    {linha: "Madeira Golden", cor: "Aurora", img: "/assets/img/produtos/revid/MadeiraGolden_Aurora_Regua.png", ref: "JA2501.271"},
+                                    {linha: "Madeira Golden", cor: "Sunset", img: "/assets/img/produtos/revid/MadeiraGolden_Sunset_Regua.png", ref: "JA2501.270"},
+                                    {linha: "Madeira Arezzo", cor: "Almond 2", img: "/assets/img/produtos/revid/MadeiraArezzo_Almond2_Regua.png", ref: "NE2501.252"},
+                                    {linha: "Madeira Arezzo", cor: "Cândido", img: "/assets/img/produtos/revid/MadeiraArezzo_Candido_Regua.png", ref: "BE2501.212"},
+                                    {linha: "Madeira Arezzo", cor: "Fawn 2", img: "/assets/img/produtos/revid/MadeiraArezzo_Fawn2_Regua.png", ref: "JE2501.248"},
+                                    {linha: "Madeira Arezzo", cor: "Tabacco 2", img: "/assets/img/produtos/revid/MadeiraArezzo_Tabacco2_Regua.png", ref: "JE2501.249"},
+                                    {linha: "Madeira Sintra", cor: "Bez 2", img: "/assets/img/produtos/revid/MadeiraSintra_Bez2_Regua.png", ref: "JE2501.245"},
+                                    {linha: "Madeira Sintra", cor: "Brun 2", img: "/assets/img/produtos/revid/MadeiraSintra_Brun2_Regua.png", ref: "JE2501.242"},
+                                    {linha: "Madeira Sintra", cor: "Cacau 2", img: "/assets/img/produtos/revid/MadeiraSintra_Cacau2_Regua.png", ref: "JE2502.246"},
+                                    {linha: "Madeira Sintra", cor: "Chamoisee 2", img: "/assets/img/produtos/revid/MadeiraSintra_Chamoisee2_Regua.png", ref: "JE2502.247"},
+                                    {linha: "Madeira Sintra", cor: "Fulvous 2", img: "/assets/img/produtos/revid/MadeiraSintra_Fulvous2_Regua.png", ref: "NE2502.261"},
+                                    {linha: "Madeira Sintra", cor: "Perla", img: "/assets/img/produtos/revid/MadeiraSintra_Perla_Regua.png", ref: "BE2502.114"},
+                                    {linha: "Madeira Nobre", cor: "Angelim 2", img: "/assets/img/produtos/revid/MadeiraNobre_Angelim2_Regua.png", ref: "JE2501.244"},
+                                    {linha: "Madeira Nobre", cor: "Café", img: "/assets/img/produtos/revid/MadeiraNobre_Cafe_Regua.png", ref: "JE2501.268"},
+                                    {linha: "Madeira Nobre", cor: "Tauari 2", img: "/assets/img/produtos/revid/MadeiraNobre_Tauari2_Regua.png", ref: "NE2501.257"},
+                                    {linha: "Concreto Cemento", cor: "Cosmopolitan", img: "/assets/img/produtos/revid/ConcretoCemento_Cosmopolitan_Regua.png", ref: "BE2501.133"},
+                                    {linha: "Madeira Desert", cor: "Dune", img: "/assets/img/produtos/revid/MadeiraDesert_Dune_Regua.png", ref: "JA2501.272"},
+                                    {linha: "Madeira Fresno", cor: "Vanilla", img: "/assets/img/produtos/revid/MadeiraFresno_Vanilla_Regua.png", ref: "BE2501.107"},
+                                    {linha: "Mármore Calacatta", cor: "Nacre", img: "/assets/img/produtos/revid/MarmoreCalacatta_Nacre_Regua.png", ref: "BE2502.153"},
+                                    {linha: "Madeira Painel", cor: "Ripado 2", img: "/assets/img/produtos/revid/MadeiraPainel_Ripado2_Regua.png", ref: "NS2501.255"},
+                                    {linha: "Madeira Perni", cor: "Farro 2", img: "/assets/img/produtos/revid/MadeiraPerni_Farro2_Regua.png", ref: "NE2501.254"},
+                                    {linha: "Tecido Ripple", cor: "Fibrous", img: "/assets/img/produtos/revid/TecidoRipple_Fibrous_Regua.png", ref: "BS2501.172"},
+                                    {linha: "Madeira Tilia", cor: "Ocre", img: "/assets/img/produtos/revid/MadeiraTilia_Ocre_Regua.png", ref: "JE2501.249"}
+                                ] %}
+                                {% for p in produtos %}
+                                <div class="dewalt-product-card">
+                                    <div class="dewalt-product-card__image">
+                                        <img src="{{ p.img }}" alt="REVID {{ p.linha }} {{ p.cor }}" width="200" height="200" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="dewalt-product-card__body">
+                                        <span class="dewalt-product-card__category">{{ p.linha }}</span>
+                                        <h4 class="dewalt-product-card__title">{{ p.cor }}</h4>
+                                        <p class="dewalt-product-card__desc">250mm x 10mm | Fosco | Ref. {{ p.ref }}</p>
+                                        <a href="{{ whatsappUrl }}" target="_blank" rel="noopener noreferrer" class="dewalt-product-card__btn">Solicitar Orçamento</a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <button class="dewalt-carousel__nav dewalt-carousel__nav--next" onclick="scrollRevidCarousel(1)" aria-label="Próximo">
+                            <span class="shimmer-arrow">&#8250;</span>
+                        </button>
+                    </div>
+                </div>
+
                 <h3 class="accordion-header">Características Principais</h3>
                 <div class="accordion-content">
                 <div class="features-grid">
-                    <div class="feature-card" style="border-left-color: #ED282E;"><h4>Material Premium</h4><p>PVC vinílico de alta qualidade</p></div>
-                    <div class="feature-card" style="border-left-color: #ED282E;"><h4>100% Impermeável</h4><p>Resistência total à umidade</p></div>
-                    <div class="feature-card" style="border-left-color: #ED282E;"><h4>Acabamento Sofisticado</h4><p>Superfície lisa com opções de cores</p></div>
-                    <div class="feature-card" style="border-left-color: #ED282E;"><h4>Durabilidade Excepcional</h4><p>Não apodrece, não descasca, não desbota</p></div>
-                    <div class="feature-card" style="border-left-color: #ED282E;"><h4>Fácil Instalação</h4><p>Sistema prático de encaixe e fixação</p></div>
-                    <div class="feature-card" style="border-left-color: #ED282E;"><h4>Manutenção Simples</h4><p>Limpeza fácil com pano úmido</p></div>
-                    <div class="feature-card" style="border-left-color: #ED282E;"><h4>Isolamento Térmico</h4><p>Auxilia no conforto térmico</p></div>
-                    <div class="feature-card" style="border-left-color: #ED282E;"><h4>Sustentável</h4><p>Material reciclável</p></div>
+                    <div class="feature-card"><h4>Material Premium</h4><p>PVC vinílico de alta qualidade</p></div>
+                    <div class="feature-card"><h4>100% Impermeável</h4><p>Resistência total à umidade</p></div>
+                    <div class="feature-card"><h4>Acabamento Sofisticado</h4><p>Superfície lisa com opções de cores</p></div>
+                    <div class="feature-card"><h4>Durabilidade Excepcional</h4><p>Não apodrece, não descasca, não desbota</p></div>
+                    <div class="feature-card"><h4>Fácil Instalação</h4><p>Sistema prático de encaixe e fixação</p></div>
+                    <div class="feature-card"><h4>Manutenção Simples</h4><p>Limpeza fácil com pano úmido</p></div>
+                    <div class="feature-card"><h4>Isolamento Térmico</h4><p>Auxilia no conforto térmico</p></div>
+                    <div class="feature-card"><h4>Sustentável</h4><p>Material reciclável</p></div>
                 </div>
                 </div>
 
@@ -348,6 +405,16 @@ async function handleProjectSubmit(event) {
         status.style.display = 'none';
         document.getElementById('formProjeto').reset();
     }, 3000);
+}
+</script>
+
+<script>
+// REVID Carousel
+function scrollRevidCarousel(dir) {
+    const container = document.getElementById('revidCarousel');
+    const card = container.querySelector('.dewalt-product-card');
+    const scrollAmount = card ? (card.offsetWidth + 20) * 2 : 300;
+    container.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
 }
 </script>
 
