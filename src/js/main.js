@@ -1,50 +1,8 @@
 'use strict';
 
 // ===== PLANAC - JS GLOBAL OTIMIZADO =====
-// Otimizado para Core Web Vitals (INP, LCP, CLS)
-
-// Toggle mobile menu com melhor acessibilidade
-function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger');
-    const isActive = menu.classList.toggle('active');
-    
-    // Atualizar ARIA
-    hamburger.setAttribute('aria-expanded', isActive);
-    menu.setAttribute('aria-hidden', !isActive);
-    
-    // Fechar menu ao clicar fora
-    if (isActive) {
-        document.addEventListener('click', closeMenuOnClickOutside);
-    } else {
-        document.removeEventListener('click', closeMenuOnClickOutside);
-    }
-}
-
-function closeMenuOnClickOutside(e) {
-    const menu = document.getElementById('mobileMenu');
-    const hamburger = document.querySelector('.hamburger');
-    if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-        menu.classList.remove('active');
-        hamburger.setAttribute('aria-expanded', 'false');
-        menu.setAttribute('aria-hidden', 'true');
-        document.removeEventListener('click', closeMenuOnClickOutside);
-    }
-}
-
-// Toggle dropdown no menu mobile
-function toggleDropdown(button) {
-    const dropdown = button.parentElement;
-    const isActive = dropdown.classList.contains('active');
-    
-    // Fechar todos os outros dropdowns
-    document.querySelectorAll('.mobile-dropdown.active').forEach(d => {
-        if (d !== dropdown) d.classList.remove('active');
-    });
-    
-    // Toggle o dropdown atual
-    dropdown.classList.toggle('active', !isActive);
-}
+// Menu functions (toggleMenu, closeMenuOnClickOutside, toggleDropdown)
+// estão inline no base.njk para prevenir FOUC - não duplicar aqui
 
 // Hero Carousel otimizado com requestAnimationFrame
 let currentSlide = 0;
@@ -279,6 +237,71 @@ function initMapsTracking() {
             trackEvent('maps_click', 'contato', 'google_maps');
         }, { passive: true });
     });
+}
+
+// Upload de projeto com notificação por email (centralizado)
+async function handleProjectSubmit(event, productName) {
+    event.preventDefault();
+    var btn = document.getElementById('btnSubmit');
+    var status = document.getElementById('uploadStatus');
+    var arquivo = document.getElementById('arquivo').files[0];
+    var nome = document.getElementById('nome').value;
+    var email = document.getElementById('email').value;
+    var telefone = document.getElementById('telefone').value;
+    var cidade = document.getElementById('cidade').value;
+    var tipo = document.getElementById('tipo').value;
+    var mensagem = document.getElementById('mensagem').value;
+    var arquivoInfo = '';
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    status.style.display = 'block';
+    status.style.background = '#e3f2fd';
+    status.style.color = '#1976d2';
+    status.textContent = arquivo ? 'Enviando arquivo e notificação...' : 'Enviando notificação...';
+    try {
+        var formData = new FormData();
+        formData.append('nome', nome);
+        formData.append('email', email);
+        formData.append('telefone', telefone);
+        formData.append('cidade', cidade);
+        formData.append('tipo', tipo);
+        formData.append('mensagem', mensagem);
+        if (arquivo) formData.append('arquivo', arquivo);
+        var response = await fetch('https://planac-upload.planacacabamentos.workers.dev', { method: 'POST', body: formData });
+        var result = await response.json();
+        if (result.success) {
+            if (arquivo && result.arquivo) {
+                arquivoInfo = '\n\n📎 *Arquivo anexado:* ' + arquivo.name + '\n📦 Tamanho: ' + (arquivo.size / 1024 / 1024).toFixed(2) + ' MB\n🔗 Ref: ' + result.arquivo;
+            }
+            status.style.background = '#e8f5e9';
+            status.style.color = '#2e7d32';
+            status.textContent = result.emailEnviado ? '✅ Enviado! Email de notificação enviado para Planac.' : '✅ Enviado!';
+        } else {
+            throw new Error(result.error || 'Erro no envio');
+        }
+    } catch (error) {
+        status.style.background = '#ffebee';
+        status.style.color = '#c62828';
+        status.textContent = '❌ Erro: ' + error.message;
+        btn.disabled = false;
+        btn.textContent = 'Enviar Projeto';
+        return;
+    }
+    var msg = '*Novo Projeto para Cotação*\n\n' +
+        '📦 *Produto:* ' + productName + '\n' +
+        '👤 *Nome:* ' + nome + '\n' +
+        '📧 *E-mail:* ' + email + '\n' +
+        '📱 *Telefone:* ' + telefone + '\n' +
+        '🏙️ *Cidade:* ' + cidade + '\n' +
+        '🏗️ *Tipo:* ' + tipo + '\n\n' +
+        '💬 *Detalhes:*\n' + mensagem + arquivoInfo;
+    window.open('https://wa.me/5543984182582?text=' + encodeURIComponent(msg), '_blank');
+    setTimeout(function() {
+        btn.disabled = false;
+        btn.textContent = 'Enviar Projeto';
+        status.style.display = 'none';
+        document.getElementById('formProjeto').reset();
+    }, 3000);
 }
 
 // Inicialização quando DOM estiver pronto - críticos primeiro

@@ -203,11 +203,11 @@ schemaBreadcrumb: |
                 
                 <div class="dewalt-carousel">
                     <!-- Seta Anterior -->
-                    <button class="dewalt-carousel__nav dewalt-carousel__nav--prev" onclick="scrollCarousel(-1)" aria-label="Anterior">
+                    <button class="dewalt-carousel__nav dewalt-carousel__nav--prev" onclick="scrollDewaltCarousel(-1)" aria-label="Anterior">
                         <span class="shimmer-arrow">&#8249;</span>
                     </button>
 
-                    <div class="dewalt-carousel__container" id="dewaltCarousel">
+                    <div class="dewalt-carousel__container" id="carouselDewalt">
                         <div class="dewalt-carousel__track">
                             <!-- Parafusadeira Drywall -->
                             <div class="dewalt-product-card">
@@ -368,7 +368,7 @@ schemaBreadcrumb: |
                     </div>
 
                     <!-- Seta Próximo -->
-                    <button class="dewalt-carousel__nav dewalt-carousel__nav--next" onclick="scrollCarousel(1)" aria-label="Próximo">
+                    <button class="dewalt-carousel__nav dewalt-carousel__nav--next" onclick="scrollDewaltCarousel(1)" aria-label="Próximo">
                         <span class="shimmer-arrow">&#8250;</span>
                     </button>
                 </div>
@@ -420,8 +420,8 @@ schemaBreadcrumb: |
 </section>
 
 <script>
-function scrollCarousel(direction) {
-    const container = document.getElementById('dewaltCarousel');
+function scrollDewaltCarousel(direction) {
+    const container = document.getElementById('carouselDewalt');
     const scrollAmount = 240 * direction;
     container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 }
