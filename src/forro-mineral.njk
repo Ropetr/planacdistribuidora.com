@@ -182,11 +182,11 @@ schemaBreadcrumb: |
                 <h3>Nossos Produtos</h3>
                 
                 <div class="dewalt-carousel">
-                    <button class="dewalt-carousel__nav dewalt-carousel__nav--prev" onclick="scrollCarousel(-1)" aria-label="Anterior">
+                    <button class="dewalt-carousel__nav dewalt-carousel__nav--prev" onclick="scrollMineralCarousel(-1)" aria-label="Anterior">
                         <span class="shimmer-arrow">&#8249;</span>
                     </button>
 
-                    <div class="dewalt-carousel__container" id="dewaltCarousel">
+                    <div class="dewalt-carousel__container" id="carouselMineral">
                         <div class="dewalt-carousel__track">
                             <!-- Forro Mineral Armstrong Scala -->
                             <div class="dewalt-product-card">
@@ -359,7 +359,7 @@ schemaBreadcrumb: |
                         </div>
                     </div>
 
-                    <button class="dewalt-carousel__nav dewalt-carousel__nav--next" onclick="scrollCarousel(1)" aria-label="Próximo">
+                    <button class="dewalt-carousel__nav dewalt-carousel__nav--next" onclick="scrollMineralCarousel(1)" aria-label="Próximo">
                         <span class="shimmer-arrow">&#8250;</span>
                     </button>
                 </div>
@@ -460,7 +460,7 @@ schemaBreadcrumb: |
         <div class="form-container">
             <h2>Envie seu Projeto para Cotação</h2>
             <p>Preencha os dados e anexe seu projeto</p>
-            <form id="formProjeto" onsubmit="handleProjectSubmit(event)">
+            <form id="formProjeto" onsubmit="handleProjectSubmit(event, 'Forro Mineral Armstrong')">
                 <div class="form-group"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" required></div>
                 <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" required></div>
                 <div class="form-group"><label for="telefone">Telefone</label><input type="tel" id="telefone" name="telefone" required></div>
@@ -480,96 +480,7 @@ schemaBreadcrumb: |
 
 
 <script>
-// Upload de projeto com notificação por email
-async function handleProjectSubmit(event) {
-    event.preventDefault();
-    
-    const btn = document.getElementById('btnSubmit');
-    const status = document.getElementById('uploadStatus');
-    const arquivo = document.getElementById('arquivo').files[0];
-    
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const telefone = document.getElementById('telefone').value;
-    const cidade = document.getElementById('cidade').value;
-    const tipo = document.getElementById('tipo').value;
-    const mensagem = document.getElementById('mensagem').value;
-    
-    let arquivoInfo = '';
-    
-    btn.disabled = true;
-    btn.textContent = 'Enviando...';
-    status.style.display = 'block';
-    status.style.background = '#e3f2fd';
-    status.style.color = '#1976d2';
-    status.textContent = arquivo ? 'Enviando arquivo e notificação...' : 'Enviando notificação...';
-    
-    try {
-        const formData = new FormData();
-        formData.append('nome', nome);
-        formData.append('email', email);
-        formData.append('telefone', telefone);
-        formData.append('cidade', cidade);
-        formData.append('tipo', tipo);
-        formData.append('mensagem', mensagem);
-        if (arquivo) formData.append('arquivo', arquivo);
-        
-        const response = await fetch('https://planac-upload.planacacabamentos.workers.dev', {
-            method: 'POST',
-            body: formData
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            if (arquivo && result.arquivo) {
-                arquivoInfo = `\n\n📎 *Arquivo anexado:* ${arquivo.name}\n📦 Tamanho: ${(arquivo.size / 1024 / 1024).toFixed(2)} MB\n🔗 Ref: ${result.arquivo}`;
-            }
-            status.style.background = '#e8f5e9';
-            status.style.color = '#2e7d32';
-            status.textContent = result.emailEnviado ? '✅ Enviado! Email de notificação enviado para Planac.' : '✅ Enviado!';
-        } else {
-            throw new Error(result.error || 'Erro no envio');
-        }
-    } catch (error) {
-        status.style.background = '#ffebee';
-        status.style.color = '#c62828';
-        status.textContent = '❌ Erro: ' + error.message;
-        btn.disabled = false;
-        btn.textContent = 'Enviar Projeto';
-        return;
-    }
-    
-    const produto = 'Forro Mineral Armstrong';
-    const msg = `*Novo Projeto para Cotação*\n\n` +
-        `📦 *Produto:* ${produto}\n` +
-        `👤 *Nome:* ${nome}\n` +
-        `📧 *E-mail:* ${email}\n` +
-        `📱 *Telefone:* ${telefone}\n` +
-        `🏙️ *Cidade:* ${cidade}\n` +
-        `🏗️ *Tipo:* ${tipo}\n\n` +
-        `💬 *Detalhes:*\n${mensagem}` +
-        arquivoInfo;
-    
-    const whatsappUrl = `https://wa.me/5543984182582?text=${encodeURIComponent(msg)}`;
-    window.open(whatsappUrl, '_blank');
-    
-    setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = 'Enviar Projeto';
-        status.style.display = 'none';
-        document.getElementById('formProjeto').reset();
-    }, 3000);
-}
-</script>
 
-<script>
-function scrollCarousel(direction) {
-    const container = document.getElementById('dewaltCarousel');
-    const scrollAmount = 240 * direction;
-    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-}
-</script>
 
 <script>
 // Accordion
