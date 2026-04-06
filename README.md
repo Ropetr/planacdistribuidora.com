@@ -1,208 +1,205 @@
-# Planac Distribuidora - Site com Eleventy (SSG)
+# Planac Distribuidora - Site Institucional
 
-## 📋 Visão Geral
+## Visao Geral
 
-Site institucional da Planac Distribuidora migrado para **Eleventy (11ty)**, um gerador de sites estáticos recomendado pelo Google para SEO e performance.
+Site institucional da **Planac Distribuidora** construido com **Eleventy (11ty)** SSG, hospedado no **Cloudflare Pages** com imagens via **Cloudflare Images**.
 
-### Benefícios da Migração
+**URL:** https://planacdistribuidora.com
 
-- ✅ **DRY (Don't Repeat Yourself)**: Header, footer e componentes centralizados
-- ✅ **Manutenção simplificada**: Altere uma vez, aplique em todas as páginas
-- ✅ **SEO otimizado**: HTML puro gerado no build (recomendado pelo Google)
-- ✅ **Performance máxima**: Arquivos estáticos servidos diretamente
-- ✅ **Cloudflare Pages nativo**: Deploy automático via GitHub
+### Stack
+- **SSG:** Eleventy 3.x (Nunjucks templates)
+- **Hosting:** Cloudflare Pages
+- **CDN/Images:** Cloudflare Images (AVIF/WebP automatico)
+- **Analytics:** Google Tag Manager + GA4
+- **Fonts:** Barlow (self-hosted, WOFF2, preloaded)
+
+### Scores PageSpeed (06/04/2026)
+| Metrica | Desktop | Mobile |
+|---------|---------|--------|
+| Desempenho | 97 | 85 |
+| Acessibilidade | 97 | 97 |
+| Praticas | 100 | 100 |
+| SEO | 100 | 100 |
 
 ---
 
-## 💾 Backup
-
-Backup completo do repositório disponível no Google Drive:
-
-🔗 **[Backup - Google Drive](https://drive.google.com/drive/u/0/folders/1Ky06FmeTlkGmnZpplrKVqnFJETLlin8f)**
-
-> **Nota:** Contém versões anteriores do site, incluindo arquivos originais (.rar) e imagens fonte removidas na limpeza de 04/02/2026.
-
----
-
-## 🏗️ Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
-site-html-planac/
-├── src/                          # Código fonte
-│   ├── _data/                    # Dados globais (JSON)
-│   │   └── site.json             # Informações da empresa
-│   ├── _includes/                # Componentes reutilizáveis
+planacdistribuidora.com/
+├── src/
+│   ├── _data/
+│   │   ├── site.json              # Dados empresa (telefone, endereco, FAQs)
+│   │   └── products.json          # Catalogo produtos (schema.org)
+│   ├── _includes/
 │   │   ├── components/
-│   │   │   ├── header.njk        # Cabeçalho (menu)
-│   │   │   ├── footer.njk        # Rodapé
-│   │   │   └── cookie-consent.njk # Banner de cookies
+│   │   │   ├── header.njk         # Menu desktop (button + ARIA) + mobile
+│   │   │   ├── footer.njk         # Rodape + WhatsApp float + footer mobile
+│   │   │   └── cookie-consent.njk # Banner LGPD (Consent Mode v2)
 │   │   └── layouts/
-│   │       └── base.njk          # Layout base (HTML completo)
-│   ├── css/                      # Estilos
-│   ├── js/                       # Scripts
-│   ├── assets/                   # Imagens e fontes
-│   ├── index.njk                 # Página inicial
-│   ├── dewalt.njk                # Página Dewalt
-│   ├── forro-gesso.njk           # Página Forro Gesso
-│   └── ... (outras páginas)
-├── dist/                         # Saída do build (HTML final)
-├── eleventy.config.js            # Configuração do Eleventy
-├── package.json                  # Dependências Node.js
-└── README.md                     # Esta documentação
+│   │       └── base.njk           # Layout base (critical CSS, GTM, schema)
+│   ├── css/
+│   │   ├── styles.css             # CSS principal
+│   │   └── cookie-consent.css     # CSS do banner cookies
+│   ├── js/
+│   │   ├── main.js                # JS principal (carousel, forms, tracking)
+│   │   ├── main.min.js            # Versao minificada
+│   │   └── cookie-consent.js      # Consent Mode v2 (defaults denied)
+│   ├── assets/
+│   │   ├── fonts/                 # Barlow 400-800 WOFF2
+│   │   ├── img/produtos/ripado/   # PNGs sem fundo (fallback local)
+│   │   ├── logo.svg               # Logo Planac
+│   │   └── favicon-*.png          # Favicons
+│   ├── sitemap.njk                # Sitemap gerado automaticamente no build
+│   ├── robots.txt
+│   ├── _headers                   # Security headers + cache Cloudflare
+│   ├── _redirects                 # Redirects 301 de URLs antigas
+│   ├── index.njk                  # Homepage
+│   └── [16 paginas produto].njk   # Paginas de produto
+├── dist/                          # Output do build (deploy)
+├── eleventy.config.js             # Config Eleventy (filters, schema, passthrough)
+├── package.json
+├── wrangler.toml                  # Config Cloudflare Pages
+└── Tokens.md                      # API keys (NAO commitar - no .gitignore)
 ```
 
 ---
 
-## 🖼️ Imagens
+## Paginas do Site
 
-As imagens do site são servidas via **Cloudflare Images** (CDN global):
-- URL base: `https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/`
-- Conversão automática AVIF/WebP
-- Responsivo com múltiplos tamanhos
-
----
-
-## 🔧 Correções Aplicadas
-
-### 1. Logo - Altura 60px
-- **Arquivo**: `src/_includes/layouts/base.njk` (Critical CSS)
-- **Arquivo**: `src/css/styles.css` e `styles.min.css`
-- **Valor**: `.logo img { height: 60px; width: 180px; }`
-
-### 2. Font-weight 500 no Menu
-- **Arquivo**: `src/_includes/layouts/base.njk` (Critical CSS)
-- **Valor**: `.nav-link { font-weight: 500; }`
-- Aplicado automaticamente em todas as 15 páginas
-
-### 3. Menu Corrigido (la-de-rocha.html)
-- **Arquivo**: `src/_includes/components/header.njk`
-- Menu de Isolamento correto:
-  - Manta Térmica
-  - Lã de Vidro
-  - Lã de Rocha
-  - Lã de PET
-
-### 4. Schema.org openingHours
-- **Arquivo**: `src/_includes/layouts/base.njk`
-- Formato atualizado para `openingHoursSpecification` (Google recomendado)
-- Segunda a Sexta: 08:00-18:00
-- Sábado: 08:00-12:00
-
-### 5. Links Internos
-- Todos os links agora usam `/` no início (ex: `/forro-gesso.html`)
-- Compatível com Cloudflare Pages
-
----
-
-## 📦 Comandos
-
-### Instalar Dependências
-```bash
-npm install
-```
-
-### Build (Gerar HTML)
-```bash
-npm run build
-```
-
-### Desenvolvimento Local
-```bash
-npm run start
-```
-Acesse: http://localhost:8080
-
----
-
-## 🚀 Deploy no Cloudflare Pages
-
-### Configuração no Dashboard Cloudflare
-
-1. **Framework preset**: None (ou Eleventy se disponível)
-2. **Build command**: `npm run build`
-3. **Build output directory**: `dist`
-4. **Root directory**: `/` (raiz do repositório)
-
-### Variáveis de Ambiente
-Nenhuma variável necessária.
-
----
-
-## 📝 Como Editar
-
-### Alterar Dados da Empresa
-Edite `src/_data/site.json`:
-```json
-{
-  "phone": "(43) 3028-5316",
-  "whatsapp": "(43) 98418-2582",
-  ...
-}
-```
-
-### Alterar Header/Footer
-Edite os arquivos em `src/_includes/components/`:
-- `header.njk` - Menu de navegação
-- `footer.njk` - Rodapé com contatos
-
-### Alterar Layout Base
-Edite `src/_includes/layouts/base.njk`:
-- Meta tags SEO
-- Critical CSS
-- Schema.org
-- Scripts
-
-### Criar Nova Página
-1. Crie arquivo `src/nova-pagina.njk`
-2. Adicione frontmatter:
-```yaml
----
-layout: base.njk
-permalink: "/nova-pagina.html"
-title: "Título da Página"
-description: "Descrição para SEO"
----
-
-<section>
-  <!-- Conteúdo HTML aqui -->
-</section>
-```
-
----
-
-## 📊 Páginas do Site
-
-| Página | Arquivo | URL |
+| Pagina | Arquivo | URL |
 |--------|---------|-----|
 | Home | index.njk | / |
-| Dewalt | dewalt.njk | /dewalt |
-| Paredes Drywall | paredes-drywall.njk | /paredes-drywall |
-| Forro Gesso | forro-gesso.njk | /forro-gesso |
-| PVC Branco | pvc-branco.njk | /pvc-branco |
-| PVC Amadeirado | pvc-amadeirado.njk | /pvc-amadeirado |
-| Forro Vinílico | forro-vinilico.njk | /forro-vinilico |
-| Forro Mineral | forro-mineral.njk | /forro-mineral |
-| Forro Boreal | forro-boreal.njk | /forro-boreal |
-| Forro Isopor | forro-isopor.njk | /forro-isopor |
-| Divisória Escritório | divisoria-escritorio.njk | /divisoria-escritorio |
-| Divisória Drywall | divisoria-drywall.njk | /divisoria-drywall |
-| Manta Térmica | manta-termica.njk | /manta-termica |
-| Lã de Vidro | la-de-vidro.njk | /la-de-vidro |
-| Lã de Rocha | la-de-rocha.njk | /la-de-rocha |
-| Lã de PET | la-de-pet.njk | /la-de-pet |
-| Privacidade | privacidade.njk | /privacidade |
+| Painel Ripado PVC | painel-ripado-pvc.njk | /painel-ripado-pvc/ |
+| Forro Vinilico REVID | forro-vinilico.njk | /forro-vinilico/ |
+| Forro de Gesso | forro-gesso.njk | /forro-gesso/ |
+| PVC Branco | pvc-branco.njk | /pvc-branco/ |
+| PVC Amadeirado | pvc-amadeirado.njk | /pvc-amadeirado/ |
+| Forro Mineral | forro-mineral.njk | /forro-mineral/ |
+| Forro Boreal | forro-boreal.njk | /forro-boreal/ |
+| Forro Isopor | forro-isopor.njk | /forro-isopor/ |
+| Divisoria Escritorio | divisoria-escritorio.njk | /divisoria-escritorio/ |
+| Divisoria Drywall | divisoria-drywall.njk | /divisoria-drywall/ |
+| Paredes Drywall | paredes-drywall.njk | /paredes-drywall/ |
+| Manta Termica | manta-termica.njk | /manta-termica/ |
+| La de Vidro | la-de-vidro.njk | /la-de-vidro/ |
+| La de Rocha | la-de-rocha.njk | /la-de-rocha/ |
+| La de PET | la-de-pet.njk | /la-de-pet/ |
+| Dewalt | dewalt.njk | /dewalt/ |
+| Privacidade | privacidade.njk | /privacidade/ |
+| 404 | 404.njk | /404 |
 
 ---
 
-## 📅 Histórico
+## Imagens
 
-| Data | Versão | Alteração |
-|------|--------|-----------|
-| 04/02/2026 | 2.1.0 | Limpeza do repositório (~81 MB removidos), migração completa para Cloudflare Images |
-| 13/01/2026 | 2.0.0 | Migração para Eleventy SSG |
+Todas as imagens de produto sao servidas via **Cloudflare Images**:
+- URL base: `https://imagedelivery.net/XawtofIFluGyh9zwRP6h6A/`
+- Conversao automatica AVIF/WebP
+- Cache CDN global
+- IDs: `revid-*`, `ripado-*`, `banner-*`
+
+**Nenhuma imagem de produto e servida localmente.** Os PNGs em `src/assets/img/produtos/ripado/` sao fallback e podem ser removidos.
 
 ---
 
-**Desenvolvido para Planac Distribuidora**
+## Animacoes
 
-<!-- dev branch: deploy inicial via automação -->
+2 keyframes unificados para todo o site:
+- `shimmer-slide` (transform/GPU) - cards, footer icons
+- `shimmer` (background-position) - texto com gradiente (badges, setas)
+
+---
+
+## LGPD / Consent Mode
+
+- **Defaults:** `denied` para tudo (base.njk)
+- **cookie-consent.js:** so faz `gtag('consent', 'update', 'granted')` apos aceite
+- **Banner:** aparece apos 4s (nao interfere com LCP do Lighthouse)
+- **Checkboxes:** defaultam `false` (opt-in)
+
+---
+
+## WhatsApp
+
+- URL padrao: `https://wa.me/5543984182582?text=...`
+- Deep link: abre direto o app no celular
+- Centralizado via `eleventy.config.js` (computed data `whatsappUrl`)
+- Formulario de orcamento: `handleProjectSubmit(event, productName)` em `main.js`
+
+---
+
+## Headers de Seguranca (_headers)
+
+- `Strict-Transport-Security` (HSTS 1 ano)
+- `Content-Security-Policy` (script-src, connect-src, frame-src com Google Ads)
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: SAMEORIGIN`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy` (camera, mic, geo desabilitados)
+- `Cross-Origin-Opener-Policy: same-origin`
+
+### Cache
+| Recurso | TTL |
+|---------|-----|
+| HTML | 2h + stale-while-revalidate 7d |
+| CSS/JS/Fonts | 1 ano (immutable) |
+| Imagens | 1 ano (immutable) |
+| Sitemap/Robots | 1 dia |
+
+---
+
+## Comandos
+
+```bash
+npm install          # Instalar dependencias
+npm run build        # Gerar HTML em dist/
+npm run start        # Dev server (localhost:8080)
+npm run build:css    # Minificar CSS
+```
+
+### Deploy
+```bash
+npx wrangler pages deploy dist --project-name=planacdistribuidora-com
+```
+
+### Purge Cache
+```bash
+curl -X POST "https://api.cloudflare.com/client/v4/zones/ZONE_ID/purge_cache" \
+  -H "Authorization: Bearer TOKEN" \
+  -H "Content-Type: application/json" \
+  --data '{"purge_everything":true}'
+```
+
+---
+
+## Workflow de Deploy
+
+1. Criar branch a partir de `dev`
+2. Fazer alteracoes + commit
+3. PR para `dev` (testes automaticos rodam)
+4. Merge PR
+5. Merge `dev` -> `main`
+6. Deploy: `npx wrangler pages deploy dist`
+7. Purge cache Cloudflare
+
+---
+
+## Historico
+
+| Data | PR | Alteracao |
+|------|-----|-----------|
+| 06/04/2026 | #89-90 | Sitemap automatico, limpeza 8MB imagens orfas, fix carrosseis |
+| 06/04/2026 | #88 | Menu desktop acessivel (button+ARIA), titulos SEO otimizados |
+| 06/04/2026 | #87 | JS cleanup: handleProjectSubmit centralizado, -1043 linhas |
+| 06/04/2026 | #86 | LGPD consent denied, WhatsApp ?text=, ratings falsos removidos |
+| 06/04/2026 | #82-85 | CSP Google Ads, cookie banner delay 4s, bot detection |
+| 06/04/2026 | #80-81 | Shimmer GPU (2 keyframes), WhatsApp wa.me deep link |
+| 06/04/2026 | #78-79 | PageSpeed otimizacoes (CLS, thread principal, cache, LCP) |
+| 06/04/2026 | #76-77 | Catalogo REVID 26 cores + Cloudflare Images AVIF/WebP |
+| 04/02/2026 | - | Limpeza repo (~81MB), migracao Cloudflare Images |
+| 13/01/2026 | - | Migracao para Eleventy SSG |
+
+---
+
+**Planac Distribuidora** - Londrina/PR
