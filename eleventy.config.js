@@ -8,7 +8,7 @@ module.exports = function(eleventyConfig) {
                 message += " de " + data.productName;
             }
             message += ". Pode me auxiliar?";
-            return `https://api.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(message)}`;
+            return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         },
         
         // Gera Schema BreadcrumbList automaticamente
@@ -127,6 +127,11 @@ module.exports = function(eleventyConfig) {
         return encodeURIComponent(str);
     });
     
+    // Filtro para data atual do build (usado no sitemap)
+    eleventyConfig.addFilter("today", function() {
+        return new Date().toISOString().split('T')[0];
+    });
+
     // Filtro para remover .html das URLs (Pretty URLs)
     // Cloudflare Pages remove .html automaticamente, então canonical deve refletir isso
     eleventyConfig.addFilter("prettyUrl", function(url) {
@@ -147,7 +152,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/android-chrome-512x512.png");
     eleventyConfig.addPassthroughCopy("src/site.webmanifest");
     eleventyConfig.addPassthroughCopy("src/robots.txt");
-    eleventyConfig.addPassthroughCopy("src/sitemap.xml");
+    // sitemap.xml agora é gerado automaticamente via src/sitemap.njk
     eleventyConfig.addPassthroughCopy("src/_headers");
     eleventyConfig.addPassthroughCopy("src/_redirects");
     
